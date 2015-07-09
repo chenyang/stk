@@ -1,0 +1,13 @@
+.app-header{
+	height:50px;
+}
+.app-header .icon{
+	font-size:20px;
+	padding:20px;
+}
+.app-header .title{
+	font-weight:800;
+	padding:15px;
+	display:inline-block;
+	font-size:1.6em;
+}

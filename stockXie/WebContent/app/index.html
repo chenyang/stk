@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh" ng-app="App">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+	<head>
+		<!-- styles -->
+		<link rel="stylesheet" type="text/css" href="components/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="styles/header.css" />
+		<link rel="stylesheet" type="text/css" href="styles/homePage.css" />
+		<link rel="stylesheet" type="text/css" href="styles/reset.css" />
+		
+		<!-- Third party libs-->
+		<script src="components/angular/angular.min.js"></script>
+		<script src="components/angular/angular-route.min.js"></script>
+		<script src="components/angular/angular-cookies.min.js"></script>
+		<script src="components/angular/angular-sanitize.min.js"></script>
+		<script src="components/angular/ui-bootstrap-tpls-0.13.0.min.js"></script>
+		<script src="components/underscorejs/underscore-min.js"></script>
+		
+		<!-- App libs -->	
+		<script src="scripts/app.js"></script>
+		<script src="scripts/module/user/controller/loginCtrl.js"></script>
+		<script src="scripts/module/user/controller/myProfileCtrl.js"></script>
+		<script src="scripts/module/stock/controller/homePageCtrl.js"></script>
+		<script src="scripts/module/stock/controller/stockAnalysisCtrl.js"></script>
+		<script src="scripts/module/stock/controller/stockCmtCtrl.js"></script>
+		<script src="scripts/module/global/controller/globalCtrl.js"></script>
+		
+		<script src="scripts/module/user/service/userInfoService.js"></script>
+		<script src="scripts/module/stock/service/stockCmtService.js"></script>
+		<script src="scripts/module/stock/service/stockInfoService.js"></script>
+		<script src="scripts/module/global/service/globalService.js"></script>
+	</head>
+	
+	<body>
+		<!-- Single page App -->
+		<div ng-view></div>
+	</body>
+	
+	
+</html>
