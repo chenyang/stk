@@ -1,0 +1,27 @@
+.app-header{
+	padding: 10px 2px 10px 2px;
+}
+.app-header .icon{
+	font-size:15px;
+
+}
+.app-header .title{
+	font-weight:800;
+	display:inline-block;
+	font-size:1.6em;
+}
+.app-home-search{
+	padding: 0px 1px 0px 1px;
+	margin-top:5px;
+}
+
+.app-home-thumbnails{
+	padding: 10px;
+	font-size:12px;
+}
+.app-home-thumbnails .thumbnail-desc .profit{
+	margin-top:10px;
+	font-size:18px;
+	color:red;
+	font-weight:900;
+}
