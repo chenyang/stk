@@ -14,6 +14,10 @@
 	padding: 0px 1px 0px 1px;
 	margin-top:5px;
 }
+.app-home-search .upload-image-block .btn{
+	font-size:25px;
+	padding:0px 5px;
+}
 
 .app-home-thumbnails{
 	padding: 10px;
@@ -24,4 +28,12 @@
 	font-size:18px;
 	color:red;
 	font-weight:900;
+}
+
+/*responsive desing*/
+@media screen and (max-width:600px){
+	.app-home-search .upload-image-block{
+		right:20px;
+		bottom:2px
+	}
 }
