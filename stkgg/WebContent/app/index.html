@@ -5,8 +5,9 @@
 	<head>
 		<!-- styles -->
 		<link rel="stylesheet" type="text/css" href="components/bootstrap/css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="styles/header.css" />
+		<link rel="stylesheet" type="text/css" href="styles/header_footer.css" />
 		<link rel="stylesheet" type="text/css" href="styles/homePage.css" />
+		<link rel="stylesheet" type="text/css" href="styles/buyCmt.css" />
 		<link rel="stylesheet" type="text/css" href="styles/reset.css" />
 		
 		<!-- Third party libs-->
@@ -21,12 +22,15 @@
 		
 		<!-- App libs -->	
 		<script src="scripts/app.js"></script>
+		<script src="scripts/module/global/controller/globalCtrl.js"></script>
+		
 		<script src="scripts/module/user/controller/loginCtrl.js"></script>
 		<script src="scripts/module/user/controller/myProfileCtrl.js"></script>
+		
 		<script src="scripts/module/stock/controller/homePageCtrl.js"></script>
 		<script src="scripts/module/stock/controller/stockAnalysisCtrl.js"></script>
 		<script src="scripts/module/stock/controller/stockCmtCtrl.js"></script>
-		<script src="scripts/module/global/controller/globalCtrl.js"></script>
+		<script src="scripts/module/stock/controller/buyCmtCtrl.js"></script>
 		
 		<script src="scripts/module/user/service/userInfoService.js"></script>
 		<script src="scripts/module/stock/service/stockCmtService.js"></script>
@@ -47,7 +51,7 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#">投资咨询</a>
+		      <a class="navbar-brand" href="#/">投资咨询</a>
 		    </div>
 		    <!-- Collect the nav links, forms, and other content for toggling. NOTE: id=m-navbar-->
 		    <div class="collapse navbar-collapse" id="m-navbar">

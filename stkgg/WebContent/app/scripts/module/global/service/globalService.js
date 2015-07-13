@@ -16,6 +16,9 @@
 			 {  when:"/stockCmt", 
 				 templateUrl:"views/stockCmt.html"
 			 }, 
+			 {  when:"/buyCmt", 
+				 templateUrl:"views/buyCmt.html"
+			 }, 
 			 {  when:"/login", 
 				 templateUrl:"views/login.html"
 			 }, 

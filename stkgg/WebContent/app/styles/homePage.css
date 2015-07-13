@@ -1,15 +1,4 @@
-.app-header{
-	padding: 10px 2px 10px 2px;
-}
-.app-header .icon{
-	font-size:15px;
 
-}
-.app-header .title{
-	font-weight:800;
-	display:inline-block;
-	font-size:1.6em;
-}
 .app-home-search{
 	padding: 0px 1px 0px 1px;
 	margin-top:5px;
@@ -17,6 +6,7 @@
 .app-home-search .upload-image-block .btn{
 	font-size:25px;
 	padding:0px 5px;
+	border-color:transparent;
 }
 
 .app-home-thumbnails{

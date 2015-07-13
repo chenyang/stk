@@ -1,0 +1,22 @@
+.buyCmt-block .user-star{
+	font-size:8px;
+	color:blue;
+	margin-top:3px;
+}
+
+.buyCmt-buy-resume span{
+	font-size:10px;
+}
+.buyCmt-buy-resume div{
+	color:red;
+	font-weight:700;
+	font-size:28px;
+}
+
+.buyCmt-buy-action .btn{
+	padding:2px 5px;
+	font-size:12px;
+}
+.buyCmt-buy-action span{
+	font-size:10px;
+}
