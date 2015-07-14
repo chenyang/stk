@@ -10,10 +10,10 @@
 			 {  when:"/home", 
 				 templateUrl:"views/homePage.html"
 			 }, 
-			 {  when:"/stockAnalysis", 
+			 {  when:"/stkAnal", 
 				 templateUrl:"views/stockAnalysis.html"
 			 }, 
-			 {  when:"/stockCmt", 
+			 {  when:"/stkCmt", 
 				 templateUrl:"views/stockCmt.html"
 			 }, 
 			 {  when:"/buyCmt", 

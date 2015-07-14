@@ -1,3 +1,73 @@
-<div>
-	sA
+<div class="container-fluid stock-analysis" ng-controller="StockAnalysisCtrl">
+	<div class="app-header row">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+			<button type="button" class="btn btn-default" aria-hidden="true"><span class="icon glyphicon glyphicon glyphicon-chevron-left"></span></button>
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  text-center">
+			<div class="title" aria-hidden="true">中国中车</div>
+			<div class="title" aria-hidden="true">601766</div>
+		</div> 
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  text-right">
+			<button type="button" class="btn btn-default" aria-hidden="true"><span class="icon glyphicon glyphicon-refresh"></span></button>
+		</div>
+	</div>
+	
+	<div class="row stock-graph-block">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			stock-graph
+		</div>
+	</div>
+	
+	<div class="row stock-gushen-comment">
+		<div class="col-xs-3 col-md-3 col-md-2 col-lg-1 text-center">
+			<div><img src="images/home/gushen.png"></div>
+			<div class="user-star">
+				<span class="glyphicon glyphicon-star"></span>
+				<span class="glyphicon glyphicon-star"></span>
+				<span class="glyphicon glyphicon-star"></span>
+				<span class="glyphicon glyphicon-star"></span>
+				<span class="glyphicon glyphicon-star"></span>
+			</div>
+			
+		</div>
+		<div class="col-xs-9 col-md-9 col-md-10 col-lg-11">
+			<div class="title clearfix">
+				<span class="username"><b>股神007</b></span>
+				<span class="pull-right glyphicon glyphicon-thumbs-up"><span>2,220</span></span>
+			</div>
+			<div class="content">
+				<p>
+					周一的市场仅小幅高开，便再次出现大跌，这就是我们所说的趋势的力量，在逼近4000点时，管理层表态，说明“政策底”已出，但“市场底”会滞后。周一大盘一度击破4000大关，跌到我们前期提示的调整极限3856-3886区域，随即止跌回升，收在4000之上。经过千点暴跌后，我们认为这波调整空间基本达到，虽然时间上还不够，但底部区域已初步显现。
+				<p>
+			</div>
+		</div>
+	</div>
+	<div class="row announcement-timeline">
+		<div ng-repeat="n in repeatCommentBlock"> <!-- ng-repeat -->
+			<div>
+				<span class="icon glyphicon glyphicon-volume-up"></span>
+				<span class="time">2015-06-08</span>
+			</div>
+			<div class="col-xs-12 col-md-12 col-md-12 col-lg-12 timeline-content-block">
+				<div class="content">
+					<p>
+						<b>融资荣券监控公告</b> 根据 周一的市场仅小幅高开，便再次出现大跌，这就是我们所说的趋势的力量
+					</p>
+				</div>
+				<div class="gushen-comment-block clearfix">
+					<div class="pull-left"><img width="60%" src="images/home/gushen.png"></div>
+					<div class="clearfix">
+						<b>股神007</b>
+						<p>持续的资金注入难改短期的弱势格局</p>
+						<div class="pull-right">
+							<span class="glyphicon glyphicon-comment" style="padding-right:2px"></span>4
+							
+							<span class="glyphicon glyphicon-thumbs-up" style="padding-left:12px; padding-right:2px"></span>234
+						</div>
+					</div>
+				</div>
+			</div><!-- timeline-content-block -->
+		</div><!-- ng-repeat -->
+		
+	</div><!-- row -->
 </div>

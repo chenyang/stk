@@ -1,0 +1,43 @@
+/**stock analysis pag **/
+.stock-analysis .stock-gushen-comment{
+	padding:5px;
+	border-top: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+}
+.stock-analysis .stock-gushen-comment .user-star{
+	font-size:8px;
+	color:blue;
+	margin-top:3px;
+}
+.stock-analysis .stock-gushen-comment .title{
+	font-size:14px;
+	padding:5px;
+}
+.stock-analysis .stock-gushen-comment .content{
+	font-size:12px;
+}
+
+.stock-analysis .announcement-timeline{
+	padding-left:20px;
+	padding-top:10px;
+}
+.stock-analysis .announcement-timeline .icon{
+	font-size:18px;
+	color:rgb(0, 168, 255);
+}
+.stock-analysis .announcement-timeline .time{
+	font-size:12px;
+	font-weight:700;
+}
+
+.stock-analysis .announcement-timeline .timeline-content-block{
+	border-left:2px solid rgba(0, 168, 255, 0.5);
+	margin-left:5px;
+}
+
+.stock-analysis .announcement-timeline .gushen-comment-block{
+	padding:10px;
+}
+.stock-analysis .announcement-timeline .gushen-comment-block p{
+	font-size:12px;
+}
