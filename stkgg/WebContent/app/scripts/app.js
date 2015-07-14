@@ -33,6 +33,7 @@
 	//Adding other angular modules/deps
 	appDeps.push('ngRoute');
 	appDeps.push('ui.bootstrap');
+	appDeps.push('nvd3');
 	
 	
 	/**

@@ -1,4 +1,8 @@
 /**stock analysis pag **/
+.stock-analysis .stock-graph-block{
+	margin-bottom: 15px;	
+}
+
 .stock-analysis .stock-gushen-comment{
 	padding:5px;
 	border-top: 1px solid #e7e7e7;
@@ -24,6 +28,7 @@
 .stock-analysis .announcement-timeline .icon{
 	font-size:18px;
 	color:rgb(0, 168, 255);
+	left:-5px;
 }
 .stock-analysis .announcement-timeline .time{
 	font-size:12px;
@@ -32,7 +37,7 @@
 
 .stock-analysis .announcement-timeline .timeline-content-block{
 	border-left:2px solid rgba(0, 168, 255, 0.5);
-	margin-left:5px;
+	margin-left:0px;
 }
 
 .stock-analysis .announcement-timeline .gushen-comment-block{
