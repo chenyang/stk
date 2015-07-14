@@ -2,6 +2,28 @@
 .stock-analysis .stock-graph-block{
 	margin-bottom: 15px;	
 }
+.stock-analysis .stock-graph-block .revenu-block-left{
+	padding-left:5px;
+}
+.stock-analysis .stock-graph-block .revenu-block-left div:nth-child(1){
+	font-size:15px; font-weight: 900; color: red;
+}
+.stock-analysis .stock-graph-block .revenu-block-left div:nth-child(2){
+	color:red; font-size:12px;
+}
+.stock-analysis .stock-graph-block .revenu-block-left div:nth-child(3){
+	font-size:12px;
+	font-weight:700;
+}
+.stock-analysis .stock-graph-block .revenu-block-center span{
+	font-size:10px;
+}
+.stock-analysis .stock-graph-block .revenu-block-center div{
+	color:red; font-size:30px; font-weight:700;
+}
+.stock-analysis .stock-graph-block .revenu-block-right span{
+	font-size:10px;
+}
 
 .stock-analysis .stock-gushen-comment{
 	padding:5px;

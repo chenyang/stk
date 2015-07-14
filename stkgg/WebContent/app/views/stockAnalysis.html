@@ -7,19 +7,36 @@
 			<div class="title" aria-hidden="true">中国中车</div>
 			<div class="title" aria-hidden="true">601766</div>
 		</div> 
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  text-right">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
 			<button type="button" class="btn btn-default" aria-hidden="true"><span class="icon glyphicon glyphicon-refresh"></span></button>
 		</div>
 	</div>
 	
-	<div class="stock-graph-block">
+	<div class="row stock-graph-block">
+		<div>
+			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 revenu-block-left">
+				<div >16.68</div>
+				<div >0.16 1.01%</div>
+				<div >2015-06-04</div>
+			</div>
 			
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center revenu-block-center">
+				<span>总收益 ( 创建于 2015-06-12) </span>
+				<div style="">138%</div>
+			</div>
+			
+			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 revenu-block-right">
+				<a href="#/"><span>投资理念</span> <span class="glyphicon glyphicon-pencil"></span></a>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 chart">
 			<nvd3 options="options"
 		      data="data"
 		      config="config"
 		      events="events"
 		      api="api">
 		    </nvd3>
+		</div>
 	</div>
 	
 	<div class="row stock-gushen-comment">
