@@ -8,7 +8,7 @@
 		$scope.options = {
 				chart: {
 					type: 'lineChart',
-					height: 150,
+					height: 170,
 					margin : {
 						top: 20,
 						right: 5,
@@ -117,7 +117,6 @@
 								x: 1435622400,
 								y: 12.9
 							}
-			             
 			             ];
 			
 			return [
