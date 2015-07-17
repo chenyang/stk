@@ -136,6 +136,14 @@
 		}
 		$scope.data = generateMockData();
 
-
+		/**
+		 * calculate offset
+		 */
+		$(window).scroll(function () {
+			var navTooltip = $("[id^='nvtooltip-']");
+			navTooltip.css("top", $(window).scrollTop()*(-1)+"px");
+			navTooltip.css("opacity", "0");
+		});
 	}]);
+	
 })();
