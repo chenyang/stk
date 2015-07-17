@@ -8,7 +8,7 @@
 		$scope.options = {
 				chart: {
 					type: 'lineChart',
-					height: 200,
+					height: 150,
 					margin : {
 						top: 20,
 						right: 5,
