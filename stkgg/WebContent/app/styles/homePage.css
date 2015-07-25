@@ -13,6 +13,11 @@
 	padding: 10px;
 	font-size:12px;
 }
+
+.app-home-thumbnails [class^="col-"]{
+	padding:2px;
+}
+
 .app-home-thumbnails .thumbnail-desc .profit{
 	margin-top:10px;
 	font-size:18px;
@@ -23,7 +28,7 @@
 /*responsive desing*/
 @media screen and (max-width:600px){
 	.app-home-search .upload-image-block{
-		right:20px;
+		right:10px;
 		bottom:2px
 	}
 }

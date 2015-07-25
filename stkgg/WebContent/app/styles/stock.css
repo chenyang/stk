@@ -73,15 +73,51 @@
 	font-size:12px;
 	font-weight:700;
 }
-
 .stock-analysis .announcement-timeline .timeline-content-block{
 	border-left:2px solid rgba(0, 168, 255, 0.5);
 	margin-left:0px;
 }
-
 .stock-analysis .announcement-timeline .gushen-comment-block{
 	padding:10px;
 }
 .stock-analysis .announcement-timeline .gushen-comment-block p{
 	font-size:12px;
 }
+
+
+
+/** stock cmt modal **/
+.stock-cmt-modal{
+	
+}
+.stock-cmt-modal .first-level-title{
+	font-size:14px;
+	font-weight:700;
+	padding:10px;
+}
+.stock-cmt-modal .second-level-title{
+	font-size:12px;
+	font-weight:700;
+	padding:10px;
+}
+.stock-cmt-modal .second-level-title .time{
+	margin-right:12px;
+}
+.stock-cmt-modal .preview .sticker{
+	padding:10px 2px;
+}
+.stock-cmt-modal .preview .compare-block{
+	width:35%;
+	padding-bottom:10px;
+}
+.stock-cmt-modal .preview .compare-block span{
+	padding:3px;
+	font-size:10px;
+	background-color:#fff;
+	color:#828080;
+}
+.stock-cmt-modal .block-time .form-control{
+	text-align:left;
+	font-size:12px;
+}
+

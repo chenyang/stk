@@ -1,7 +1,7 @@
 (function(){
 	'use strict';
 	var mod = angular.module('stock.controller');
-	mod.controller("StockAnalysisCtrl", ['$scope', function($scope){
+	mod.controller("StockAnalysisCtrl", ['$scope', '$modal', function($scope, $modal){
 
 		$scope.repeatCommentBlock = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 
 		                             '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
@@ -144,6 +144,32 @@
 			navTooltip.css("top", $(window).scrollTop()*(-1)+"px");
 			navTooltip.css("opacity", "0");
 		});
+		
+		
+		/**
+		 * modal for stock comment
+		 */
+		$scope.openModal = function(){
+			var modalInstance = $modal.open({
+		      animation: true,
+		      templateUrl: 'views/stockCmtModal.html',
+		      controller: 'StockCmtCtrl',
+		      resolve: {
+		        items: function () {
+		          return ['it1', 'it2', 'it3'];
+		        }
+		      }
+		    });
+
+		    modalInstance.result.then(function (selectedItem) {
+		    	//selected
+		      $scope.selected = selectedItem;
+		    }, function () {
+		    	//canceled
+		      console.log('Modal dismissed at: ' + new Date());
+		    });
+		  };
+		
 	}]);
 	
 })();

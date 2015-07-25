@@ -13,9 +13,6 @@
 			 {  when:"/stkAnal", 
 				 templateUrl:"views/stockAnalysis.html"
 			 }, 
-			 {  when:"/stkCmt", 
-				 templateUrl:"views/stockCmt.html"
-			 }, 
 			 {  when:"/buyCmt", 
 				 templateUrl:"views/buyCmt.html"
 			 }, 
