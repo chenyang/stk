@@ -116,6 +116,9 @@
 	background-color:#fff;
 	color:#828080;
 }
+.stock-cmt-modal .block-time .input-group{
+	width:75%;
+}
 .stock-cmt-modal .block-time .form-control{
 	text-align:left;
 	font-size:12px;
