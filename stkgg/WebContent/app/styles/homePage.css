@@ -4,6 +4,8 @@
 	margin-top:15px;
 }
 .app-home-search .upload-image-block .btn{
+    -moz-box-shadow: 0 0 6px -1px #999;
+    -webkit-box-shadow: 0 0 6px -1px #999;
 	font-size:25px;
 	padding:0px 5px;
 	border-color:transparent;
@@ -15,7 +17,7 @@
 }
 
 .app-home-thumbnails .thumbnail{
-	-moz-box-shadow: 0 0 15px -3px #999;
+	-moz-box-shadow: 0 0 12px -3px #999;
 	-webkit-box-shadow: 0 0 12px -3px #999;
 }
 

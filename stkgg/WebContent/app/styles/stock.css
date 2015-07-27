@@ -6,9 +6,6 @@
 	z-index:1020; 
 	width:100%;
 }
-.stock-analysis .app-header .text-left, .text-right{
-	padding-top:10px;
-}
 .stock-analysis .stock-graph-block{
 	top:50px;
 	border-bottom: 1px solid #e7e7e7;
@@ -64,6 +61,12 @@
 	padding-left:20px;
 	padding-top:10px;
 }
+
+.stock-analysis .announcement-timeline button{
+	padding:2px 5px;
+	font-size:10px;
+}
+
 .stock-analysis .announcement-timeline .icon{
 	font-size:18px;
 	color:rgb(0, 168, 255);
