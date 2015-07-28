@@ -17,8 +17,8 @@
 }
 
 .app-home-thumbnails .thumbnail{
-	-moz-box-shadow: 0 0 12px -3px #999;
-	-webkit-box-shadow: 0 0 12px -3px #999;
+	-moz-box-shadow: 0 8px 5px 0 #999;
+	-webkit-box-shadow: 0 8px 5px 0 #999;
 }
 
 .app-home-thumbnails [class^="col-"]{
@@ -33,7 +33,7 @@
 }
 
 /*responsive desing*/
-@media screen and (max-width:600px){
+@media all and (max-width:600px){
 	.app-home-search .upload-image-block{
 		right:10px;
 		bottom:2px

@@ -1,7 +1,10 @@
 body{
 	padding:2px;
 }
-
 .body-content{
 	padding-top:50px;
+}
+/**font family**/
+input, p, div {
+    font-family: Tahoma, Geneva, 'Heiti SC', 'Microsoft Yahei', 'Simsun'
 }
