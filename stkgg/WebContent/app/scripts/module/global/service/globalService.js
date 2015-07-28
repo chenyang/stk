@@ -19,6 +19,9 @@
 			 {  when:"/login", 
 				 templateUrl:"views/login.html"
 			 }, 
+			 {  when:"/createPub", 
+				 templateUrl:"views/createPub.html"
+			 }, 
 			 {
 				when:"/register",
 				templateUrl:"views/register.html"

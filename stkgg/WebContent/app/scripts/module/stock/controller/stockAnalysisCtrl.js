@@ -152,7 +152,7 @@
 		$scope.openModal = function(){
 			var modalInstance = $modal.open({
 		      animation: true,
-		      templateUrl: 'views/stockCmtModal.html',
+		      templateUrl: 'views/modal/stockCmtModal.html',
 		      controller: 'StockCmtCtrl',
 		      resolve: {
 		        items: function () {
