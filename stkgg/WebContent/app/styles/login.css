@@ -24,8 +24,11 @@
 .login .form-control{
 	border:0px;
 }
-.login input{
+.login .form-login input{
 	height:80px;
+}
+.login .form-register input{
+	height:58px;
 }
 .login .btn-group{
 	width:100%;
@@ -43,6 +46,7 @@
 	width:100%;
 	height:58px;
 }
+
 .login .third-party-login h4{
 	color:#000;
 	font-size:14px;
