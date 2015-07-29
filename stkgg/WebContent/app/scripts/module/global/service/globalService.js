@@ -31,11 +31,22 @@
 			 {  when:"/myProfile", 
 				 templateUrl:"views/myProfile.html"
 			 }, 
+			 {  when:"/myBought", 
+				 templateUrl:"views/myBought.html"
+			 }, 
+			 {  when:"/myApply", 
+				 templateUrl:"views/myApply.html"
+			 }, 
+			 {  when:"/myPub", 
+				 templateUrl:"views/myPub.html"
+			 }, 
+			 {  when:"/myFavorite", 
+				 templateUrl:"views/myFavorite.html"
+			 }, 
 			 {  when:"/profileDetail", 
 				 templateUrl:"views/profileDetail.html"
 			 }, 
-			 {
-				when:"/register",
+			 {  when:"/register",
 				templateUrl:"views/register.html"
 			 }
 			 ]);

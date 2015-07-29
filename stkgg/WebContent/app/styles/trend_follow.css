@@ -1,0 +1,35 @@
+.trend-follow .timeline{
+	padding-left:20px;
+	padding-top:10px;
+}
+
+.trend-follow .timeline .panel-heading{
+	padding:0px 5px;
+}
+.trend-follow .timeline .panel-body{
+	padding:10px;
+}
+
+.trend-follow .timeline button{
+	padding:2px 5px;
+	font-size:10px;
+}
+
+.trend-follow .timeline .non-image{
+	margin-left:65px;
+}
+.trend-follow .timeline .non-image span{
+	font-size:12px;
+	color:#6574CC;
+}
+.trend-follow .timeline .non-image .comment{
+}
+.trend-follow .timeline .content{
+	border-bottom:1px solid #ccc;
+}
+.trend-follow .timeline .gushen-comment-block{
+	padding:10px;
+}
+.trend-follow .timeline .gushen-comment-block p{
+	font-size:12px;
+}

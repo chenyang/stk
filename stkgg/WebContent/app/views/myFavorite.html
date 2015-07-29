@@ -1,0 +1,35 @@
+<div class="myFavorite" ng-controller="MyFavoriteCtrl">
+	<div class="myfavorite-thumbnails">	
+		<ul class="list-group tips">
+	  		<li class="list-group-item">
+			  	<label><span style="color:orange" class="glyphicon glyphicon-star"></span> 我的收藏</label>
+	  		</li>
+	  		<li class="list-group-item">
+			  	<div class="row">
+			 		<div ng-repeat="n in items" class="col-xs-6 col-md-3">
+			 		 	<div class="thumbnail">
+			 		 		<div class="thumbnail-header caption">
+			    				<span class="">孤注一掷</span>
+			    				<span class="pull-right glyphicon glyphicon-thumbs-up"><span>3450</span></span>
+			    			</div>
+			    			<a><img class="thumbnail-image" src="images/home/exp1.png" alt="..."></a>
+			    			<div class="thumbnail-desc caption clearfix">
+			    				<div class="pull-left">
+			    					<div class="moto">
+			    						<span>maybeza</span>
+		    						</div>
+				    				<div class="user">
+				    					<span>多福多</span>
+				    				</div>
+			    				</div>
+			    				<div class="profit pull-right">
+			    					<span>138%</span>
+			    				</div>
+			    			</div>
+				   		</div>
+			 		</div>
+				</div><!-- row -->
+	  		</li>
+	 	</ul>
+	</div><!-- myfavorite-thumbnails -->
+</div>

@@ -13,7 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="styles/stock.css" />
 		<link rel="stylesheet" type="text/css" href="styles/login.css" />
 		<link rel="stylesheet" type="text/css" href="styles/history.css" />
-		<link rel="stylesheet" type="text/css" href="styles/my_profile.css" />
+		<link rel="stylesheet" type="text/css" href="styles/my.css" />
 		<link rel="stylesheet" type="text/css" href="styles/trend_follow.css" />
 		<link rel="stylesheet" type="text/css" href="styles/profile_detail.css" />
 		
@@ -37,6 +37,10 @@
 		<script src="scripts/module/global/controller/globalCtrl.js"></script>
 		<script src="scripts/module/user/controller/loginCtrl.js"></script>
 		<script src="scripts/module/user/controller/myProfileCtrl.js"></script>
+		<script src="scripts/module/user/controller/myBoughtCtrl.js"></script>
+		<script src="scripts/module/user/controller/myFavoriteCtrl.js"></script>
+		<script src="scripts/module/user/controller/myPubCtrl.js"></script>
+		<script src="scripts/module/user/controller/myApplyCtrl.js"></script>
 		<script src="scripts/module/user/controller/profileDetailCtrl.js"></script>
 		<script src="scripts/module/stock/controller/homePageCtrl.js"></script>
 		<script src="scripts/module/stock/controller/stockAnalysisCtrl.js"></script>
@@ -77,15 +81,15 @@
 		      	<li><a href="#/login">登陆页</a></li>
 		        <li><a href="#/stkAnal">行情分析页面</a></li>
 		        <li><a href="#/buyCmt">购买页面</a></li>
-		        <li><a href="#/createPub">创建Pub页面</a></li>
 		        <li class="dropdown">
 		          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-		          		未开发 <span class="caret"></span>
+		          		简单页面<span class="caret"></span>
 		          </a>
 		          <ul class="dropdown-menu">
+		          	<li><a href="#/createPub">创建Pub页面</a></li>
 		            <li><a href="#/myProfile">“我的”页</a></li>
-		            <li><a href="#/trendFollow">动态页</a></li>
-		            <li><a href="#/profileDetail">个人详情页</a></li>
+		            <li><a href="#/trendFollow">动态页(未完成)</a></li>
+		            <li><a href="#/profileDetail">个人详情显示/修改页</a></li>
 		            <li><a href="#/history">修改历史页</a></li>
 		          </ul>
 		        </li><!-- /.dropdown -->
@@ -97,6 +101,21 @@
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
+		
+		<div style="margin-top:60px;" class="alert alert-success" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		  <span aria-hidden="true">&times;</span>
+		</button>
+			<label>前台进展</label>
+			<p>
+				由于项目进度需要，目前打算把重点放在功能及接口上. 目前还暂时没有时间把接口和数据结构定义出来。 
+				计划：<br/>
+				1. 主要页面展示（即将完成）<br/>
+				2. 过一遍页面细节（仅限于最基本的页面显示，无美工和优化）<br/>
+				3. 与@江伟 合作 定义接口，a)一页一页做, 同时优化页面及代码 或者 b)统一定义接口，前台做mock数据，后台开发。 可一个模块一个模块整合<br/>
+				4. 整体优化<br/>
+			</p>
+		</div>
 		
 		<!-- Single page App -->
 		<div class="body-content" ng-view></div>

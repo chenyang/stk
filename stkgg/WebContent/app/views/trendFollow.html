@@ -1,3 +1,31 @@
-<div ng-controller="TrendFollowCtrl">
-trend follow
+<div class="trend-follow" ng-controller="TrendFollowCtrl">
+	<div class="row">
+		<div class="timeline" ng-repeat="n in items"> <!-- ng-repeat -->
+			<div class="col-xs-12 col-md-12 col-md-12 col-lg-12 content">
+				<div class="gushen-comment-block clearfix">
+					<div class="image pull-left"><img width="50px" src="images/home/gushen.png"></div>
+					
+					<div class="non-image panel panel-info clearfix">
+						<div class="panel-heading">
+							<span>股神007</span>
+							<span class="pull-right">2015-07-07</span>
+						</div>
+					  	<div class="panel-body">
+					   		<div class="comment">
+							<p class="tips">
+								<span class="glyphicon glyphicon-flag" style="color:orange"></span>
+								持续的资金注入难改短期的弱势格局</p>
+							<p class="preview">
+								<span class="glyphicon glyphicon-flag" style="color:orange"></span>
+								预计将有小幅震动，希望可以减持农业股。。</p>
+						</div>
+					  	</div>
+					</div>
+					
+				</div>
+			</div><!-- timeline-content-block -->
+		</div><!-- ng-repeat -->
+		
+	</div><!-- row -->
+
 </div>
