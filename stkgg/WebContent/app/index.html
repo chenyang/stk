@@ -12,6 +12,10 @@
 		<link rel="stylesheet" type="text/css" href="styles/buyCmt.css" />
 		<link rel="stylesheet" type="text/css" href="styles/stock.css" />
 		<link rel="stylesheet" type="text/css" href="styles/login.css" />
+		<link rel="stylesheet" type="text/css" href="styles/history.css" />
+		<link rel="stylesheet" type="text/css" href="styles/my_profile.css" />
+		<link rel="stylesheet" type="text/css" href="styles/trend_follow.css" />
+		<link rel="stylesheet" type="text/css" href="styles/profile_detail.css" />
 		
 		
 		<!-- Third party libs-->
@@ -31,15 +35,16 @@
 		<!-- App libs -->	
 		<script src="scripts/app.js"></script>
 		<script src="scripts/module/global/controller/globalCtrl.js"></script>
-		
 		<script src="scripts/module/user/controller/loginCtrl.js"></script>
 		<script src="scripts/module/user/controller/myProfileCtrl.js"></script>
-		
+		<script src="scripts/module/user/controller/ProfileDetail.js"></script>
 		<script src="scripts/module/stock/controller/homePageCtrl.js"></script>
 		<script src="scripts/module/stock/controller/stockAnalysisCtrl.js"></script>
 		<script src="scripts/module/stock/controller/stockCmtCtrl.js"></script>
 		<script src="scripts/module/stock/controller/buyCmtCtrl.js"></script>
 		<script src="scripts/module/stock/controller/createPubCtrl.js"></script>
+		<script src="scripts/module/stock/controller/historyCtrl.js"></script>
+		<script src="scripts/module/stock/controller/trendFollowCtrl.js"></script>
 		
 		<script src="scripts/module/user/service/userInfoService.js"></script>
 		<script src="scripts/module/stock/service/stockCmtService.js"></script>
@@ -78,10 +83,10 @@
 		          		未开发 <span class="caret"></span>
 		          </a>
 		          <ul class="dropdown-menu">
-		            <li><a>“我的”页</a></li>
-		            <li><a>动态页</a></li>
-		            <li><a>个人详情页</a></li>
-		            <li><a>修改历史页</a></li>
+		            <li><a href="#/myProfile">“我的”页</a></li>
+		            <li><a href="#/trendFollow">动态页</a></li>
+		            <li><a href="#/profileDetail">个人详情页</a></li>
+		            <li><a href="#/history">修改历史页</a></li>
 		          </ul>
 		        </li><!-- /.dropdown -->
 		      </ul>

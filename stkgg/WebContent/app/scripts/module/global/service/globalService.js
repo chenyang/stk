@@ -21,6 +21,18 @@
 			 }, 
 			 {  when:"/createPub", 
 				 templateUrl:"views/createPub.html"
+			 },
+			 {  when:"/trendFollow", 
+				 templateUrl:"views/trendFollow.html"
+			 }, 
+			 {  when:"/history", 
+				 templateUrl:"views/history.html"
+			 }, 
+			 {  when:"/myProfile", 
+				 templateUrl:"views/myProfile.html"
+			 }, 
+			 {  when:"/profileDetail", 
+				 templateUrl:"views/profileDetail.html"
 			 }, 
 			 {
 				when:"/register",
