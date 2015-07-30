@@ -34,7 +34,6 @@
 	appDeps.push('ngRoute');
 	appDeps.push('ngAnimate');
 	appDeps.push('ui.bootstrap');
-	appDeps.push('nvd3');
 	
 	
 	/**
