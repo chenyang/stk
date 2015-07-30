@@ -48,7 +48,12 @@
 			 }, 
 			 {  when:"/register",
 				templateUrl:"views/register.html"
-			 }
+			 },
+			 
+			 //项目进展
+			 {  when:"/projectProgress",
+				templateUrl:"views/project_progress.html"
+			 }	 
 			 ]);
 	
 })();

@@ -21,7 +21,7 @@
 	    		</div>
 	  		</div>
 	  		<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 upload-image-block">
-		  		<button type="button" class="btn btn-success">
+		  		<button ng-click="goToCreatePub()" type="button" class="btn btn-success">
 		  			<span class="glyphicon glyphicon-picture"></span>
 		  		</button>
 	  		</div>
@@ -30,7 +30,7 @@
 	
 	<div class="app-home-thumbnails">
 		<div class="row">
-	 		<div ng-repeat="n in items" class="col-xs-6 col-md-3">
+	 		<div ng-click="goToCoverPage()" ng-repeat="n in items" class="col-xs-6 col-md-3">
 	 		 	<div class="thumbnail">
 	 		 		<div class="thumbnail-header caption">
 	    				<span class="">孤注一掷</span>
