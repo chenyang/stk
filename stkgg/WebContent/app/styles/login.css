@@ -47,6 +47,14 @@
 	height:58px;
 }
 
+.login .validationCode .btn{
+	padding:0 5px;
+}
+.login .validationCode input{
+	height:40px;
+	padding:5px;
+}
+
 .login .third-party-login h4{
 	color:#000;
 	font-size:14px;
@@ -99,7 +107,6 @@
 		padding:10px 25px 0 25px;
 	}
 }
-
 @media all and (min-width:720px) and (max-width:1024px) {
 	.login{
 		width:50%;
