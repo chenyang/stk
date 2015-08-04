@@ -49,6 +49,9 @@
 			 {  when:"/profileDetail", 
 				 templateUrl:"views/profileDetail.html"
 			 }, 
+			 {  when:"/buyPub",
+					templateUrl:"views/buyPub.html"
+				 },
 			 {  when:"/register",
 				templateUrl:"views/register.html"
 			 },

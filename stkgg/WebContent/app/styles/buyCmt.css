@@ -3,6 +3,20 @@
 	color:blue;
 	margin-top:3px;
 }
+.buyCmt-block .outline{
+	border-bottom:1px solid #ccc;
+}
+.buyCmt-block .user-comments{
+	font-size:8px;
+	padding:5px;
+	border-bottom:1px solid #ccc;
+}
+.buyCmt-block .report{
+	font-size:10px;
+	padding:15px;
+	margin:15px;
+	border-bottom:1px solid #ccc;
+}
 
 .buyCmt-buy-resume span{
 	font-size:10px;
@@ -19,4 +33,12 @@
 }
 .buyCmt-buy-action span{
 	font-size:10px;
+}
+
+/*payment*/
+.payment .thumbnail{
+	padding:10px;
+}
+.payment .btn{
+	padding:2px 8px;
 }
