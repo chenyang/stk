@@ -5,6 +5,7 @@
 	<head>
 		<!-- styles -->
 		<link rel="stylesheet" type="text/css" href="components/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="components/nvd3/nv.d3.min.css" />
 		<link rel="stylesheet" type="text/css" href="styles/reset.css" />
 		<link rel="stylesheet" type="text/css" href="styles/header_footer.css" />
 		<link rel="stylesheet" type="text/css" href="styles/homePage.css" />
@@ -27,7 +28,9 @@
 		<script src="components/angular/angular-animate.min.js"></script>
 		<script src="components/angular/ui-bootstrap-tpls-0.13.1.min.js"></script>
 		<script src="components/underscorejs/underscore-min.js"></script>
-		<script src="components/echarts/echarts.js"></script>
+		<script src="components/nvd3/d3.min.js"></script>
+		<script src="components/nvd3/nv.d3.min.js"></script>
+		<script src="components/nvd3/angular-nvd3.min.js"></script>
 		
 		<!-- App libs -->	
 		<script src="scripts/app.js"></script>
@@ -55,9 +58,8 @@
 	
 	<body>
 		<!-- Nav bar -->
-		<nav id="nav" class="navbar navbar-default navbar-fixed-top">
+		<nav ng-controller="GlobalCtrl" id="nav" class="navbar navbar-default navbar-fixed-top">
 		  <div class="container-fluid">
-		  
 		  	<!-- Navbar header -->
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#m-navbar" aria-expanded="false"
@@ -91,6 +93,8 @@
 		            <li><a href="#/history">修改历史页</a></li>
 		          </ul>
 		        </li><!-- /.dropdown -->
+		        <li><a href=""><button ng-click="clearAllCookies()" class="btn btn-small btn-danger" style="padding:2px 4px; font-size:10px">清空所有cookie</button></a></li>
+		        
 		      </ul>
 		      <!-- Right side navbar components -->
 		      <ul class="nav navbar-nav navbar-right">

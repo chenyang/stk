@@ -16,16 +16,20 @@
 				<a href=""><span>投资理念</span> <span class="glyphicon glyphicon-pencil"></span></a>
 				<div>
 					<a href="">
-						<span ng-click="isCollapsedKChart = !isCollapsedKChart">K线图 <span class="glyphicon glyphicon-eye-open"></span> </span>
+						<span ng-click="">预测解释 <span class="glyphicon glyphicon-eye-open"></span> </span>
 					</a>
 				</div>
 			</div>
-		</div>
-		<div collapse="isCollapsedKChart">
-			<div id="kchart" style="margin-left:-40px;" class="chart"></div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 chart">
+				<nvd3 options="options"
+			      data="data"
+			      config="config"
+			      events="events"
+			      api="api">
+			    </nvd3>
+			</div>
 		</div>
 	</div>
-	
 	
 	<div class="row stock-gushen-comment">
 		<div class="col-xs-3 col-md-3 col-md-2 col-lg-1 text-center">
@@ -52,7 +56,7 @@
 		</div>
 	</div>
 	<div class="row announcement-timeline">
-		<div ng-repeat="n in items"> <!-- ng-repeat -->
+		<div ng-repeat="item in items"> <!-- ng-repeat -->
 			<div>
 				<span class="icon glyphicon glyphicon-volume-up"></span>
 				<span class="time">2015-06-08</span>
@@ -67,11 +71,18 @@
 					<div class="pull-left"><img width="60%" src="images/home/gushen.png"></div>
 					<div class="clearfix">
 						<b>股神007</b>
-						<p>持续的资金注入难改短期的弱势格局</p>
+						<p>持续的资金注入难改短期的弱势格局 <button class="btn btn-default btn-small" ng-click="pubDetail(item.tipId)">点击查看Pub</button></p>
 						<div class="pull-right">
-							<button  ng-click="openModal()" class="btn btn-default"><span class="glyphicon glyphicon-comment" style="padding-right:2px"></span> 24</button>
+							<button  ng-click="openModal()" class="btn btn-default"><span class="glyphicon glyphicon-piggy-bank" style="padding-right:2px">发布预测</span></button>
+							<button  ng-click="item.isCollapsed = !item.isCollapsed" class="btn btn-default"><span class="glyphicon glyphicon-comment" style="padding-right:2px"></span> 24</button>
 							<button class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up" style="padding-right:2px"></span> 234</button>
 						</div>
+					</div>
+					<div collapse="item.isCollapsed" class="user-comments">
+							<p>comment1</p>
+							<p>comment1</p>
+							<p>comment1</p>
+							<p>comment1</p>
 					</div>
 				</div>
 			</div><!-- timeline-content-block -->

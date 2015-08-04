@@ -33,7 +33,9 @@
 	//Adding other angular modules/deps
 	appDeps.push('ngRoute');
 	appDeps.push('ngAnimate');
+	appDeps.push('ngCookies');
 	appDeps.push('ui.bootstrap');
+	appDeps.push('nvd3');
 	
 	
 	/**
@@ -48,7 +50,7 @@
 			$routeProvider.otherwise({redirectTo:'/'});
 		});
 	}]);
-
+	
 })();
 
 
