@@ -31,16 +31,14 @@
 
 			 ];
 		
-		$scope.goToCoverPage = function(tipId){
-			var lastVisitedTipId = $cookies.get('lastVisitedTipId');
-			if(_.isEmpty(lastVisitedTipId)){
-				$location.path("/buyCmt");
-			}
-			else{
+		$scope.goToCoverPage = function(item){
+			var allVisitedTipId = $cookies.getObject('allVisitedTipId');
+			if(_.contains(allVisitedTipId, item.tipId)){
 				//bypass coverpage
-				alert('已经访问过 tipId'+tipId+", 直接进入相关timeline页");
-				//temp $cookies.remove('lastVisitedTipId');
+				alert('cookie 已经访问过 tipId '+item.tipId+", 直接进入相关timeline页");
 				$location.path("/stkAnal");
+			}else{
+				$location.path("/buyCmt");
 			}
 		};
 		

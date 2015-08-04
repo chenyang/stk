@@ -16,7 +16,7 @@
 				<a href=""><span>投资理念</span> <span class="glyphicon glyphicon-pencil"></span></a>
 				<div>
 					<a href="">
-						<span ng-click="">预测解释 <span class="glyphicon glyphicon-eye-open"></span> </span>
+						<span popover="{{yucePopover.content}}" popover-placement="bottom">预测解释 <span class="glyphicon glyphicon-eye-open"></span> </span>
 					</a>
 				</div>
 			</div>
@@ -33,7 +33,7 @@
 	
 	<div class="row stock-gushen-comment">
 		<div class="col-xs-3 col-md-3 col-md-2 col-lg-1 text-center">
-			<div><img src="images/home/gushen.png"></div>
+			<div><img src="images/home/gushen.png" ng-click="gotoProfile()"></div>
 			<div class="user-star">
 				<span class="glyphicon glyphicon-star"></span>
 				<span class="glyphicon glyphicon-star"></span>
@@ -66,19 +66,43 @@
 					<p>
 						<b>融资荣券监控公告</b> 根据 周一的市场仅小幅高开，便再次出现大跌，这就是我们所说的趋势的力量
 					</p>
+					<p class="bg-info">最后<a href="#/history/tip/{{item.tipId}}">修改于</a>{{item.lastModifiedTime|date:'yyyy-MM-dd HH:mm'}}</p>
 				</div>
 				<div class="gushen-comment-block clearfix">
-					<div class="pull-left"><img width="60%" src="images/home/gushen.png"></div>
+					<div class="pull-left" ng-click="gotoProfile()"><img width="60%" src="images/home/gushen.png"></div>
 					<div class="clearfix">
 						<b>股神007</b>
-						<p>持续的资金注入难改短期的弱势格局 <button class="btn btn-default btn-small" ng-click="pubDetail(item.tipId)">点击查看Pub</button></p>
+						<span ng-show="!item.bought" class="glyphicon glyphicon-lock" style="color:orange">未购买</span>
+						<p>
+							<button class="btn btn-info btn-small" ng-click="pubDetail(item)">
+								<span ng-show="item.bought">访问Pub tip</span>
+								<span ng-show="!item.bought">购买Pub tip</span>
+							</button>
+							<button  ng-click="openModal(item)" class="btn btn-default">
+								<span ng-show="item.preview==null" class="glyphicon glyphicon-piggy-bank" style="padding-right:2px">发布预测</span>
+								<span ng-show="item.preview!=null" class="glyphicon glyphicon-wrench" style="padding-right:2px">修改预测</span>
+							</button>
+							<button class="btn btn-danger btn-small" ng-click="modifyTip(item)">
+								<span ng-if="item.isModifyTip">保存修改</span>
+								<span ng-if="!item.isModifyTip">修改Tip</span>
+							</button>
+						</p> 
+						
+						<p ng-show="!item.isModifyTip">{{item.tipContent}}</p>
+						<p><textarea style="width:100%" rows="3" ng-show="item.isModifyTip" ng-model="item.tipContent"></textarea></p>
+						<p collapse="item.isCollapsedShare" class="user-comments">
+							<button class="btn"><img width="25px" src="images/3rd/qq.png"></button>
+							<button class="btn"><img width="25px" src="images/3rd/wb.png"></button>
+							<button class="btn"><img width="25px" src="images/3rd/wx.png"></button>
+						</p> 
+						
 						<div class="pull-right">
-							<button  ng-click="openModal()" class="btn btn-default"><span class="glyphicon glyphicon-piggy-bank" style="padding-right:2px">发布预测</span></button>
-							<button  ng-click="item.isCollapsed = !item.isCollapsed" class="btn btn-default"><span class="glyphicon glyphicon-comment" style="padding-right:2px"></span> 24</button>
+							<button class="btn btn-default btn-small" ng-click="item.isCollapsedShare=!item.isCollapsedShare">分享到朋友圈</button>
+							<button  ng-click="item.isCollapsedCmt = !item.isCollapsedCmt" class="btn btn-default"><span class="glyphicon glyphicon-comment" style="padding-right:2px"></span> 24</button>
 							<button class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up" style="padding-right:2px"></span> 234</button>
 						</div>
 					</div>
-					<div collapse="item.isCollapsed" class="user-comments">
+					<div collapse="item.isCollapsedCmt" class="user-comments">
 							<p>comment1</p>
 							<p>comment1</p>
 							<p>comment1</p>

@@ -25,8 +25,11 @@
 			 {  when:"/trendFollow", 
 				 templateUrl:"views/trendFollow.html"
 			 }, 
-			 {  when:"/history", 
-				 templateUrl:"views/history.html"
+			 {  when:"/history/tip/:tipId", 
+				 templateUrl:"views/historyTip.html"
+			 }, 
+			 {  when:"/history/preview/:tipId", 
+				 templateUrl:"views/historyPreview.html"
 			 }, 
 			 {  when:"/myProfile", 
 				 templateUrl:"views/myProfile.html"

@@ -4,35 +4,106 @@
 	mod.controller("StockAnalysisCtrl", ['$scope', '$modal', '$cookies', '$location',
 	                                     function($scope, $modal, $cookies, $location){
 
+		//popover
+		$scope.yucePopover = {
+				content: '预计一周内跌5%， 跌幅15点',
+		};
+
+		//查看我的预测
+		$scope.modifyMyPreview = function(){
+
+		};
+
 		//repeated parts
 		$scope.items = 
 			[
 			 {
-
+				 userId:1,
 				 tipId:1, 
-				 b:"", 
-				 c:"", 
-				 d:"", 
-				 isCollapsed:true
+				 tipContent:"持续的资金注入难改短期的弱势格局1， 便再次出现大跌，这就是我们所说的趋势的力量", 
+				 lastModifiedTime:"2015-07-01 16:26", 
+				 isCollapsedShare:true, 
+				 isCollapsedCmt:true,
+				 isModifyTip:false, 
+				 preview:null, 
+				 bought:true //free or bought
 			 }, 
 			 {
-
+				 userId:1,
 				 tipId:2, 
-				 b:"", 
-				 c:"", 
-				 d:"", 
-				 isCollapsed:true
+				 tipContent:"持续的资金注入难改短期的弱势格局2，便再次出现大跌，这就是我们所说的趋势的力量", 
+				 lastModifiedTime:"2015-07-01 16:26", 
+				 isCollapsedShare:true, 
+				 isCollapsedCmt:true,
+				 isModifyTip:false, 
+				 preview:{
+					 time:7, 
+					 minVal:-2, 
+					 maxVal:3.5, 
+					 minPect:15, 
+					 maxPect:20, 
+					 cmt:"预测跌幅较大，建议抛售", 
+					 lastModifiedTime:'2015-07-01 15:37:28'
+				 },
+				 bought:false
 			 },
 			 {
-
+				 userId:1,
 				 tipId:3, 
-				 b:"", 
-				 c:"", 
-				 d:"", 
-				 isCollapsed:true
+				 tipContent:"持续的资金注入难改短期的弱势格局3，便再次出现大跌，这就是我们所说的趋势的力量", 
+				 lastModifiedTime:"2015-07-01 16:26", 
+				 isCollapsedShare:true, 
+				 isCollapsedCmt:true,
+				 isModifyTip:false, 
+				 preview:{
+					 time:1, 
+					 minVal:0.5, 
+					 maxVal:1.5, 
+					 minPect:5, 
+					 maxPect:8,
+					 cmt:"预测跌幅较大，建议抛售", 
+					 lastModifiedTime:'2015-07-01 15:37:28'
+				 },
+				 bought:true
 			 }
 
 			 ];
+
+		$scope.modifyTip = function(item){
+			item.isModifyTip = !item.isModifyTip;
+			if(!item.isModifyTip){//保存修改
+				item.lastModifiedTime = new Date();
+			}
+		};
+
+		$scope.pubDetail = function(item){
+			//not yet bought
+			if(!item.bought){
+				$location.path("/buyCmt");
+			}else{
+				//check if tipId is already visited
+				var allVisitedTipId = $cookies.getObject('allVisitedTipId');
+				console.log(allVisitedTipId);
+				if(_.isEmpty($cookies.getObject('allVisitedTipId'))){
+					allVisitedTipId = [];
+					$cookies.putObject('allVisitedTipId', allVisitedTipId);
+				};
+				if(_.contains(allVisitedTipId, item.tipId)){
+					alert('cookie 已经访问过 tipId '+item.tipId+", 直接进入相关timeline页");
+					$location.path("/stkAnal");
+				}else{
+					allVisitedTipId = $cookies.getObject('allVisitedTipId');
+					allVisitedTipId.push(item.tipId);
+					$cookies.putObject('allVisitedTipId', allVisitedTipId);
+					$location.path("/buyCmt");
+				}
+			}
+
+		};
+
+		$scope.gotoProfile = function(){
+			$location.path("/profileDetail");
+		};
 
 		/**charts**/
 		$scope.options = {
@@ -58,12 +129,11 @@
 						axisLabel: '证监会公告日期', 
 						tickFormat: function(d) {
 							//in data list is epoch time
-	                        return d3.time.format('%x')(new Date(d*1000));
-	                    },
-	                    showMaxMin: false
+							return d3.time.format('%x')(new Date(d*1000));
+						},
+						showMaxMin: false
 					},
 					yAxis: {
-						axisLabel: 'Voltage (v)',
 						tickFormat: function(d){
 							return d3.format('.02f')(d);
 						},
@@ -73,7 +143,11 @@
 					callback: function(chart){
 						console.log("!!! lineChart callback !!!");
 					}
-				}
+				}, 
+				title: {
+					enable: true,
+					text: '中国中车(06160)'
+				},
 		};
 
 		/**
@@ -81,74 +155,74 @@
 		 */
 		function generateMockData(){
 			var data1 = [
-			             	{
-			             		x: 1434326400,
-			             		y: 15.7
-			             	}, 
-			             	{
-			             		x: 1434585600,
-			             		y: 15.8
-			             	}, 
-			             	{
-			             		x: 1434758400,
-			             		y: 12.7
-			             	}, 
-			             	{
-			             		x: 1434931200,
-			             		y: 18.7
-			             	}, 
-			             	{
-			             		x: 1435190400,
-			             		y: 12.6
-			             	}, 
-			             	{
-			             		x: 1435276800,
-			             		y: 15.8
-			             	}, 
-			             	{
-			             		x: 1435363200,
-			             		y: 16.8
-			             	}, 
-			             	{
-			             		x: 1435622400,
-			             		y: 18.2
-			             	}
-		             	];
-			var data2 = [
-			             	{
-								x: 1434326400,
-								y: 11.7
-							}, 
-							{
-								x: 1434585600,
-								y: 12.8
-							}, 
-							{
-								x: 1434758400,
-								y: 12.9
-							}, 
-							{
-								x: 1434931200,
-								y: 12.1
-							}, 
-							{
-								x: 1435190400,
-								y: 11.23
-							}, 
-							{
-								x: 1435276800,
-								y: 11.5
-							}, 
-							{
-								x: 1435363200,
-								y: 13.2
-							}, 
-							{
-								x: 1435622400,
-								y: 12.9
-							}
+			             {
+			            	 x: 1434326400,
+			            	 y: 15.7
+			             }, 
+			             {
+			            	 x: 1434585600,
+			            	 y: 15.8
+			             }, 
+			             {
+			            	 x: 1434758400,
+			            	 y: 12.7
+			             }, 
+			             {
+			            	 x: 1434931200,
+			            	 y: 18.7
+			             }, 
+			             {
+			            	 x: 1435190400,
+			            	 y: 12.6
+			             }, 
+			             {
+			            	 x: 1435276800,
+			            	 y: 15.8
+			             }, 
+			             {
+			            	 x: 1435363200,
+			            	 y: 16.8
+			             }, 
+			             {
+			            	 x: 1435622400,
+			            	 y: 18.2
+			             }
 			             ];
-			
+			var data2 = [
+			             {
+			            	 x: 1434326400,
+			            	 y: 11.7
+			             }, 
+			             {
+			            	 x: 1434585600,
+			            	 y: 12.8
+			             }, 
+			             {
+			            	 x: 1434758400,
+			            	 y: 12.9
+			             }, 
+			             {
+			            	 x: 1434931200,
+			            	 y: 12.1
+			             }, 
+			             {
+			            	 x: 1435190400,
+			            	 y: 11.23
+			             }, 
+			             {
+			            	 x: 1435276800,
+			            	 y: 11.5
+			             }, 
+			             {
+			            	 x: 1435363200,
+			            	 y: 13.2
+			             }, 
+			             {
+			            	 x: 1435622400,
+			            	 y: 12.9
+			             }
+			             ];
+
 			return [
 			        {
 			        	values: data1,      //values - represents the array of {x,y} data points
@@ -161,29 +235,26 @@
 			        	color: 'green'  //color - optional: choose your own line color.
 			        }
 			        ];
-			
+
 		}
 		$scope.data = generateMockData();
-		
 
-		/*var adjustPosition = function(isInit){
-			console.log('change', isInit);
-
-			var adjustHeight = (isInit==false?($("#kchart").height()+80):80);
-			$(".stock-analysis .stock-gushen-comment").css("margin-top", adjustHeight+"px");
-		};*/
 
 		/**
 		 * modal for stock comment
 		 */
-		$scope.openModal = function(){
+		$scope.openModal = function(item){
 			var modalInstance = $modal.open({
 				animation: true,
 				templateUrl: 'views/modal/stockCmtModal.html',
 				controller: 'StockCmtCtrl',
 				resolve: {
-					items: function () {
-						return ['it1', 'it2', 'it3'];
+					preview: function () {
+						var preview = item.preview;
+						if(!_.isEmpty(preview)){
+							preview.userId = item.userId;
+						}
+						return preview;
 					}
 				}
 			});
@@ -196,32 +267,9 @@
 			});
 		};
 
-		/**watcher**//*
-		$scope.$watch('isCollapsedKChart', function(newValue, oldValue) {
-			adjustPosition(newValue);
-		});*/
-		
-		$scope.pubDetail = function(tipId){
-			//if tipId not in cookies
-			var lastVisitedTipId = $cookies.get('lastVisitedTipId');
-			if(_.isEmpty(lastVisitedTipId)){
-				$cookies.put('lastVisitedTipId', tipId);
-				$location.path("/buyCmt");
-			}
-			else{
-				//bypass coverpage
-				alert('已经访问过 tipId '+tipId+", 直接进入相关timeline页");
-				//temp $cookies.remove('lastVisitedTipId');
-				$location.path("/stkAnal");
-			}
-			
-		};
-
-
 		/** initialization **/
 		var init = function(){
-			//createKChart();
-			//adjustPosition(true);
+
 		};
 
 		//Init
