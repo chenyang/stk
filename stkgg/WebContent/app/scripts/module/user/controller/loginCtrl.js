@@ -1,11 +1,10 @@
 (function(){
 	'use strict';
 	var mod = angular.module('user.controller');
-	mod.controller("LoginCtrl", ['$scope', function($scope){
-		//default collapse is true for 3rd party login
-		$scope.isCollapsed = true;
-
-		//generate random validate code
+	mod.controller("LoginCtrl", ['$scope', '$cookies',
+	                             function($scope, $cookies){
+		
+		//generate random validate code from API
 		var createCode = function(){
 			var code = "";
 			var codeLength = 6; 
@@ -16,17 +15,65 @@
 				var charNum = Math.floor(Math.random() * 52);
 				code += codeChars[charNum];
 			}
-			return code;
+			return {"code":code};
+		};
+		
+		//set cookie for app
+		var setCookie = function(data){
+			if($scope.isUseLongCookie){
+				//set long cookie
+				//TODO
+				//for 5 days
+				
+			}else{
+				//set normal cookie (session)
+				$cookies.putObject('cookieUserProfile', 
+					{
+						"userId":12, 
+						"sessionId":"9238849201"
+					}
+				);
+			}
 		};
 		
 		//refresh code
 		$scope.refreshCode = function(){
-			$scope.validateCode = createCode();
+			var codeObj = createCode();
+			$scope.userLoginInfo.code = codeObj.code;
+			$scope.userRegisterInfo.code = codeObj.code;
+		};
+		
+		//login
+		$scope.login = function(){
+			console.log("login", $scope.userLoginInfo);
+			//TODO
+			//记录是否使用cookie，如果使用，则不需要登陆界面
+			
+			//suppose success..data
+			setCookie(null);
+		};
+		
+		
+		//register
+		$scope.register = function(){
+			console.log("register", $scope.userRegisterInfo);
+			//TODO
+			//if use cookie?
+			
+			//suppose success..data..
+			setCookie(null);
 		};
 		
 		/**initialization**/
 		var init= function(){
-			$scope.validateCode = createCode();
+			//default collapse for 3rd party login
+			$scope.isCollapsed = true;
+			//use cookie to automatically login
+			$scope.isUseLongCookie = false;
+			$scope.userLoginInfo = {};
+			$scope.userRegisterInfo = {};
+			
+			$scope.refreshCode();
 		};
 		
 		//init

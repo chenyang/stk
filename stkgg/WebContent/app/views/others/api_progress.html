@@ -4,15 +4,69 @@
 			</button>
 				<label>API进展</label>
 				<p>
-					由于项目进度需要，目前把重点放在功能及接口上. 无美工和优化
+					由于项目进度需要，目前把重点放在功能及接口上. 无美工和优化 
 				</p>
 				
 				<br/><br/>
-				<label>各个API进展及数据结构定义</label>
+				<label>各个API进展及数据结构定义</label><span class="label label-warning">(service名称可由@jiangwei定义)</span>
 				<div class="well">
 					<label>登陆页</label>
-					<p>
-					</p>	
+						<div>
+							<span class="label label-default">验证码</span>，需要后台随机给出
+							<br>Request:
+							<br>GET http://123.57.210.176/login/getValidationCode 
+							<br>Response:
+							<pre>
+								{
+									"code":"pnY6M8"
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">登陆</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/login/login
+							<pre>
+								{
+									"login":("dellgcy",/"qq"/"cellphone" ):用户只搜索username, 但可以是手机，qq，或者自定义名称
+									"password":"toto"
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success" / "fail", 
+									"reason":"xxx" 各种原因可能fail， 如重复，验证码错误等
+									"userId":12 / null(如果fail)
+									"statusCode":"200" / 401 验证错误
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">注册</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/register
+							<pre>
+								{
+									"login":("dellgcy",/"qq"/"cellphone" ):用户可以用手机，qq，或者自定义名称登陆
+									"password":"toto"
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success" /"fail", 
+									"reason":"xxx" 各种原因可能fail， 如重复，验证码错误等
+									"statusCode":"200" /401 验证错误
+								}
+							</pre>
+						</div>
+						
+						<p>
+							<br><br><span class="label label-danger">第三方登陆(NOK, 需APPID, 暂时无法实现)</span>
+							<br><br><span class="label label-success">五天内免登陆：由cookie完成。如果登陆成功，记录userId，psw及username，后台也需要验证，但前台自动跳转到发现页</span>
+							<br><br><span class="label label-warning">无法登陆找回：  没有做</span>
+						</p>
 				</div>
 				
 				<div class="well">

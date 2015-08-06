@@ -82,19 +82,19 @@
 				$location.path("/buyCmt");
 			}else{
 				//check if tipId is already visited
-				var allVisitedTipId = $cookies.getObject('allVisitedTipId');
-				console.log(allVisitedTipId);
-				if(_.isEmpty($cookies.getObject('allVisitedTipId'))){
-					allVisitedTipId = [];
-					$cookies.putObject('allVisitedTipId', allVisitedTipId);
+				var cookieAllVisitedTipId = $cookies.getObject('cookieAllVisitedTipId');
+				console.log(cookieAllVisitedTipId);
+				if(_.isEmpty($cookies.getObject('cookieAllVisitedTipId'))){
+					cookieAllVisitedTipId = [];
+					$cookies.putObject('cookieAllVisitedTipId', cookieAllVisitedTipId);
 				};
-				if(_.contains(allVisitedTipId, item.tipId)){
+				if(_.contains(cookieAllVisitedTipId, item.tipId)){
 					alert('cookie 已经访问过 tipId '+item.tipId+", 直接进入相关timeline页");
 					$location.path("/stkAnal");
 				}else{
-					allVisitedTipId = $cookies.getObject('allVisitedTipId');
-					allVisitedTipId.push(item.tipId);
-					$cookies.putObject('allVisitedTipId', allVisitedTipId);
+					cookieAllVisitedTipId = $cookies.getObject('cookieAllVisitedTipId');
+					cookieAllVisitedTipId.push(item.tipId);
+					$cookies.putObject('cookieAllVisitedTipId', cookieAllVisitedTipId);
 					$location.path("/buyCmt");
 				}
 			}

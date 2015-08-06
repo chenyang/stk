@@ -43,13 +43,18 @@
 	 */
 	var app = angular.module('App', appDeps);
 	//Configure route provider, route controller and template url
-	app.config(['$routeProvider','Navigation', function($routeProvider, Navigation) {
+	app.config(['$httpProvider', '$routeProvider','Navigation', function($httpProvider, $routeProvider, Navigation) {
+		
+		$httpProvider.interceptors.push('myHttpInterceptor');
+		
 		var listeNavigation=Navigation;
 		_.each(listeNavigation, function(navigation){
 			$routeProvider.when(''+navigation.when, {templateUrl:navigation.templateUrl, controller:navigation.controller, view:navigation.view});
 			$routeProvider.otherwise({redirectTo:'/'});
 		});
+		
 	}]);
+	
 	
 })();
 

@@ -32,8 +32,8 @@
 			 ];
 		
 		$scope.goToCoverPage = function(item){
-			var allVisitedTipId = $cookies.getObject('allVisitedTipId');
-			if(_.contains(allVisitedTipId, item.tipId)){
+			var cookieAllVisitedTipId = $cookies.getObject('cookieAllVisitedTipId');
+			if(_.contains(cookieAllVisitedTipId, item.tipId)){
 				//bypass coverpage
 				alert('cookie 已经访问过 tipId '+item.tipId+", 直接进入相关timeline页");
 				$location.path("/stkAnal");

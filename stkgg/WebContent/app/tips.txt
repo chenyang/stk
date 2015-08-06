@@ -1,0 +1,6 @@
+cookies:
+
+- cookieUserProfile:obj
+
+- cookieAllVisitedTipId:obj
+

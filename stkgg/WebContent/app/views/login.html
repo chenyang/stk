@@ -4,13 +4,23 @@
 			<tab heading="账号登录">
 				<form class="well form-login">
 					<div class="form-group">
-						<input type="email" class="form-control" placeholder="账号/手机号">
+						<input type="text" class="form-control" placeholder="账号/手机号" ng-model="userLoginInfo.login" required>
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" placeholder="密码">
+						<input type="password" class="form-control" placeholder="密码" ng-model="userLoginInfo.password" required>
+					</div>
+					<div class="form-group validationCode">
+						<label>验证码：{{userLoginInfo.code}}</label>
+						<div ng-click="refreshCode()" class="btn btn-success">
+							<span>刷新</span>
+							<span class="glyphicon glyphicon-refresh"></span>
+						</div>
+						<div>
+							<input type="text" placeholder="请输入验证码" ng-model="userLoginInfo.inputCode" required>
+						</div>						
 					</div>
 					<div class="btn-group">
-						<button type="button" class="btn btn-danger"><b>登录</b></button>
+						<button type="submit" class="btn btn-danger" ng-click="login()"><b>登录</b></button>
 						<button ng-click="isCollapsed = !isCollapsed" type="button" class="btn btn-danger dropdown-toggle"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<span class="glyphicon glyphicon-menu-down"></span>
@@ -44,35 +54,35 @@
 		    <tab heading="注册">
 		    	<form class="well form-register">
 					<div class="form-group">
-						<input type="email" class="form-control" placeholder="账号/手机号">
+						<input type="text" class="form-control" placeholder="账号/手机号" ng-model="userRegisterInfo.login" required>
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" placeholder="输入密码">
+						<input type="password" class="form-control" placeholder="输入密码" ng-model="userRegisterInfo.password" required>
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" placeholder="确认密码">
+						<input type="password" class="form-control" placeholder="确认密码" ng-model="userRegisterInfo.passwordConfirm" required>
 					</div>
 					<div class="alert alert-danger" role="alert">
 						此功能需服务器端验证
 					</div>
 					<div class="form-group validationCode">
-						<label>验证码：{{validateCode}}</label>
+						<label>验证码：{{userRegisterInfo.code}}</label>
 						<div ng-click="refreshCode()" class="btn btn-success">
 							<span>刷新</span>
 							<span class="glyphicon glyphicon-refresh"></span>
 						</div>
 						<div>
-							<input type="text" placeholder="请输入验证码">
+							<input type="text" placeholder="请输入验证码" ng-model="userRegisterInfo.inputCode" required>
 						</div>						
 					</div>
-					<button type="button" class="btn btn-primary"><b>注册</b></button>
+					<button type="submit" class="btn btn-primary" ng-click="register()"><b>注册</b></button>
 				</form>
 		    </tab>
 		</tabset>
 		
 		 <div class="clearfix appendix">
 			<div class="pull-left"> 
-				<input type="checkbox"> 五天内免登录
+				<input type="checkbox" ng-model="isUseLongCookie"> 五天内免登录
 			</div>
 			<div class="pull-right">
 				<a href="">无法登录？</a>
