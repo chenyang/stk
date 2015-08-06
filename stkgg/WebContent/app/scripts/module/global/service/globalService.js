@@ -58,7 +58,10 @@
 			 
 			 //项目进展
 			 {  when:"/projectProgress",
-				templateUrl:"views/project_progress.html"
+				templateUrl:"views/others/project_progress.html"
+			 }, 
+			 {  when:"/apiProgress",
+				templateUrl:"views/others/api_progress.html"
 			 }	 
 			 ]);
 	

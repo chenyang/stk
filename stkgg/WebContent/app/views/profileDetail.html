@@ -5,29 +5,36 @@
 		 	<div class="form-group text-center">
 		   		 <img src="images/home/exp1.png" width="80px">
 			</div>
+			<div class="form-group text-center">	  		
+	  			<img src="images/user/vip.png" width="30px">	  		
+	  		</div>
 		  </li>
 		  <li class="list-group-item">
 	  		<div class="form-group">
-				<label>昵称：</label>GGG
+				<label>昵称：</label>
+				<span ng-show="!isModify">{{profileDetail.nickname}}</span>
+				<input ng-show="isModify" class="form-control" ng-model="profileDetail.nickname">
 			</div>
 		  </li>
 		   <li class="list-group-item">
 	  		<div class="form-group">
 			  	<label>个性签名</label>
-			  	<textarea class="form-control" rows="2" placeholder=""></textarea>
+			  	<span ng-show="!isModify">{{profileDetail.moto}}</span>
+			  	<textarea ng-show="isModify" ng-model="profileDetail.moto" class="form-control" rows="2" placeholder=""></textarea>
 		  	</div>
 		  </li>
 		  
 		   <li class="list-group-item">
 	  		 <div class="form-group">
 		  		<label>性别</label>
-			  	<div class="radio">
+		  		<span ng-show="!isModify">{{profileDetail.gender}}</span>
+			  	<div class="radio" ng-show="isModify">
 				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+				    <input type="radio" value="男" ng-model="profileDetail.gender">
 				    <span>男</span>
 				  </label>
 				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+				    <input type="radio" value="女" ng-model="profileDetail.gender">
 				    <span>女</span>
 				  </label>
 				</div>
@@ -35,18 +42,24 @@
 		  </li>
 		   <li class="list-group-item">
 	  		<div class="form-group">
-				<label>地区：</label> <input type="text" class="form-control">
+				<label>地区：</label> 
+				<span ng-show="!isModify">{{profileDetail.address}}</span>
+				<input type="text" ng-show="isModify" class="form-control" ng-model="profileDetail.address">
 			</div>
 		  </li>
 		  <li class="list-group-item">
 	  		<div class="form-group">
-				<label>生日：</label>	<input type="date" class="form-control">
+				<label>生日：</label>	
+				<span ng-show="!isModify">{{profileDetail.birthday|date:'yyyy-MM-dd'}}</span>
+				<div ng-show="isModify">
+					<input type="date" class="form-control" ng-model="profileDetail.birthday">
+				</div>
 			</div>
 		  </li>
 		   <li class="list-group-item">
 	  		<div class="form-group">
-				<button type="submit" class="btn btn-primary">修改</button>
-				也可不显示。 为展示用，修改按钮和用户细节放在一起
+				<button ng-show="!isModify" ng-click="isModify=!isModify" type="submit" class="btn btn-primary">修改</button>
+				<button ng-show="isModify" ng-click="save()" type="submit" class="btn btn-danger">保存</button>
 			</div>
 		  </li>
 		  
