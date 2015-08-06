@@ -21,16 +21,30 @@
 		//set cookie for app
 		var setCookie = function(data){
 			if($scope.isUseLongCookie){
-				//set long cookie
+				var today = new Date();
+				var someDay = new Date(today);
+				someDay.setDate(today.getDate()+5);
+				//set long cookie, n days
 				//TODO
-				//for 5 days
+				$cookies.putObject('cookieUserProfile', 
+					{
+						"userId":12, 
+						"tokenId":"9238849201", 
+						"extended":true //extended login
+					}, 
+					//$cookies settings
+					{
+						expires:someDay
+					}
+				);
 				
 			}else{
 				//set normal cookie (session)
 				$cookies.putObject('cookieUserProfile', 
 					{
 						"userId":12, 
-						"sessionId":"9238849201"
+						"tokenId":"9238849201",
+						"extended":false
 					}
 				);
 			}
@@ -47,8 +61,7 @@
 		$scope.login = function(){
 			console.log("login", $scope.userLoginInfo);
 			//TODO
-			//记录是否使用cookie，如果使用，则不需要登陆界面
-			
+						
 			//suppose success..data
 			setCookie(null);
 		};

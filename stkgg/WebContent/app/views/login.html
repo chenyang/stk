@@ -2,7 +2,7 @@
 	<div class="login-wrapper">
 		<tabset justified="true" type="pills" class="login">
 			<tab heading="账号登录">
-				<form class="well form-login">
+				<form class="well form-login" ng-submit="login()">
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="账号/手机号" ng-model="userLoginInfo.login" required>
 					</div>
@@ -20,7 +20,7 @@
 						</div>						
 					</div>
 					<div class="btn-group">
-						<button type="submit" class="btn btn-danger" ng-click="login()"><b>登录</b></button>
+						<button type="submit" class="btn btn-danger"><b>登录</b></button>
 						<button ng-click="isCollapsed = !isCollapsed" type="button" class="btn btn-danger dropdown-toggle"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<span class="glyphicon glyphicon-menu-down"></span>
@@ -52,7 +52,7 @@
 				</form>
 			</tab>
 		    <tab heading="注册">
-		    	<form class="well form-register">
+		    	<form class="well form-register" ng-submit="register()">
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="账号/手机号" ng-model="userRegisterInfo.login" required>
 					</div>
@@ -75,7 +75,7 @@
 							<input type="text" placeholder="请输入验证码" ng-model="userRegisterInfo.inputCode" required>
 						</div>						
 					</div>
-					<button type="submit" class="btn btn-primary" ng-click="register()"><b>注册</b></button>
+					<button type="submit" class="btn btn-primary"><b>注册</b></button>
 				</form>
 		    </tab>
 		</tabset>
