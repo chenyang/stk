@@ -13,7 +13,11 @@
 			</div>
 			
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 revenu-block-right">
-				<a href=""><span>投资理念</span> <span class="glyphicon glyphicon-pencil"></span></a>
+				<a href="">
+					<span ng-show="pubInfo.prediction==null" ng-click="openModal(pubInfo)" style="padding-right:2px">发布预测</span>
+					<span ng-show="pubInfo.prediction!=null" ng-click="openModal(pubInfo)" style="padding-right:2px">修改预测</span>
+					<span class="glyphicon glyphicon-pencil"></span>
+				</a>
 				<div>
 					<a href="">
 						<span popover="{{yucePopover.content}}" popover-placement="bottom">预测解释 <span class="glyphicon glyphicon-eye-open"></span> </span>
@@ -45,42 +49,41 @@
 		</div>
 		<div class="col-xs-9 col-md-9 col-md-10 col-lg-11">
 			<div class="title clearfix">
-				<span class="username"><b>股神007</b></span>
+				<span class="username"><b>{{pubInfo.owner}}</b></span>
 				<span class="pull-right glyphicon glyphicon-thumbs-up"><span>2,220</span></span>
 			</div>
 			<div class="content">
 				<p>
-					周一的市场仅小幅高开，便再次出现大跌，这就是我们所说的趋势的力量，在逼近4000点时，管理层表态，说明“政策底”已出，但“市场底”会滞后。周一大盘一度击破4000大关，跌到我们前期提示的调整极限3856-3886区域，随即止跌回升，收在4000之上。经过千点暴跌后，我们认为这波调整空间基本达到，虽然时间上还不够，但底部区域已初步显现。
+					{{pubInfo.desc}}
 				<p>
 			</div>
 		</div>
 	</div>
+	
 	<div class="row announcement-timeline">
-		<div ng-repeat="item in items"> <!-- ng-repeat -->
+		<div ng-repeat="item in pubInfo.tips"> <!-- ng-repeat -->
 			<div>
 				<span class="icon glyphicon glyphicon-volume-up"></span>
-				<span class="time">2015-06-08</span>
+				<span class="time">{{item.newsDate}}</span>
 			</div>
 			<div class="col-xs-12 col-md-12 col-md-12 col-lg-12 timeline-content-block">
 				<div class="content">
 					<p>
-						<b>融资荣券监控公告</b> 根据 周一的市场仅小幅高开，便再次出现大跌，这就是我们所说的趋势的力量
+						<b>{{item.newsTitle}}</b> 
+						<pre>
+							{{item.newsContent}}
+						</pre>
 					</p>
 					<p class="bg-info">最后<a href="#/history/tip/{{item.tipId}}">修改于</a>{{item.lastModifiedTime|date:'yyyy-MM-dd HH:mm'}}</p>
 				</div>
 				<div class="gushen-comment-block clearfix">
 					<div class="pull-left" ng-click="gotoProfile()"><img width="60%" src="images/home/gushen.png"></div>
 					<div class="clearfix">
-						<b>股神007</b>
-						<span ng-show="!item.bought" class="glyphicon glyphicon-lock" style="color:orange">未购买</span>
+						<b>{{pubInfo.owner}}</b>
 						<p>
 							<button class="btn btn-info btn-small" ng-click="pubDetail(item)">
-								<span ng-show="item.bought">访问Pub tip</span>
-								<span ng-show="!item.bought">购买Pub tip</span>
-							</button>
-							<button  ng-click="openModal(item)" class="btn btn-default">
-								<span ng-show="item.prediction==null" class="glyphicon glyphicon-piggy-bank" style="padding-right:2px">发布预测</span>
-								<span ng-show="item.prediction!=null" class="glyphicon glyphicon-wrench" style="padding-right:2px">修改预测</span>
+								<span ng-show="pubInfo.available">访问Pub tip</span>
+								<span ng-show="!pubInfo.available">购买Pub tip</span>
 							</button>
 							<button class="btn btn-danger btn-small" ng-click="modifyTip(item)">
 								<span ng-if="item.isModifyTip">保存修改</span>
@@ -99,7 +102,7 @@
 						<div class="pull-right">
 							<button class="btn btn-default btn-small" ng-click="item.isCollapsedShare=!item.isCollapsedShare">分享到朋友圈</button>
 							<button  ng-click="item.isCollapsedCmt = !item.isCollapsedCmt" class="btn btn-default"><span class="glyphicon glyphicon-comment" style="padding-right:2px"></span> 24</button>
-							<button class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up" style="padding-right:2px"></span> 234</button>
+							<!-- <button class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up" style="padding-right:2px"></span> 234</button> -->
 						</div>
 					</div>
 					<div collapse="item.isCollapsedCmt" class="user-comments">
