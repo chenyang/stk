@@ -1,7 +1,7 @@
-.history .tips .title, .preview .title{
+.history .tips .title, .prediction .title{
 	padding:8px;
 }
 
-.history .tips .content, .preview .content{
+.history .tips .content, .prediction .content{
 	padding:15px;
 }

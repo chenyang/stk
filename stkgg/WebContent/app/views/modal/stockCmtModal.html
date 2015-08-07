@@ -1,11 +1,11 @@
 <div class="stock-cmt-modal">
       <div class="modal-body">
-      	<div class="preview">
+      	<div class="prediction">
       		<div class="first-level-title">
     			<span class="glyphicon glyphicon-stats"></span>
     			<span>股价预测</span>
       		</div>
-      		<span class="bg-danger" ng-show="preview.lastModifiedTime!=null">最后<a ng-click="gotoHistoryPage(preview.userId)">修改于</a>{{preview.lastModifiedTime|date:'yyyy-MM-dd HH:mm:ss'}}</span>
+      		<span class="bg-danger" ng-show="prediction.lastModifiedTime!=null">最后<a ng-click="gotoHistoryPage(prediction.userId)">修改于</a>{{prediction.lastModifiedTime|date:'yyyy-MM-dd HH:mm:ss'}}</span>
       		
       		<div>
 	      		<div class="clearfix block-time">
@@ -13,27 +13,27 @@
 		               <div class="form-group">
 					  	<div class="radio">
 						  <label>
-						    <input type="radio" ng-model="preview.time" value="1" >
+						    <input type="radio" ng-model="prediction.time" value="1" >
 						    <span>1天</span>
 						  </label>
 						  <label>
-						    <input type="radio" ng-model="preview.time" value="7">
+						    <input type="radio" ng-model="prediction.time" value="7">
 						    <span>1周</span>
 						  </label>
 						   <label>
-						    <input type="radio" ng-model="preview.time" value="14">
+						    <input type="radio" ng-model="prediction.time" value="14">
 						    <span>2周</span>
 						  </label>
 						  <label>
-						    <input type="radio" ng-model="preview.time" value="30">
+						    <input type="radio" ng-model="prediction.time" value="30">
 						    <span>1月</span>
 						  </label>
 						   <label>
-						    <input type="radio" ng-model="preview.time" value="90">
+						    <input type="radio" ng-model="prediction.time" value="90">
 						    <span>3月</span>
 						  </label>
 						  <label>
-						    <input type="radio" ng-model="preview.time" value="180">
+						    <input type="radio" ng-model="prediction.time" value="180">
 						    <span>半年</span>
 						  </label> 
 						</div>
@@ -44,25 +44,25 @@
 		      		<p class="pull-left second-level-title">涨跌幅</p>
 		      		<div class="input-group pull-left compare-block">
 					  <span class="input-group-addon">最低</span>
-					  <input type="text" class="form-control" ng-model="preview.minVal">
+					  <input type="text" class="form-control" ng-model="prediction.minVal">
 					  <span class="input-group-addon">￥</span>
 					</div>
 					<span class="glyphicon glyphicon-menu-right pull-left sticker"></span>
 					<div class="input-group pull-left compare-block">
 					  <span class="input-group-addon">最高</span>
-					  <input type="text" class="form-control" ng-model="preview.maxVal">
+					  <input type="text" class="form-control" ng-model="prediction.maxVal">
 					  <span class="input-group-addon">￥</span>
 					</div>
 					
 		      		<div class="input-group pull-left compare-block">
 					  <span class="input-group-addon">最低</span>
-					  <input type="text" class="form-control" ng-model="preview.minPect">
+					  <input type="text" class="form-control" ng-model="prediction.minPect">
 					  <span class="input-group-addon">%</span>
 					</div>
 					<span class="glyphicon glyphicon-menu-right pull-left sticker"></span>
 					<div class="input-group pull-left compare-block">
 					  <span class="input-group-addon">最高</span>
-					  <input type="text" class="form-control" ng-model="preview.maxPect">
+					  <input type="text" class="form-control" ng-model="prediction.maxPect">
 					  <span class="input-group-addon">%</span>
 					</div>
 	      		</div>	
@@ -76,7 +76,7 @@
       		</div>
       		<div>
       			<div class="well">
-					<textarea class="form-control" rows="4" ng-model="preview.cmt"></textarea>
+					<textarea class="form-control" rows="4" ng-model="prediction.cmt"></textarea>
 				</div>
       		</div>
       	</div>

@@ -10,7 +10,7 @@
 		};
 
 		//查看我的预测
-		$scope.modifyMyPreview = function(){
+		$scope.modifyMyPrediction = function(){
 
 		};
 
@@ -25,7 +25,7 @@
 				 isCollapsedShare:true, 
 				 isCollapsedCmt:true,
 				 isModifyTip:false, 
-				 preview:null, 
+				 prediction:null, 
 				 bought:true //free or bought
 			 }, 
 			 {
@@ -36,7 +36,7 @@
 				 isCollapsedShare:true, 
 				 isCollapsedCmt:true,
 				 isModifyTip:false, 
-				 preview:{
+				 prediction:{
 					 time:7, 
 					 minVal:-2, 
 					 maxVal:3.5, 
@@ -55,7 +55,7 @@
 				 isCollapsedShare:true, 
 				 isCollapsedCmt:true,
 				 isModifyTip:false, 
-				 preview:{
+				 prediction:{
 					 time:1, 
 					 minVal:0.5, 
 					 maxVal:1.5, 
@@ -249,12 +249,12 @@
 				templateUrl: 'views/modal/stockCmtModal.html',
 				controller: 'StockCmtCtrl',
 				resolve: {
-					preview: function () {
-						var preview = item.preview;
-						if(!_.isEmpty(preview)){
-							preview.userId = item.userId;
+					prediction: function () {
+						var prediction = item.prediction;
+						if(!_.isEmpty(prediction)){
+							prediction.userId = item.userId;
 						}
-						return preview;
+						return prediction;
 					}
 				}
 			});

@@ -79,8 +79,8 @@
 								<span ng-show="!item.bought">购买Pub tip</span>
 							</button>
 							<button  ng-click="openModal(item)" class="btn btn-default">
-								<span ng-show="item.preview==null" class="glyphicon glyphicon-piggy-bank" style="padding-right:2px">发布预测</span>
-								<span ng-show="item.preview!=null" class="glyphicon glyphicon-wrench" style="padding-right:2px">修改预测</span>
+								<span ng-show="item.prediction==null" class="glyphicon glyphicon-piggy-bank" style="padding-right:2px">发布预测</span>
+								<span ng-show="item.prediction!=null" class="glyphicon glyphicon-wrench" style="padding-right:2px">修改预测</span>
 							</button>
 							<button class="btn btn-danger btn-small" ng-click="modifyTip(item)">
 								<span ng-if="item.isModifyTip">保存修改</span>

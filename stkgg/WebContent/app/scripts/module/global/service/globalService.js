@@ -28,8 +28,8 @@
 			 {  when:"/history/tip/:tipId", 
 				 templateUrl:"views/historyTip.html"
 			 }, 
-			 {  when:"/history/preview/:tipId", 
-				 templateUrl:"views/historyPreview.html"
+			 {  when:"/history/prediction/:tipId", 
+				 templateUrl:"views/historyPrediction.html"
 			 }, 
 			 {  when:"/myProfile", 
 				 templateUrl:"views/myProfile.html"

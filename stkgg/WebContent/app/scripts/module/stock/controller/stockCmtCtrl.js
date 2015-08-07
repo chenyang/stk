@@ -1,25 +1,25 @@
 (function(){
 	'use strict';
 	var mod = angular.module('stock.controller');
-	mod.controller("StockCmtCtrl", ['$scope', '$modalInstance', 'preview','$location',
-	                                function($scope, $modalInstance, preview, $location){
+	mod.controller("StockCmtCtrl", ['$scope', '$modalInstance', 'prediction','$location',
+	                                function($scope, $modalInstance, prediction, $location){
 
 		//items who will pass to service
-		$scope.preview = preview;
+		$scope.prediction = prediction;
 		
 		//TODO
 		//pass to service "ADD"
 		
 		$scope.gotoHistoryPage = function(userId){
 			$modalInstance.dismiss('cancel');
-			$location.path("/history/preview/"+userId);
+			$location.path("/history/prediction/"+userId);
 		};
 		
 		$scope.save = function(){
-			if($scope.preview==null){
-				$scope.preview={};
+			if($scope.prediction==null){
+				$scope.prediction={};
 			}
-			$scope.preview.lastModifiedTime = new Date();
+			$scope.prediction.lastModifiedTime = new Date();
 		};
 		
 		/*$scope.ok = function () {

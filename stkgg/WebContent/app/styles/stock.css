@@ -106,14 +106,14 @@
 .stock-cmt-modal .second-level-title .time{
 	margin-right:12px;
 }
-.stock-cmt-modal .preview .sticker{
+.stock-cmt-modal .prediction .sticker{
 	padding:10px 2px;
 }
-.stock-cmt-modal .preview .compare-block{
+.stock-cmt-modal .prediction .compare-block{
 	width:35%;
 	padding-bottom:10px;
 }
-.stock-cmt-modal .preview .compare-block span{
+.stock-cmt-modal .prediction .compare-block span{
 	padding:3px;
 	font-size:10px;
 	background-color:#fff;

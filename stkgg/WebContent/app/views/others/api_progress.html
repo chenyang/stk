@@ -253,7 +253,7 @@
 							<br>Request:
 							<br>POST http://123.57.210.176/upload/img
 							<pre>
-								...
+								<span class="label label-warning">没有做...</span>
 							</pre>
 						</div>
 						<div>
@@ -290,7 +290,53 @@
 				</div>
 				<div class="well">
 					<label>预测发布页</label>
-					<p>	
+					<p>
+							<div>
+							<span class="label label-default">预测发布</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/prediction/add
+							<pre>
+								{
+									"sessionId":"IUWID987398OSI" //关联用户
+									"stockCode":"06160", 
+									"type":1, //商品类型 1 股票
+									"imageUrl": null(预设), /"../images/pub1.png" （没做）
+									"desc":"一段描述", 
+									"price":0, //1, 5, 10, 0: 1元/周
+									"pubName":"孤注一掷"
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"//功能上的
+									"reason": null / "错误原因"
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">预测修改</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/prediction/edit
+							<pre>
+								{
+									"sessionId":"IUWID987398OSI" //关联用户
+									"stockCode":"06160", 
+									"type":1, //商品类型 1 股票
+									"imageUrl": null(预设), /"../images/pub1.png" （没做）
+									"desc":"一段描述", 
+									"price":0, //1, 5, 10, 0: 1元/周
+									"pubName":"孤注一掷"
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"//功能上的
+									"reason": null / "错误原因"
+								}
+							</pre>
+						</div>
 					</p>	
 				</div>
 				<div class="well">
