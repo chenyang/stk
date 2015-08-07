@@ -22,8 +22,8 @@
 			 {  when:"/createPub", 
 				 templateUrl:"views/createPub.html"
 			 },
-			 {  when:"/trendFollow", 
-				 templateUrl:"views/trendFollow.html"
+			 {  when:"/feed", 
+				 templateUrl:"views/feed.html"
 			 }, 
 			 {  when:"/history/tip/:tipId", 
 				 templateUrl:"views/historyTip.html"
