@@ -5,16 +5,34 @@
 				<label>API进展</label>
 				<p>
 					由于项目进度需要，目前把重点放在功能及接口上. 无美工和优化 
+					<br><br><span class="label label-info">token验证先放一放</span>  <span class="label label-warning">(service名称可由@jiangwei定义)</span>
 				</p>
 				
 				<br/><br/>
-				<label>各个API进展及数据结构定义</label><span class="label label-warning">(service名称可由@jiangwei定义)</span>
+				<label>各个API进展及数据结构定义</label>
 				<div class="well">
 					<label>登陆页</label>
 						<div>
-							<span class="label label-default">验证码</span>，需要后台随机给出
+							<span class="label label-default">手机号验证</span>，
 							<br>Request:
-							<br>GET http://123.57.210.176/login/getValidationCode 
+							<br>POST http://123.57.210.176/util/checkphone
+							<pre>
+								{
+									"cellphone":"1367xxx88xx"
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success" / "fail", //功能上的
+									"reason":null / "错误原因"
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">获取验证码</span>，需要后台随机给出
+							<br>Request:
+							<br>GET http://123.57.210.176/util/getcapcha
 							<br>Response:
 							<pre>
 								{
@@ -23,45 +41,96 @@
 							</pre>
 						</div>
 						<div>
-							<span class="label label-default">登陆</span>
+							<span class="label label-default">发送短信激活码</span>
 							<br>Request:
-							<br>POST http://123.57.210.176/login/login
+							<br>POST http://123.57.210.176/util/sendcode
 							<pre>
 								{
-									"login":("dellgcy",/"qq"/"cellphone" ):用户只搜索username, 但可以是手机，qq，或者自定义名称
+									"cellphone":"1367xxx88xx"
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"//功能上的
+									"reason": null / "错误原因"
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">登陆</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/member/login
+							<pre>
+								{
+									"login":("dellgcy",/"qq"/"cellphone" ):用户只搜索username, 但可以是手机，qq，或者自定义名称. 
+									手机号验证可能是后台/util/checkphone
 									"password":"toto"
 								}
 							</pre>
 							<br>Response:
 							<pre>
 								{
-									"result":"success" / "fail", 
-									"reason":"xxx" 各种原因可能fail， 如重复，验证码错误等
-									"userId":12 / null(如果fail)
-									"statusCode":"200" / 401 验证错误
+									"result":"success" / "fail", //功能上的
+									"reason": null / "错误原因",
+									"sessionId":"IUWID987398OSI" / null(如果fail)
 								}
 							</pre>
 						</div>
 						<div>
 							<span class="label label-default">注册</span>
 							<br>Request:
-							<br>POST http://123.57.210.176/register
+							<br>POST http://123.57.210.176/member/reg
 							<pre>
 								{
-									"login":("dellgcy",/"qq"/"cellphone" ):用户可以用手机，qq，或者自定义名称登陆
+									"login":("dellgcy",/"qq"/"cellphone" ):用户可以用手机，qq，或者自定义名称登陆,
 									"password":"toto"
+									"code":"PN7YIS8I" (短信注册码)
 								}
 							</pre>
 							<br>Response:
 							<pre>
 								{
-									"result":"success" /"fail", 
-									"reason":"xxx" 各种原因可能fail， 如重复，验证码错误等
-									"statusCode":"200" /401 验证错误
+									"result":"success" /"fail", //功能上的
+									"reason": null / "错误原因", 
+									"sessionId":"IUWID987398OSI" / null(如果fail)
 								}
 							</pre>
 						</div>
-						
+						<div>
+							<span class="label label-default">登出</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/member/logout
+							<pre>
+								{
+									"sessionId":"IUWID987398OSI" / null(如果fail)
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success" / "fail", //功能上的
+									"reason": null / "错误原因"
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">找回密码</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/member/findpwd
+							<pre>
+								...
+							</pre>
+						</div>
+						<div>
+						<div>
+							<span class="label label-default">重置密码</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/member/resetpwd
+							<pre>
+								...
+							</pre>
+						</div>
 						<p>
 							<br><br><span class="label label-danger">第三方登陆(NOK, 需APPID, 暂时无法实现)</span>
 							<br><br><span class="label label-success">五天内免登陆：由cookie完成。如果登陆成功，记录user信息，前台自动跳转到发现页</span>
@@ -71,12 +140,146 @@
 				
 				<div class="well">
 					<label>发现页</label>
+						<div>
+							<span class="label label-default">搜索</span>，<span class="label label-info">临时不考虑分页</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/util/search
+							<pre>
+								{
+									"sessionId":"IUWID987398OSI" //关联用户, 
+									"keyword":"中国重车 06160" //可随意关键词
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success" / "fail", //功能上的
+									"reason":null / "错误原因（功能上）"
+									"pubs":[
+										{
+											"pubId":12, 
+											"available":true //根据用户信息+pub信息 ，是否可看， 如免费，非免费但付款，非免费未付款
+											"pubName":"孤注一掷", 
+											"likes":3890, //总体点赞 
+											"desc":"maybeza", 
+											"stats":"138",// -24 盈利率 
+											"owner":"小巴" 
+										}, 
+										{	
+											"pubId":5, 
+											"available":false
+											"pubName":"孤注一掷", 
+											"likes":3890, //总体点赞 
+											"desc":"maybeza", 
+											"stats":"138",// -24 盈利率 
+											"owner":"小强"
+										}
+									]
+									
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">pub 列表</span>，<span class="label label-info">临时不考虑分页</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/util/pubs 
+							<pre>
+								{
+									"sessionId":"IUWID987398OSI" //关联用户  根据用户信息 推荐显示pubs
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success" / "fail", //功能上的
+									"reason":null / "错误原因（功能上）"
+									"pubs":[
+										{
+											"pubId":12, 
+											"available":true //根据用户信息+pub信息 ，是否可看， 如免费，非免费但付款，非免费未付款
+											"pubName":"孤注一掷", 
+											"likes":3890, //总体点赞 
+											"desc":"maybeza", 
+											"stats":"138",// -24 盈利率 
+											"owner":"小巴" 
+										}, 
+										{	
+											"pubId":5, 
+											"available":false
+											"pubName":"孤注一掷", 
+											"likes":3890, //总体点赞 
+											"desc":"maybeza", 
+											"stats":"138",// -24 盈利率 
+											"owner":"小强"
+										}
+									]
+									
+								}
+							</pre>
+						</div>
 					<p>
 					</p>
 				</div>
 				
 				<div class="well">
 					<label>创建新Pub页</label>
+						<div>
+							<span class="label label-default">股票下拉列表</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/stocks
+							<pre>
+								{
+									"keyword":"中国重车" //关键词
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"stocks":[
+										{
+											"name":"中国石油",
+											"code":"06160" 
+										},
+										{
+											"name":"中国石油",
+											"code":"06160" 
+										}
+									]
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">上传图片</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/upload/img
+							<pre>
+								...
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">发布pubs</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/pubs
+							<pre>
+								{
+									"sessionId":"IUWID987398OSI" //关联用户
+									"stockCode":"06160", 
+									"type":1, //商品类型 1 股票
+									"imageUrl": null(预设), /"../images/pub1.png" （没做）
+									"desc":"一段描述", 
+									"price":0, //1, 5, 10, 0: 1元/周
+									"pubName":"孤注一掷"
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"//功能上的
+									"reason": null / "错误原因"
+								}
+							</pre>
+						</div>
+					
 					<p>
 					</p>	
 				</div>
