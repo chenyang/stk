@@ -36,7 +36,9 @@
 							<br>Response:
 							<pre>
 								{
-									"code":"pnY6M8"
+									"result":"success", 
+									"reason":null, 
+									"capcha":"PU6OTX8U"
 								}
 							</pre>
 						</div>
@@ -65,7 +67,8 @@
 								{
 									"login":("dellgcy",/"qq"/"cellphone" ):用户只搜索username, 但可以是手机，qq，或者自定义名称. 
 									手机号验证可能是后台/util/checkphone
-									"password":"toto"
+									"password":"toto", 
+									"capcha":"PNRY88"（随机验证码）
 								}
 							</pre>
 							<br>Response:
@@ -85,7 +88,7 @@
 								{
 									"login":("dellgcy",/"qq"/"cellphone" ):用户可以用手机，qq，或者自定义名称登陆,
 									"password":"toto"
-									"code":"PN7YIS8I" (短信注册码)
+									"code":"PN7YIS8I" (短信激活码)
 								}
 							</pre>
 							<br>Response:
@@ -234,6 +237,8 @@
 							<br>Response:
 							<pre>
 								{
+									"result":"success", 
+									"reason":null, 
 									"stocks":[
 										{
 											"name":"中国石油",
@@ -300,6 +305,8 @@
 							<br>Response:
 							<pre>
 								{
+									"result":"success", 
+									"reason":null, 
 									sessionId:"IUWID987398OSI", //关联用户
 									pubId:15, //关联pub, 
 									stockId:123, //关联 stock

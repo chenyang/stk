@@ -48,7 +48,8 @@
 }
 
 .login .validationCode .btn{
-	padding:0 5px;
+	padding:2px 5px;
+	margin-bottom:5px;
 }
 .login .validationCode input{
 	height:40px;

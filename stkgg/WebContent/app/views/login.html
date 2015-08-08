@@ -10,15 +10,16 @@
 						<input type="password" class="form-control" placeholder="密码" ng-model="userLoginInfo.password" required>
 					</div>
 					<div class="form-group validationCode">
-						<label>验证码：{{userLoginInfo.code}}</label>
-						<div ng-click="refreshCode()" class="btn btn-success">
+						<label>验证码：{{userLoginInfo.capcha}}</label>
+						<div ng-click="refreshCapcha()" class="btn btn-success">
 							<span>刷新</span>
 							<span class="glyphicon glyphicon-refresh"></span>
 						</div>
 						<div>
-							<input type="text" placeholder="请输入验证码" ng-model="userLoginInfo.inputCode" required>
-						</div>						
+							<input type="text" placeholder="请输入验证码" ng-model="userLoginInfo.inputCapcha" required>
+						</div>		 			
 					</div>
+					
 					<div class="btn-group">
 						<button type="submit" class="btn btn-danger"><b>登录</b></button>
 						<button ng-click="isCollapsed = !isCollapsed" type="button" class="btn btn-danger dropdown-toggle"
@@ -54,7 +55,7 @@
 		    <tab heading="注册">
 		    	<form class="well form-register" ng-submit="register()">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="账号/手机号" ng-model="userRegisterInfo.login" required>
+						<input type="text" class="form-control" placeholder="请输入手机号" ng-model="userRegisterInfo.login" required>
 					</div>
 					<div class="form-group">
 						<input type="password" class="form-control" placeholder="输入密码" ng-model="userRegisterInfo.password" required>
@@ -62,17 +63,16 @@
 					<div class="form-group">
 						<input type="password" class="form-control" placeholder="确认密码" ng-model="userRegisterInfo.passwordConfirm" required>
 					</div>
-					<div class="alert alert-danger" role="alert">
+					<!-- <div class="alert alert-danger" role="alert">
 						此功能需服务器端验证
-					</div>
+					</div> -->
 					<div class="form-group validationCode">
-						<label>验证码：{{userRegisterInfo.code}}</label>
-						<div ng-click="refreshCode()" class="btn btn-success">
-							<span>刷新</span>
+						<div ng-click="sendCode()" class="btn btn-success">
+							<span>发送短信验证到手机</span>
 							<span class="glyphicon glyphicon-refresh"></span>
 						</div>
 						<div>
-							<input type="text" placeholder="请输入验证码" ng-model="userRegisterInfo.inputCode" required>
+							<input type="text" placeholder="请输入手机验证码" ng-model="userRegisterInfo.inputCode" required>
 						</div>						
 					</div>
 					<button type="submit" class="btn btn-primary"><b>注册</b></button>
