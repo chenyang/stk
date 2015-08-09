@@ -86,7 +86,12 @@
 		};
 		
 		$scope.goToCreatePub = function(){
-			$location.path("/createPub");
+			var sessionId = $cookies.getObject('cookieUserProfile').sessionId;
+			if(_.isEmpty(sessionId)){
+				alert('请注册才可发布pub');
+			}else{
+				$location.path("/createPub");
+			}			
 		};
 		
 		

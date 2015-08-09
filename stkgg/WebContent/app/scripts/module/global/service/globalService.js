@@ -13,6 +13,9 @@
 			 {  when:"/stkAnal", 
 				 templateUrl:"views/stockAnalysis.html"
 			 }, 
+			 {  when:"/stkAnal/:pubId", 
+				 templateUrl:"views/stockAnalysis.html"
+			 }, 
 			 {  when:"/buyPub", 
 				 templateUrl:"views/buyPub.html"
 			 }, 
@@ -115,7 +118,7 @@
 				//创建新PUB页
 					SEARCHSTOCK:'/stkgg/app/mockData/createPub/stocks.json',
 					UPLOADIMG: '/stkgg/app/mockData/createPub/img.json', 
-					POSTPUB:'/stkgg/app/mockData/createPub/pubs.json',
+					POSTPUB:'/stkgg/app/mockData/createPub/postpubs.json',
 				//Timeline页
 					TIMELINEPUBS:'/stkgg/app/mockData/timeline/timeline.json', 
 				//预测发布

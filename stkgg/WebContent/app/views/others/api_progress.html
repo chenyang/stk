@@ -166,7 +166,8 @@
 											"desc":"maybeza", 
 											"stats":"138",// -24 盈利率 
 											"owner":"小巴", 
-											"imgUrl":"images/toto.png" //图像地址
+											"imgUrl":"images/toto.png", //图像地址， 
+											"lastUpdate":"2015-06-07 11:58" //最近一次更新时间
 										}, 
 										{	
 											"pubId":5, 
@@ -176,7 +177,8 @@
 											"desc":"maybeza", 
 											"stats":"138",// -24 盈利率 
 											"owner":"小强", 
-											"imgUrl":"images/toto.png" //图像地址
+											"imgUrl":"images/toto.png", //图像地址
+											"lastUpdate":"2015-06-07 11:58"
 										}
 									]
 									
@@ -184,7 +186,7 @@
 							</pre>
 						</div>
 						<div>
-							<span class="label label-default">pub 列表（未搜索时自动推荐）</span>，<span class="label label-info">临时不考虑分页</span>
+							<span class="label label-default">pub 列表（未搜索时自动推荐）</span>，<span class="label label-info">临时不考虑分页, 按时间更新顺序排列</span>
 							<br>Request:
 							<br>POST http://123.57.210.176/util/pubs 
 							<pre>
@@ -285,7 +287,15 @@
 							<pre>
 								{
 									"result":"success", / "fail"//功能上的
-									"reason": null / "错误原因"
+									"reason": null / "错误原因", 
+									"pubId":12, //新建的
+									"sessionId":"IUWID987398OSI" //关联用户
+									"stockId":12329, 
+									"type":1, //商品类型 1 股票
+									"imageUrl": "../images/pub1.png"// 图片地址
+									"desc":"一段描述", 
+									"price":0, //1, 5, 10, 0: 1元/周
+									"pubName":"孤注一掷"
 								}
 							</pre>
 						</div>
