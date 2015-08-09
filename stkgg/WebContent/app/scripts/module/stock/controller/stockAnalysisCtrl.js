@@ -11,7 +11,7 @@
 		
 		$scope.pubInfo = {
 				sessionId:"IUWID987398OSI", //关联用户
-				pubId:15, //关联pub, 
+				pubId:1, //关联pub, 
 				stockId:123, //关联 stock
 				stockName: "中石油",
 				stockCode: "06160",
@@ -81,27 +81,27 @@
 			}
 		};
 
-		$scope.pubDetail = function(item){
-			item.available = $scope.pubInfo.available;
+		$scope.visitOrBuyPub = function(tip){
+			tip.available = $scope.pubInfo.available;
 			//not yet bought
-			if(!item.available){
-				$location.path("/buyCmt");
+			if(!tip.available){
+				$location.path("/buyPub");
 			}else{
-				//check if tipId is already visited
-				var cookieAllVisitedTipId = $cookies.getObject('cookieAllVisitedTipId');
-				console.log(cookieAllVisitedTipId);
-				if(_.isEmpty($cookies.getObject('cookieAllVisitedTipId'))){
-					cookieAllVisitedTipId = [];
-					$cookies.putObject('cookieAllVisitedTipId', cookieAllVisitedTipId);
+				//check if pubId is already visited
+				var cookieAllVisitedPubId = $cookies.getObject('cookieAllVisitedPubId');
+				console.log(cookieAllVisitedPubId);
+				if(_.isEmpty($cookies.getObject('cookieAllVisitedPubId'))){
+					cookieAllVisitedPubId = [];
+					$cookies.putObject('cookieAllVisitedPubId', cookieAllVisitedPubId);
 				};
-				if(_.contains(cookieAllVisitedTipId, item.tipId)){
-					alert('cookie 已经访问过 tipId '+item.tipId+", 直接进入相关timeline页");
+				if(_.contains(cookieAllVisitedPubId, $scope.pubInfo.pubId)){
+					alert('cookie 已经访问过 PubId '+$scope.pubInfo.pubId+", 直接进入相关timeline页");
 					$location.path("/stkAnal");
 				}else{
-					cookieAllVisitedTipId = $cookies.getObject('cookieAllVisitedTipId');
-					cookieAllVisitedTipId.push(item.tipId);
-					$cookies.putObject('cookieAllVisitedTipId', cookieAllVisitedTipId);
-					$location.path("/buyCmt");
+					cookieAllVisitedPubId = $cookies.getObject('cookieAllVisitedPubId');
+					cookieAllVisitedPubId.push($scope.pubInfo.pubId);
+					$cookies.putObject('cookieAllVisitedPubId', cookieAllVisitedPubId);
+					$location.path("/buyPub");
 				}
 			}
 

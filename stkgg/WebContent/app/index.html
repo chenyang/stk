@@ -9,7 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="styles/reset.css" />
 		<link rel="stylesheet" type="text/css" href="styles/header_footer.css" />
 		<link rel="stylesheet" type="text/css" href="styles/homePage.css" />
-		<link rel="stylesheet" type="text/css" href="styles/buyCmt.css" />
+		<link rel="stylesheet" type="text/css" href="styles/buyPub.css" />
 		<link rel="stylesheet" type="text/css" href="styles/stock.css" />
 		<link rel="stylesheet" type="text/css" href="styles/login.css" />
 		<link rel="stylesheet" type="text/css" href="styles/history.css" />
@@ -42,11 +42,11 @@
 		<script src="scripts/module/user/controller/myPubCtrl.js"></script>
 		<script src="scripts/module/user/controller/myApplyCtrl.js"></script>
 		<script src="scripts/module/user/controller/profileDetailCtrl.js"></script>
-		<script src="scripts/module/stock/controller/buyPubCtrl.js"></script>
+		<script src="scripts/module/stock/controller/paymentCtrl.js"></script>
 		<script src="scripts/module/stock/controller/homePageCtrl.js"></script>
 		<script src="scripts/module/stock/controller/stockAnalysisCtrl.js"></script>
 		<script src="scripts/module/stock/controller/stockCmtCtrl.js"></script>
-		<script src="scripts/module/stock/controller/buyCmtCtrl.js"></script>
+		<script src="scripts/module/stock/controller/buyPubCtrl.js"></script>
 		<script src="scripts/module/stock/controller/createPubCtrl.js"></script>
 		<script src="scripts/module/stock/controller/historyCtrl.js"></script>
 		<script src="scripts/module/stock/controller/feedCtrl.js"></script>
@@ -89,7 +89,7 @@
 		      	<li><a href="#/">发现页</a></li>
 		      	<li><a href="#/login">登陆页</a></li>
 		        <li><a href="#/stkAnal">Timeline页面 (+预测发布)</a></li>
-		        <li><a href="#/buyCmt">CoverPage页面</a></li>
+		        <li><a href="#/buyPub">CoverPage页面</a></li>
 		        <li class="dropdown">
 		          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 		          		简单页面<span class="caret"></span>
@@ -103,7 +103,7 @@
 		             <li><a href="#/buyPub">支付</a></li>
 		          </ul>
 		        </li><!-- /.dropdown -->
-		        <li><a href=""><button ng-click="logout()" class="btn btn-small btn-danger" style="padding:2px 4px; font-size:10px">清空cookie/登出</button></a></li>
+		        <li><a href=""><button ng-click="logout()" class="btn btn-small btn-danger " style="padding:2px 4px; font-size:10px">清空cookie</button></a></li>
 		        
 		      </ul>
 		      <!-- Right side navbar components -->
@@ -114,6 +114,24 @@
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
+		
+		<!-- 
+			App Header
+		 -->
+		 <div class="container-fluid">
+		 	<div class="app-header row" ng-show="showAppHeader">
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  text-left">
+					<button type="button" class="btn btn-default" aria-hidden="true" ng-click="refreshPage()">刷新 <span class="icon glyphicon glyphicon-refresh"></span></button>
+				</div>
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  text-center">
+					<span class="title" aria-hidden="true">APP-HEADER (TODO)</span>
+				</div>
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+					<button type="button" class="btn btn-default" aria-hidden="true" ng-click="logout()">登出 <span class="icon glyphicon glyphicon-log-out"></span></button>
+				</div> 
+				
+			</div>
+		 </div>
 		
 		<!-- Single page App -->
 		<div class="body-content" ng-view></div>

@@ -1,37 +1,37 @@
-.buyCmt-block .user-star{
+.buyPub-block .user-star{
 	font-size:8px;
 	color:blue;
 	margin-top:3px;
 }
-.buyCmt-block .outline{
+.buyPub-block .outline{
 	border-bottom:1px solid #ccc;
 }
-.buyCmt-block .user-comments{
+.buyPub-block .user-comments{
 	font-size:8px;
 	padding:5px;
 	border-bottom:1px solid #ccc;
 }
-.buyCmt-block .report{
+.buyPub-block .report{
 	font-size:10px;
 	padding:15px;
 	margin:15px;
 	border-bottom:1px solid #ccc;
 }
 
-.buyCmt-buy-resume span{
+.buyPub-buy-resume span{
 	font-size:10px;
 }
-.buyCmt-buy-resume div{
+.buyPub-buy-resume div{
 	color:red;
 	font-weight:700;
 	font-size:28px;
 }
 
-.buyCmt-buy-action .btn{
+.buyPub-buy-action .btn{
 	padding:2px 5px;
 	font-size:12px;
 }
-.buyCmt-buy-action span{
+.buyPub-buy-action span{
 	font-size:10px;
 }
 

@@ -2,5 +2,5 @@ cookies:
 
 - cookieUserProfile:obj
 
-- cookieAllVisitedTipId:obj
+- cookieAllVisitedPubId:obj
 

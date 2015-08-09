@@ -13,8 +13,11 @@
 			 {  when:"/stkAnal", 
 				 templateUrl:"views/stockAnalysis.html"
 			 }, 
-			 {  when:"/buyCmt", 
-				 templateUrl:"views/buyCmt.html"
+			 {  when:"/buyPub", 
+				 templateUrl:"views/buyPub.html"
+			 }, 
+			 {  when:"/buyPub/:pubId", 
+				 templateUrl:"views/buyPub.html"
 			 }, 
 			 {  when:"/login", 
 				 templateUrl:"views/login.html"
@@ -49,8 +52,8 @@
 			 {  when:"/profileDetail", 
 				 templateUrl:"views/profileDetail.html"
 			 }, 
-			 {  when:"/buyPub",
-					templateUrl:"views/buyPub.html"
+			 {  when:"/payment",
+					templateUrl:"views/payment.html"
 				 },
 			 {  when:"/register",
 				templateUrl:"views/register.html"

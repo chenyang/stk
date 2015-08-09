@@ -6,8 +6,7 @@
 .app-home-search .upload-image-block .btn{
     -moz-box-shadow: 0 0 6px -1px #999;
     -webkit-box-shadow: 0 0 6px -1px #999;
-	font-size:25px;
-	padding:0px 5px;
+	font-size:14px;
 	border-color:transparent;
 }
 
@@ -35,7 +34,6 @@
 /*responsive desing*/
 @media all and (max-width:600px){
 	.app-home-search .upload-image-block{
-		right:10px;
-		bottom:2px
+		right:25px;
 	}
 }

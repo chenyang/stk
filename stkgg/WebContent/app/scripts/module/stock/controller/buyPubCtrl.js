@@ -1,12 +1,32 @@
 (function(){
 	'use strict';
 	var mod = angular.module('stock.controller');
-	mod.controller("BuyPubCtrl", ['$scope', function($scope){
-		//default collapse is true for 3rd party login
-		//$scope.isCollapsed = true;
+	mod.controller("BuyPubCtrl", ['$scope', '$location',
+	                              function($scope, $location){
+		$scope.payment = function(){
+			$location.path("/payment");
+		};
+		//default is true
+		$scope.isCollapseCmt = true;
+		$scope.isCollapseReport = true;
 		
+		$scope.userComments = [
+		                       {
+		                    	   "username":"user1", 
+		                    	   "comment":"不错， 赞一个", 
+		                    	   "time":"2015-06-10-19:18"
+		                       }, 
+		                       {
+		                    	   "username":"user2", 
+		                    	   "comment":"评论挺详实的",
+		                    	   "time":"2015-06-10-19:18"
+		                       },
+		                       {
+		                    	   "username":"user3", 
+		                    	   "comment":"股神啊，强烈推荐！",
+		                    	   "time":"2015-06-10-19:18"
+		                       }
+		                       ];
 		
-
 	}]);
-
 })();

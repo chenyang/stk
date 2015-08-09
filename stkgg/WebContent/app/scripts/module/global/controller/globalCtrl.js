@@ -18,7 +18,7 @@
 					})
 					.then(function(res){
 						if(res.data.result=="success"){
-							clearAllCookies();
+							$cookies.remove('cookieUserProfile');//仅仅删除user的cookie
 							$location.path("/login");
 						}else{
 							alert(res.data.reason);
@@ -29,7 +29,7 @@
 			}
 		};
 		
-		var clearAllCookies = function(){
+		$scope.clearAllCookies = function(){
 			var allCookies = $cookies.getAll();
 			_.each(_.allKeys(allCookies), function(c){
 				$cookies.remove(c);
@@ -52,6 +52,12 @@
 		//随时监测用户cookie是否可用
 		$scope.$on('$routeChangeStart', function(next, current){
 			checkLogin();
+			//根据页面 决定显示与否 appHeader
+			if($location.path().indexOf('login')!=-1){
+				$scope.showAppHeader = false;
+			}else{
+				$scope.showAppHeader = true;
+			}
 		});
 		
 		//validate user profile
@@ -63,6 +69,7 @@
 		
 		//init
 		var init = function(){
+			$scope.showAppHeader = false;
 			checkLogin();
 		};
 		
