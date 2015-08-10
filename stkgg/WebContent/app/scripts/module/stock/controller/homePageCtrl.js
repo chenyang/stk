@@ -78,7 +78,7 @@
 				if(_.contains(cookieAllVisitedPubId, pub.pubId)){
 					//bypass coverpage
 					alert('cookie 已经访问过 PubId '+pub.pubId+", 直接进入相关timeline页");
-					$location.path("/stkAnal");
+					$location.path("/stkAnal/"+pub.pubId);
 				}else{
 					$location.path("/buyPub/"+pub.pubId);
 				}

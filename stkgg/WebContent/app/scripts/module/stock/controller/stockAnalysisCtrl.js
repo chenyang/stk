@@ -76,9 +76,10 @@
 
 		$scope.visitOrBuyPub = function(tip){
 			tip.available = $scope.pubInfo.available;
+			var pubInfo = $scope.pubInfo;
 			//not yet bought
 			if(!tip.available){
-				$location.path("/buyPub");
+				$location.path("/buyPub/"+pubInfo.pubId);
 			}else{
 				//check if pubId is already visited
 				var cookieAllVisitedPubId = $cookies.getObject('cookieAllVisitedPubId');
@@ -87,14 +88,14 @@
 					cookieAllVisitedPubId = [];
 					$cookies.putObject('cookieAllVisitedPubId', cookieAllVisitedPubId);
 				};
-				if(_.contains(cookieAllVisitedPubId, $scope.pubInfo.pubId)){
-					alert('cookie 已经访问过 PubId '+$scope.pubInfo.pubId+", 直接进入相关timeline页");
-					$location.path("/stkAnal");
+				if(_.contains(cookieAllVisitedPubId, pubInfo.pubId)){
+					alert('cookie 已经访问过 PubId '+pubInfo.pubId+", 直接进入相关timeline页");
+					$location.path("/stkAnal/"+pubInfo.pubId);
 				}else{
 					cookieAllVisitedPubId = $cookies.getObject('cookieAllVisitedPubId');
-					cookieAllVisitedPubId.push($scope.pubInfo.pubId);
+					cookieAllVisitedPubId.push(pubInfo.pubId);
 					$cookies.putObject('cookieAllVisitedPubId', cookieAllVisitedPubId);
-					$location.path("/buyPub");
+					$location.path("/buyPub/"+pubInfo.pubId);
 				}
 			}
 

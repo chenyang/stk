@@ -1,18 +1,18 @@
 <div class="container-fluid stock-analysis" ng-controller="StockAnalysisCtrl">
 	<div class="stock-graph-block">
 		<div class="row">
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 revenu-block-left">
+			<div class="col-xs-3 revenu-block-left">
 				<div >16.68</div>
 				<div >0.16 1.01%</div>
 				<div >2015-06-04</div>
 			</div>
 			
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center revenu-block-center">
+			<div class="col-xs-6 text-center revenu-block-center">
 				<span>总收益 ( 创建于 2015-06-12) </span>
 				<div style="">138%</div>
 			</div>
 			
-			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 revenu-block-right">
+			<div class="col-xs-3 revenu-block-right">
 				<a href="">
 					<span class="glyphicon glyphicon-pencil"></span> 
 					<span ng-show="prediction==null" ng-click="openModal()" style="padding-right:2px">发布预测</span>
@@ -24,7 +24,7 @@
 					</a>
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 chart">
+			<div class="col-xs-12 chart">
 				<nvd3 options="options"
 			      data="data"
 			      config="config"
@@ -66,7 +66,7 @@
 				<span class="icon glyphicon glyphicon-volume-up"></span>
 				<span class="time">{{item.newsDate}}</span>
 			</div>
-			<div class="col-xs-12 col-md-12 col-md-12 col-lg-12 timeline-content-block">
+			<div class="col-xs-12 timeline-content-block">
 				<div class="content">
 					<p>
 						<b>{{item.newsTitle}}</b> 
