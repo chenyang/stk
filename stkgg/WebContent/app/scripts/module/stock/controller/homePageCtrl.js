@@ -74,14 +74,17 @@
 				alert('需要购买或过期');
 				$location.path("/buyPub/"+pub.pubId);
 			}else{
-				var cookieAllVisitedPubId = $cookies.getObject('cookieAllVisitedPubId');
-				if(_.contains(cookieAllVisitedPubId, pub.pubId)){
-					//bypass coverpage
-					alert('cookie 已经访问过 PubId '+pub.pubId+", 直接进入相关timeline页");
-					$location.path("/stkAnal/"+pub.pubId);
-				}else{
-					$location.path("/buyPub/"+pub.pubId);
-				}
+				$location.path("/stkAnal/"+pub.pubId);
+				/*
+				 * var cookieAllVisitedPubId = $cookies.getObject('cookieAllVisitedPubId');
+					if(_.contains(cookieAllVisitedPubId, pub.pubId)){
+						//bypass coverpage
+						alert('cookie 已经访问过 PubId '+pub.pubId+", 直接进入相关timeline页");
+						$location.path("/stkAnal/"+pub.pubId);
+					}else{
+						$location.path("/buyPub/"+pub.pubId);
+					}
+				 */
 			}
 		};
 		

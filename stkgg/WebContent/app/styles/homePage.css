@@ -8,6 +8,8 @@
     -webkit-box-shadow: 0 0 6px -1px #999;
 	font-size:14px;
 	border-color:transparent;
+	padding:4px;
+	margin-top:2px;
 }
 
 .app-home-thumbnails{

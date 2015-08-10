@@ -120,7 +120,7 @@
 					UPLOADIMG: '/stkgg/app/mockData/createPub/img.json', 
 					POSTPUB:'/stkgg/app/mockData/createPub/postpubs.json',
 				//Timeline页
-					TIMELINEPUBS:'/stkgg/app/mockData/timeline/timeline.json', 
+					GETTIMELINE:'/stkgg/app/mockData/timeline/timeline.json', 
 				//预测发布
 					GETPREDICTION:'/stkgg/app/mockData/prediction/get.json',
 					ADDPREDICTION:'/stkgg/app/mockData/prediction/add.json', 

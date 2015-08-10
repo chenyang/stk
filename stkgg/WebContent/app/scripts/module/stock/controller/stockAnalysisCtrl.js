@@ -81,6 +81,8 @@
 			if(!tip.available){
 				$location.path("/buyPub/"+pubInfo.pubId);
 			}else{
+				$location.path("/stkAnal/"+pubInfo.pubId);
+				/*
 				//check if pubId is already visited
 				var cookieAllVisitedPubId = $cookies.getObject('cookieAllVisitedPubId');
 				console.log(cookieAllVisitedPubId);
@@ -97,6 +99,7 @@
 					$cookies.putObject('cookieAllVisitedPubId', cookieAllVisitedPubId);
 					$location.path("/buyPub/"+pubInfo.pubId);
 				}
+				*/
 			}
 
 		};
@@ -249,8 +252,48 @@
 
 
 		
-		//预测部分
+		//Timeline部分
+		var getTimeline = function(){
+			var sessionId =  $cookies.getObject('cookieUserProfile').sessionId;
+			var pubId = $routeParams.pubId;
+			
+			if(_.isEmpty(pubId)){
+				alert('pubId 未知！无法获取timeline数据');
+			}else{
+				var data = {
+					sessionId:sessionId, 
+					pubId:pubId
+				};
+				$http({
+					method: 'POST', 
+					url: APIMOCK.GETTIMELINE, 
+					data:data
+				})
+				.then(function(res){
+					if(res.data.result=="success"){
+						var pubInfo = res.data;
+						_.each(pubInfo.tips, function(tipItem){
+							tipItem.isCollapsedShare = true;  
+							tipItem.isCollapsedCmt = true;
+							tipItem.isModifyTip = false;
+							var totalCmts = tipItem.comments.likes.length + tipItem.comments.dislikes.length;
+							tipItem.totalCmts = parseInt(totalCmts);
+							tipItem.nbLikes = tipItem.comments.likes.length;
+							tipItem.nbDislikes= tipItem.comments.dislikes.length;
+						});
+						$scope.pubInfo = pubInfo;
+					}else{
+						alert(res.data.reason);
+					}
+				}, function(res){
+					console.log('error tech', res.data);
+				});
+				
+				
+			}
+		};
 		
+		//预测部分
 		//获取预测
 		var getPrediction = function(){
 			var sessionId =  $cookies.getObject('cookieUserProfile').sessionId;
@@ -314,8 +357,12 @@
 			$scope.predictPopover = null;
 			getPrediction();
 			
-			//timeline信息
+			//timeline
+			$scope.pubInfo = null;
+			getTimeline();
+		
 		};
+		
 		//Init
 		init();
 		
