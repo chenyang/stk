@@ -54,6 +54,9 @@
 
 		//随时监测用户cookie是否可用
 		$scope.$on('$routeChangeStart', function(next, current){
+			//temp
+			$scope.isRootNavbarCollapsed = true;
+			
 			checkLogin();
 			//根据页面 决定显示与否 appHeader
 			if($location.path().indexOf('login')!=-1){
@@ -74,6 +77,7 @@
 		var init = function(){
 			$scope.showAppHeader = false;
 			checkLogin();
+			$scope.isRootNavbarCollapsed = true;
 		};
 
 		init();
