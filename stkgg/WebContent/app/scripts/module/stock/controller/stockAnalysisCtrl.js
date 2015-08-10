@@ -250,11 +250,6 @@
 		
 		//预测部分
 		
-		//popover
-		$scope.predictPopover = {
-			content: $scope.prediction.cmt,
-		};
-		
 		//获取预测
 		var getPrediction = function(){
 			var sessionId =  $cookies.getObject('cookieUserProfile').sessionId;
@@ -274,6 +269,9 @@
 				.then(function(res){
 					if(res.data.result=="success"){
 						$scope.prediction = res.data.prediction;
+						$scope.predictPopover = {
+							content: $scope.prediction.cmt,
+						};
 					}else{
 						alert(res.data.reason);
 					}
@@ -312,6 +310,7 @@
 		var init = function(){
 			//预测
 			$scope.prediction = null;
+			$scope.predictPopover = null;
 			getPrediction();
 			
 			//timeline信息

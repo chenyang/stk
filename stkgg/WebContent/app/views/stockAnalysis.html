@@ -20,7 +20,7 @@
 				</a>
 				<div>
 					<a href="">
-						<span popover="{{predictPopover.content}}" popover-placement="bottom"><span class="glyphicon glyphicon-eye-open"></span> 预测解释 </span>
+						<span popover="{{predictPopover.content}}" popover-trigger="mouseenter" popover-placement="left"><span class="glyphicon glyphicon-eye-open"></span> 预测解释 </span>
 					</a>
 				</div>
 			</div>
@@ -91,8 +91,8 @@
 							</button>
 						</p> 
 						
-						<p ng-show="!item.isModifyTip">{{item.tipContent}}</p>
-						<p><textarea style="width:100%" rows="3" ng-show="item.isModifyTip" ng-model="item.tipContent"></textarea></p>
+						<div ng-show="!item.isModifyTip">{{item.tipContent}}</div>
+						<textarea ng-show="item.isModifyTip" class="form-control" ng-model="item.tipContent"></textarea>
 						<p collapse="item.isCollapsedShare" class="user-comments">
 							<button class="btn"><img width="25px" src="images/3rd/qq.png"></button>
 							<button class="btn"><img width="25px" src="images/3rd/wb.png"></button>
