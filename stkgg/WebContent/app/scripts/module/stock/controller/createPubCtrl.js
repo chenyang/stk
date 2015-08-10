@@ -46,7 +46,7 @@
 							"desc":$scope.pubInfo.desc,
 							"price":$scope.pubInfo.price,
 							"pubName":$scope.pubInfo.pubName
-					}
+					};
 					
 					$http({
 						method: 'POST', 

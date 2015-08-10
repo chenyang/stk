@@ -28,6 +28,7 @@
 				$cookies.putObject('cookieUserProfile', 
 						{
 							"sessionId":data.sessionId, 
+							"isVIP":data.isVIP, //TODO
 							"tokenId":"123456", 
 							"extended":true //extended login
 						}, 
@@ -42,6 +43,7 @@
 				$cookies.putObject('cookieUserProfile', 
 						{
 							"sessionId":data.sessionId, 
+							"isVIP":data.isVIP, //TODO
 							"tokenId":"123456",
 							"extended":false
 						}

@@ -18,6 +18,7 @@
 }
 .stock-analysis .stock-graph-block .revenu-block-left{
 	padding-left:5px;
+	text-align:center;
 }
 .stock-analysis .stock-graph-block .revenu-block-left div:nth-child(1){
 	font-size:15px; font-weight: 900; color: red;
@@ -37,6 +38,7 @@
 }
 .stock-analysis .stock-graph-block .revenu-block-right{
 	font-size:10px;
+	text-align:center;
 }
 
 .stock-analysis .stock-gushen-comment{
@@ -90,39 +92,39 @@
 
 
 /** stock cmt modal **/
-.stock-cmt-modal{
+.prediction-modal{
 	
 }
-.stock-cmt-modal .first-level-title{
+.prediction-modal .first-level-title{
 	font-size:14px;
 	font-weight:700;
 	padding:10px;
 }
-.stock-cmt-modal .second-level-title{
+.prediction-modal .second-level-title{
 	font-size:12px;
 	font-weight:700;
 	padding:10px;
 }
-.stock-cmt-modal .second-level-title .time{
+.prediction-modal .second-level-title .time{
 	margin-right:12px;
 }
-.stock-cmt-modal .prediction .sticker{
+.prediction-modal .prediction .sticker{
 	padding:10px 2px;
 }
-.stock-cmt-modal .prediction .compare-block{
+.prediction-modal .prediction .compare-block{
 	width:35%;
 	padding-bottom:10px;
 }
-.stock-cmt-modal .prediction .compare-block span{
+.prediction-modal .prediction .compare-block span{
 	padding:3px;
 	font-size:10px;
 	background-color:#fff;
 	color:#828080;
 }
-.stock-cmt-modal .block-time .input-group{
+.prediction-modal .block-time .input-group{
 	width:75%;
 }
-.stock-cmt-modal .block-time .form-control{
+.prediction-modal .block-time .form-control{
 	text-align:left;
 	font-size:12px;
 }

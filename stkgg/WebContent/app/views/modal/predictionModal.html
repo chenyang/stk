@@ -1,11 +1,13 @@
-<div class="stock-cmt-modal">
+<div class="prediction-modal">
       <div class="modal-body">
       	<div class="prediction">
       		<div class="first-level-title">
     			<span class="glyphicon glyphicon-stats"></span>
     			<span>股价预测</span>
       		</div>
-      		<span class="bg-danger" ng-show="prediction.lastModifiedTime!=null">最后<a ng-click="gotoHistoryPage(prediction.userId)">修改于</a>{{prediction.lastModifiedTime|date:'yyyy-MM-dd HH:mm:ss'}}</span>
+      		<span class="bg-info" ng-show="prediction.lastModifiedTime!=null" style="padding:5px 10px">
+      			最后<a ng-click="gotoHistoryPage(prediction.pubId)">修改于</a>{{prediction.lastModifiedTime|date:'yyyy-MM-dd HH:mm:ss'}}
+      		</span>
       		
       		<div>
 	      		<div class="clearfix block-time">
@@ -56,13 +58,13 @@
 					
 		      		<div class="input-group pull-left compare-block">
 					  <span class="input-group-addon">最低</span>
-					  <input type="text" class="form-control" ng-model="prediction.minPect">
+					  <input type="text" class="form-control" ng-model="prediction.minPct">
 					  <span class="input-group-addon">%</span>
 					</div>
 					<span class="glyphicon glyphicon-menu-right pull-left sticker"></span>
 					<div class="input-group pull-left compare-block">
 					  <span class="input-group-addon">最高</span>
-					  <input type="text" class="form-control" ng-model="prediction.maxPect">
+					  <input type="text" class="form-control" ng-model="prediction.maxPct">
 					  <span class="input-group-addon">%</span>
 					</div>
 	      		</div>	
@@ -83,7 +85,8 @@
 			
       </div>
       <div class="modal-footer">
-      	  <button class="btn btn-warning" ng-click="save()">保存修改</button>
+      	  <button class="btn btn-warning" ng-show="!isPredictionNew" ng-click="edit()">保存修改</button>
+      	  <button class="btn btn-danger" ng-show="isPredictionNew" ng-click="add()">创建</button>
           <button class="btn btn-primary" ng-click="cancel()">关闭</button>
       </div>
 	

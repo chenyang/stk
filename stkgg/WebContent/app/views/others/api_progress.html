@@ -76,7 +76,8 @@
 								{
 									"result":"success" / "fail", //功能上的
 									"reason": null / "错误原因",
-									"sessionId":"IUWID987398OSI" / null(如果fail)
+									"sessionId":"IUWID987398OSI", / null(如果fail), 
+									"isVIP": true / false  //是否为加V用户
 								}
 							</pre>
 						</div>
@@ -96,7 +97,8 @@
 								{
 									"result":"success" /"fail", //功能上的
 									"reason": null / "错误原因", 
-									"sessionId":"IUWID987398OSI" / null(如果fail)
+									"sessionId":"IUWID987398OSI" / null(如果fail), 
+									"isVIP": true / false  //是否为加V用户
 								}
 							</pre>
 						</div>
@@ -392,19 +394,13 @@
 				<div class="well">
 					<label>预测发布页</label>
 						<div>
-							<span class="label label-default">预测发布</span>
+							<span class="label label-default">获取预测</span>
 							<br>Request:
-							<br>POST http://123.57.210.176/prediction/add
+							<br>POST http://123.57.210.176/prediction/get
 							<pre>
 								{
 									 "sessionId":"IUWID987398OSI", //关联用户
 									 "pubId":15, //关联pub
-									 "time":7, （预测周期）: 1,7,14,30,90,180 天
-									 "minVal":-2, 最小涨跌幅
-									 "maxVal":3.5, 最大涨跌幅
-									 "minPect":15, 最小涨跌百分比
-									 "maxPect":20, 最大跌百分比
-									 "cmt:"预测跌幅较大，建议抛售"
 								 },
 								
 							</pre>
@@ -419,10 +415,48 @@
 										 "time":7, （预测周期）: 1,7,14,30,90,180 天
 										 "minVal":-2, 最小涨跌幅
 										 "maxVal":3.5, 最大涨跌幅
-										 "minPect":15, 最小涨跌百分比
-										 "maxPect":20, 最大跌百分比
-										 "cmt:"预测跌幅较大，建议抛售", 
-										 "lastModifiedTime":'2015-07-01 15:37:28' //最后一次更新时间
+										 "minPct":15, 最小涨跌百分比
+										 "maxPct":20, 最大跌百分比
+										 "cmt"":"预测跌幅较大，建议抛售", 
+										 "lastModifiedTime":"2015-07-01 15:37:28" //最后一次更新/创建时间
+									} 
+									//或prediction: null 即没有预测
+								}
+							</pre>
+						</div>
+					
+						<div>
+							<span class="label label-default">预测发布</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/prediction/add
+							<pre>
+								{
+									 "sessionId":"IUWID987398OSI", //关联用户
+									 "pubId":15, //关联pub
+									 "time":7, （预测周期）: 1,7,14,30,90,180 天
+									 "minVal":-2, 最小涨跌幅
+									 "maxVal":3.5, 最大涨跌幅
+									 "minPct":15, 最小涨跌百分比
+									 "maxPct":20, 最大跌百分比
+									 "cmt":"预测跌幅较大，建议抛售"
+								 },
+								
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"//功能上的
+									"reason": null / "错误原因", 
+									"prediction":{
+										 "sessionId":"IUWID987398OSI", //关联用户
+										 "pubId":15, //关联pub
+										 "time":7, （预测周期）: 1,7,14,30,90,180 天
+										 "minVal":-2, 最小涨跌幅
+										 "maxVal":3.5, 最大涨跌幅
+										 "minPct":15, 最小涨跌百分比
+										 "maxPct":20, 最大跌百分比
+										 "cmt"":"预测跌幅较大，建议抛售", 
+										 "lastModifiedTime":"2015-07-01 15:37:28" //最后一次更新/创建时间
 									}
 								}
 							</pre>
@@ -438,8 +472,8 @@
 									 "time":7, （预测周期）: 1,7,14,30,90,180 天
 									 "minVal":-2, 最小涨跌幅
 									 "maxVal":3.5, 最大涨跌幅
-									 "minPect":15, 最小涨跌百分比
-									 "maxPect":20, 最大跌百分比
+									 "minPct":15, 最小涨跌百分比
+									 "maxPct":20, 最大跌百分比
 									 "cmt:"预测跌幅较大，建议抛售"
 								 },
 							</pre>
@@ -454,10 +488,10 @@
 										 "time":7, （预测周期）: 1,7,14,30,90,180 天
 										 "minVal":-2, 最小涨跌幅
 										 "maxVal":3.5, 最大涨跌幅
-										 "minPect":15, 最小涨跌百分比
-										 "maxPect":20, 最大跌百分比
-										 "cmt:"预测跌幅较大，建议抛售", 
-										 "lastModifiedTime":'2015-07-01 15:37:28' //最后一次更新时间
+										 "minPct":15, 最小涨跌百分比
+										 "maxPct":20, 最大跌百分比
+										 "cmt"":"预测跌幅较大，建议抛售", 
+										 "lastModifiedTime":"2015-07-01 15:37:28" //最后一次更新/创建时间
 									}
 								}
 							</pre>

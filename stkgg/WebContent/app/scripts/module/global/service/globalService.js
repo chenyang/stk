@@ -34,7 +34,7 @@
 			 {  when:"/history/tip/:tipId", 
 				 templateUrl:"views/historyTip.html"
 			 }, 
-			 {  when:"/history/prediction/:tipId", 
+			 {  when:"/history/prediction/:pubId", 
 				 templateUrl:"views/historyPrediction.html"
 			 }, 
 			 {  when:"/myProfile", 
@@ -122,8 +122,9 @@
 				//Timeline页
 					TIMELINEPUBS:'/stkgg/app/mockData/timeline/timeline.json', 
 				//预测发布
+					GETPREDICTION:'/stkgg/app/mockData/prediction/get.json',
 					ADDPREDICTION:'/stkgg/app/mockData/prediction/add.json', 
-					EDITPREDICTION:'/stkgg/app/mockData/createPub/edit.json'
+					EDITPREDICTION:'/stkgg/app/mockData/prediction/edit.json'
 					
 				//Coverpage页
 				//修改历史页面

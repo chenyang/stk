@@ -1,12 +1,18 @@
 (function(){
 	'use strict';
 	var mod = angular.module('stock.controller');
-	mod.controller("StockAnalysisCtrl", ['$scope', '$modal', '$cookies', '$location',
-	                                     function($scope, $modal, $cookies, $location){
-
-		//popover
-		$scope.yucePopover = {
-				content: '预计一周内跌5%， 跌幅15点',
+	mod.controller("StockAnalysisCtrl", 
+			['$scope', '$modal', '$cookies', '$location', '$http','$routeParams', 'APIMOCK', 
+			 function($scope, $modal, $cookies, $location, $http, $routeParams, APIMOCK){
+		
+		$scope.prediction = {
+				time:7,
+				minVal:-2, 
+				maxVal:3.5,
+				minPect:15, 
+				maxPect:20,
+				cmt:"预测跌幅较大，建议抛售", 
+				lastModifiedTime:'2015-07-01 15:37:28'
 		};
 		
 		$scope.pubInfo = {
@@ -20,15 +26,6 @@
 				desc:"一段评述", 
 				owner:"股神小白", 
 				available:true,
-				prediction:{
-					time:7,
-					minVal:-2, 
-					maxVal:3.5,
-					minPect:15, 
-					maxPect:20,
-					cmt:"预测跌幅较大，建议抛售", 
-					lastModifiedTime:'2015-07-01 15:37:28'
-				},
 				tips:[
 				      {
 				    	  tipId:1, 
@@ -69,10 +66,6 @@
 				      ]
 		};
 
-		//查看我的预测
-		$scope.modifyMyPrediction = function(){
-
-		};
 
 		$scope.modifyTip = function(item){
 			item.isModifyTip = !item.isModifyTip;
@@ -126,10 +119,18 @@
 					y: function(d){ return d.y; },	
 					useInteractiveGuideline: true,
 					dispatch: {
-						stateChange: function(e){ console.log("stateChange"); },
-						changeState: function(e){ console.log("changeState"); },
-						tooltipShow: function(e){ console.log("tooltipShow"); },
-						tooltipHide: function(e){ console.log("tooltipHide"); }
+						stateChange: function(e){ 
+							console.log("stateChange"); 
+						},
+						changeState: function(e){ 
+							console.log("changeState"); 
+						},
+						tooltipShow: function(e){ 
+							console.log("tooltipShow"); 
+						},
+						tooltipHide: function(e){ 
+							console.log("tooltipHide"); 
+						}
 					},
 					xAxis: {
 						axisLabel: '证监会公告日期', 
@@ -246,39 +247,77 @@
 		$scope.data = generateMockData();
 
 
+		
+		//预测部分
+		
+		//popover
+		$scope.predictPopover = {
+			content: $scope.prediction.cmt,
+		};
+		
+		//获取预测
+		var getPrediction = function(){
+			var sessionId =  $cookies.getObject('cookieUserProfile').sessionId;
+			var pubId = $routeParams.pubId;
+			if(_.isEmpty(pubId)){
+				alert('pubId 未知！无法获取prediction数据');
+			}else{
+				var data = {
+					sessionId:sessionId, 
+					pubId:pubId
+				};
+				$http({
+					method: 'POST', 
+					url: APIMOCK.GETPREDICTION, 
+					data:data
+				})
+				.then(function(res){
+					if(res.data.result=="success"){
+						$scope.prediction = res.data.prediction;
+					}else{
+						alert(res.data.reason);
+					}
+				}, function(res){
+					console.log('error tech', res.data);
+				});
+			}
+		};
+		
 		/**
 		 * modal for stock comment
 		 */
-		$scope.openModal = function(item){
+		$scope.openModal = function(){
 			var modalInstance = $modal.open({
 				animation: true,
-				templateUrl: 'views/modal/stockCmtModal.html',
-				controller: 'StockCmtCtrl',
+				templateUrl: 'views/modal/predictionModal.html',
+				controller: 'PredictionCtrl',
 				resolve: {
 					prediction: function () {
-						var prediction = item.prediction;
-						if(!_.isEmpty(prediction)){
-							prediction.userId = item.userId;
-						}
+						var prediction = $scope.prediction;
 						return prediction;
 					}
 				}
 			});
 			modalInstance.result.then(function (selectedItem) {
-				//selected
-				$scope.selected = selectedItem;
+				//OK/selected items form Modal..
+				//重新获取一遍预测
+				getPrediction();
 			}, function () {
-				//canceled
+				//canceled/dismiss
 				console.log('Modal dismissed at: ' + new Date());
 			});
 		};
-
+		
 		/** initialization **/
 		var init = function(){
-
+			//预测
+			$scope.prediction = null;
+			getPrediction();
+			
+			//timeline信息
 		};
-
 		//Init
 		init();
+		
 	}]);
 })();

@@ -14,13 +14,13 @@
 			
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 revenu-block-right">
 				<a href="">
-					<span ng-show="pubInfo.prediction==null" ng-click="openModal(pubInfo)" style="padding-right:2px">发布预测</span>
-					<span ng-show="pubInfo.prediction!=null" ng-click="openModal(pubInfo)" style="padding-right:2px">修改预测</span>
-					<span class="glyphicon glyphicon-pencil"></span>
+					<span class="glyphicon glyphicon-pencil"></span> 
+					<span ng-show="prediction==null" ng-click="openModal()" style="padding-right:2px">发布预测</span>
+					<span ng-show="prediction!=null" ng-click="openModal()" style="padding-right:2px">修改预测</span>
 				</a>
 				<div>
 					<a href="">
-						<span popover="{{yucePopover.content}}" popover-placement="bottom">预测解释 <span class="glyphicon glyphicon-eye-open"></span> </span>
+						<span popover="{{predictPopover.content}}" popover-placement="bottom"><span class="glyphicon glyphicon-eye-open"></span> 预测解释 </span>
 					</a>
 				</div>
 			</div>
