@@ -10,14 +10,17 @@
 						<input type="password" class="form-control" placeholder="密码" ng-model="userLoginInfo.password" required>
 					</div>
 					<div class="form-group validationCode">
-						<label>验证码：{{userLoginInfo.capcha}}</label>
-						<div ng-click="refreshCapcha()" class="btn btn-success">
-							<span>刷新</span>
-							<span class="glyphicon glyphicon-refresh"></span>
-						</div>
+						<label>验证码：</label>
 						<div>
 							<input type="text" placeholder="请输入验证码" ng-model="userLoginInfo.inputCapcha" required>
-						</div>		 			
+							<div ng-click="refreshCapcha()" class="btn btn-success">
+								<span>刷新</span>
+								<span class="glyphicon glyphicon-refresh"></span>
+							</div>
+						</div>	
+						<div style="margin-top:10px;">
+							<img ng-src="http://123.57.210.176/util/getcaptcha?{{randomNum}}">
+						</div>
 					</div>
 					
 					<div class="btn-group">

@@ -4,20 +4,6 @@
 	mod.controller("LoginCtrl", ['$scope', '$cookies', 'APIMOCK', '$http', '$location',
 	                             function($scope, $cookies, APIMOCK, $http, $location){
 
-		//generate random validate code from API
-		var createCode = function(){
-			var code = "";
-			var codeLength = 6; 
-			var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
-					'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-					'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //所有候选组成验证码的字符，当然也可以用中文的
-			for (var i = 0; i < codeLength; i++){
-				var charNum = Math.floor(Math.random() * 52);
-				code += codeChars[charNum];
-			}
-			return {"capcha":code};
-		};
-
 		//!!set cookie for app
 		var setCookie = function(data){
 			if($scope.isUseLongCookie){
@@ -79,23 +65,7 @@
 
 		//刷新随机验证码
 		$scope.refreshCapcha = function(){
-			$http({
-				method: 'GET', 
-				url: APIMOCK.GETCAPCHA
-			})
-			.then(function(res){
-				if(res.data.result=="success"){
-					$scope.userLoginInfo.capcha = res.data.capcha;
-				}else{
-					alert(res.data.reason);
-				}
-			}, function(res){
-				console.log('error tech', res.data);
-			})['finally'](function(){
-				//本地随机产生
-				var codeObj = createCode();
-				$scope.userLoginInfo.capcha = codeObj.capcha;
-			});
+			$scope.randomNum = _.random(0, 100);
 		};
 
 
@@ -106,7 +76,7 @@
 			var data = {
 					login:$scope.userLoginInfo.login, 
 					password:$scope.userLoginInfo.password,
-					capcha:$scope.userLoginInfo.inputCapcha
+					captcha:$scope.userLoginInfo.inputCapcha
 			};
 			
 			$http({

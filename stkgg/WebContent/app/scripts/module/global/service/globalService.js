@@ -75,7 +75,7 @@
 			mod.constant('API', {
 				//登陆
 					CHECKPHONE:'http://123.57.210.176/util/checkphone', 
-					GETCAPCHA:'http://123.57.210.176/util/getcapcha ', 
+					GETCAPCHA:'http://123.57.210.176/util/getcaptcha ', 
 					SENDCODE:'http://123.57.210.176/util/sendcode', 
 					LOGIN:'http://123.57.210.176/util/login', 
 					REGISTER:'http://123.57.210.176/member/reg', 

@@ -9,6 +9,7 @@
 		      typeahead="stock as (stock.name+' ('+stock.code+' )') for stock in searchStock($viewValue)" 
 		      typeahead-loading="loading" 
 		      typeahead-no-results="noResults" 
+		      typeahead-min-length="3"
 		      >
 		      <span class="input-group-btn">
 		        <button class="btn btn-info" type="button"><span class="glyphicon glyphicon-search"></span></button>
