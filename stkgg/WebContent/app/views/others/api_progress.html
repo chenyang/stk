@@ -5,7 +5,8 @@
 				<label>API进展</label>
 				<p>
 					由于项目进度需要，目前把重点放在功能及接口上. 无美工和优化 
-					<br><br><span class="label label-info">token验证先放一放</span>  <span class="label label-warning">(service名称可由@jiangwei定义)</span>
+					<br><br><span class="label label-info">token验证先放一放</span>  <span class="label label-info">分页先放一放</span>  
+					<br><br><span class="label label-warning">(service名称可由@jiangwei定义)</span>
 				</p>
 				
 				<br/><br/>
@@ -321,6 +322,7 @@
 									"reason":null, 
 									sessionId:"IUWID987398OSI", //关联用户
 									pubId:15, //关联pub, 
+									createDate:"2015-06-02", 
 									stockId:123, //关联 stock
 									stockName: "中石油",
 									stockCode: "06160",
@@ -329,7 +331,11 @@
 									desc:"一段评述", 
 									owner:"股神小白", 
 									available:true,
-									totalLikes:298, 
+									totalLikes:298, //该pub被赞的总数
+									"totalProfit": 138, //pub 总收益
+									"stockPrice":16.68, //股票当日价格
+									"chgVal": 0.16, //股票对昨日涨跌幅 (值)
+									"chgPct": 1.01, //股票对昨日涨跌幅百分比 (%)
 									prediction:{
 										time:7,
 										minVal:-2, 
@@ -409,17 +415,97 @@
 									    	  		"dislikes":[]
 									    	  	}
 									      }
-									      ]
-							};
-							<span class="label label-warning">其他。。如 stock lines, etc 未完待续。。</span>
+									      ], 
+									      //最近N天的股票片票值， 显示图表用。 逻辑上日期是从近到远，但json给出是从小到大的。最后一个是当日日期
+											"historyData":
+											[
+												 {
+										        	 "date": "2015-08-01", //股票日期
+										        	 "value": 15.7 //股票价值
+										         }, 
+										         {
+										        	 "date": "2015-08-02",
+										        	 "value": 15.8
+										         }, 
+										         {
+										        	 "date": "2015-08-03",
+										        	 "value": 12.7
+										         }, 
+										         {
+										        	 "date": "2015-08-04",
+										        	 "value": 18.7
+										         }, 
+										         {
+										        	 "date": "2015-08-05",
+										        	 "value": 12.6
+										         }, 
+										         {
+										        	 "date": "2015-08-06",
+										        	 "value": 15.8
+										         }, 
+										         {
+										        	 "date": "2015-08-07",
+										        	 "value": 16.8
+										         }, 
+										         {
+										        	 "date": "2015-08-08",
+										        	 "value": 18.2
+										         }, 
+										         {
+										        	 "date": "2015-08-09",
+										        	 "value": 18.2
+										         } 
+										]
+								};
 							</pre>
 						</div>	
 						<div>
-							<span class="label label-default">其他。。</span>
+							<span class="label label-default">添加TIP</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/tips/add
 							<pre>
-								<span class="label label-warning">未完待续...</span>
+								{
+									"content":"预计股指将有小幅调整， 建议持续观察", 
+									"date":"2015-08-07"
+								}
 							</pre>
-						</div>	
+							<br>Response:
+							<pre>
+								{
+									"result":success, 
+									"reason":null, 
+									"tip":{
+										"id":10, 
+										"content":"预计股指将有小幅调整， 建议持续观察", 
+										"lastModifiedTime":"2015-08-08 12:39"
+									}
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">修改TIP</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/tips/edit
+							<pre>
+								{
+									"id": 5, 
+									"content":"预计股指将有小幅调整， 建议持续观察", 
+									"date":"2015-08-07"
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":success, 
+									"reason":null, 
+									"tip":{
+										"id":10, 
+										"content":"预计股指将有小幅调整， 建议持续观察", 
+										"lastModifiedTime":"2015-08-08 12:39"
+									}
+								}
+							</pre>
+						</div>
 				</div>
 				<div class="well">
 					<label>预测发布页</label>

@@ -2,31 +2,37 @@
 	<div class="stock-graph-block">
 		<div class="row">
 			<div class="col-xs-3 revenu-block-left">
-				<div >16.68</div>
-				<div >0.16 1.01%</div>
-				<div >2015-06-04</div>
+				<div >{{pubInfo.stockPrice}}</div>
+				<div >{{pubInfo.chgVal}} {{pubInfo.chgPct}}%</div>
+				<div >{{pubInfo.today|date:'yyyy-MM-dd'}}</div>
 			</div>
 			
 			<div class="col-xs-6 text-center revenu-block-center">
-				<span>总收益 ( 创建于 2015-06-12) </span>
-				<div style="">138%</div>
+				<span>总收益 ( 创建于 {{pubInfo.createDate}}) </span>
+				<div style="">{{pubInfo.totalProfit}}%</div>
 			</div>
 			
 			<div class="col-xs-3 revenu-block-right">
-				<a href="">
-					<span class="glyphicon glyphicon-pencil"></span> 
-					<span ng-show="prediction==null" ng-click="openModal()" style="padding-right:2px">发布预测</span>
-					<span ng-show="prediction!=null" ng-click="openModal()" style="padding-right:2px">修改预测</span>
-				</a>
 				<div>
-					<a href="">
-						<span popover="{{predictPopover.content}}" popover-trigger="mouseenter" popover-placement="left"><span class="glyphicon glyphicon-eye-open"></span> 预测解释 </span>
+					<!-- 添加评述-->
+					<a ng-click="addTip()" href="">
+						<span class="glyphicon glyphicon-plus-sign"></span> 添加评述
 					</a>
+					<!-- 修改预测 -->
+					<a href="">
+						<span ng-show="prediction==null" ng-click="editPrecidtion()"><span class="glyphicon glyphicon-plus-sign" style="padding-right:2px"></span>发布预测</span>
+						<span ng-show="prediction!=null" ng-click="editPrecidtion()"><span class="glyphicon glyphicon-pencil" style="padding-right:2px"></span>修改预测</span>
+					</a>
+					<!-- 预测解释 -->
+					<a href="">
+						<span popover-template="predictPopover.templateUrl" popover-title="{{predictPopover.title}}" popover-trigger="mouseenter" popover-placement="left"><span class="glyphicon glyphicon-eye-open"></span> 预测解释 </span>
+					</a>
+					
 				</div>
 			</div>
 			<div class="col-xs-12 chart">
 				<nvd3 options="options"
-			      data="data"
+			      data="graphData"
 			      config="config"
 			      events="events"
 			      api="api">
@@ -77,7 +83,7 @@
 						<b>{{item.newsTitle}}</b> 
 						<pre>{{item.newsContent}}</pre>
 					</p>
-					<p class="bg-info" style="padding:5px 10px;">最后<a href="#/history/tip/{{item.tipId}}">修改于</a>{{item.lastModifiedTime|date:'yyyy-MM-dd HH:mm'}}</p>
+					<p class="bg-info" style="padding:5px 10px;">最后<a href="#/history/tip/{{item.tipId}}">修改于</a>{{item.lastModifiedTime}}</p>
 				</div>
 				<div class="gushen-comment-block clearfix">
 					<div class="pull-left" ng-click="gotoProfile()"><img width="60%" src="images/home/gushen.png"></div>

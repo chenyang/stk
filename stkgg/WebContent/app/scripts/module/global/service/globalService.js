@@ -72,6 +72,17 @@
 			 ]);
 	
 	
+			//数字与中文时间
+			mod.constant('NumToChineseTime', {
+				"1":"一天", 
+				"2":"两天", 
+				"7":"一周", 
+				"14":"两周", 
+				"30":"一个晕", 
+				"90":"三个月", 
+				"180":"半年", 
+			});
+	
 			mod.constant('API', {
 				//登陆
 					CHECKPHONE:'http://123.57.210.176/util/checkphone', 
@@ -91,6 +102,8 @@
 					POSTPUB:'http://123.57.210.176/pubs',
 				//Timeline页
 					TIMELINEPUBS:'http://123.57.210.176/pubs/id', 
+					ADDTIP:'??', 
+					EDITTIP:'??', 
 				//预测发布
 					ADDPREDICTION:'http://123.57.210.176/prediction/add', 
 					EDITPREDICTION:'http://123.57.210.176/prediction/edit'
@@ -121,6 +134,8 @@
 					POSTPUB:'/stkgg/app/mockData/createPub/postpubs.json',
 				//Timeline页
 					GETTIMELINE:'/stkgg/app/mockData/timeline/timeline.json', 
+					ADDTIP:'/stkgg/app/mockData/timeline/add.json', 
+					EDITTIP:'/stkgg/app/mockData/timeline/edit.json', 
 				//预测发布
 					GETPREDICTION:'/stkgg/app/mockData/prediction/get.json',
 					ADDPREDICTION:'/stkgg/app/mockData/prediction/add.json', 

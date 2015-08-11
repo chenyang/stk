@@ -1,14 +1,14 @@
 (function(){
 	'use strict';
 	var mod = angular.module('stock.controller');
-	mod.controller("CreatePubCtrl", ['$scope', '$location', '$http', 'APIMOCK', '$cookies', 
-	                                 function($scope, $location, $http, APIMOCK, $cookies){
+	mod.controller("CreatePubCtrl", ['$scope', '$location', '$http', 'APIMOCK', '$cookies', 'API', 
+	                                 function($scope, $location, $http, APIMOCK, $cookies, API){
 
 		//搜索股票, return promise
 		$scope.searchStock = function(searchText){
 			return $http({
 				method: 'POST', 
-				url: APIMOCK.SEARCHSTOCK, 
+				url: API.SEARCHSTOCK, 
 				data:{
 					keyword:searchText
 				}
@@ -26,9 +26,7 @@
 
 
 		//上传图片。。
-		
-		
-		
+				
 		//创建
 		$scope.submit = function(){
 			if(_.isEmpty($scope.pubInfo.stock)){
