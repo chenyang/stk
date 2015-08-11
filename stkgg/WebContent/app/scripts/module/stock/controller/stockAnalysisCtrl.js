@@ -158,14 +158,16 @@
 						.then(function(res){
 							if(res.data.result=="success"){
 								var pubInfo = res.data;
-								_.each(pubInfo.tips, function(tipItem){
-									tipItem.isCollapsedShare = true;  
-									tipItem.isCollapsedCmt = true;
-									tipItem.isModifyTip = false;
-									var totalCmts = tipItem.comments.likes.length + tipItem.comments.dislikes.length;
-									tipItem.totalCmts = parseInt(totalCmts);
-									tipItem.nbLikes = tipItem.comments.likes.length;
-									tipItem.nbDislikes= tipItem.comments.dislikes.length;
+								_.each(pubInfo.news, function(news){
+									_.each(news.tips, function(tipItem){
+										tipItem.isCollapsedShare = true;  
+										tipItem.isCollapsedCmt = true;
+										tipItem.isModifyTip = false;
+										var totalCmts = tipItem.comments.likes.length + tipItem.comments.dislikes.length;
+										tipItem.totalCmts = parseInt(totalCmts);
+										tipItem.nbLikes = tipItem.comments.likes.length;
+										tipItem.nbDislikes= tipItem.comments.dislikes.length;
+									});
 								});
 
 								pubInfo.today = new Date();

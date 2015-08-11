@@ -14,10 +14,6 @@
 			
 			<div class="col-xs-3 revenu-block-right">
 				<div>
-					<!-- 添加评述-->
-					<a ng-click="addTip()" href="">
-						<span class="glyphicon glyphicon-plus-sign"></span> 添加评述
-					</a>
 					<!-- 修改预测 -->
 					<a href="">
 						<span ng-show="prediction==null" ng-click="editPrecidtion()"><span class="glyphicon glyphicon-plus-sign" style="padding-right:2px"></span>发布预测</span>
@@ -26,6 +22,10 @@
 					<!-- 预测解释 -->
 					<a href="">
 						<span popover-template="predictPopover.templateUrl" popover-title="{{predictPopover.title}}" popover-trigger="mouseenter" popover-placement="left"><span class="glyphicon glyphicon-eye-open"></span> 预测解释 </span>
+					</a>
+					<!-- 选择新闻 -->
+					<a href="">
+						<span><span class="glyphicon glyphicon-globe"></span> 选取新闻</span>
 					</a>
 					
 				</div>
@@ -43,7 +43,7 @@
 	
 	<div class="row stock-gushen-comment">
 		<div class="col-xs-3 col-md-3 col-md-2 col-lg-1 text-center">
-			<div><img src="images/home/gushen.png" ng-click="gotoProfile()"></div>
+			<div><img ng-src="{{pubInfo.ownerImg}}" ng-click="gotoProfile()"></div>
 			<div class="user-star">
 				<span class="glyphicon glyphicon-star"></span>
 				<span class="glyphicon glyphicon-star"></span>
@@ -72,59 +72,62 @@
 	  </div>
 	</div>
 	<div class="row announcement-timeline">
-		<div ng-repeat="item in pubInfo.tips"> <!-- ng-repeat -->
+		<div ng-repeat="news in pubInfo.news"> <!-- ng-repeat -->
 			<div class="header col-xs-12">
 				<span class="icon glyphicon glyphicon-volume-up"></span>
-				<span class="time">{{item.newsDate}}</span>
+				<span class="time">{{news.newsDate}}</span>
 			</div>
 			<div class="col-xs-12 timeline-content-block">
 				<div class="content">
-					<p>
-						<b>{{item.newsTitle}}</b> 
-						<pre>{{item.newsContent}}</pre>
-					</p>
-					<p class="bg-info" style="padding:5px 10px;">最后<a href="#/history/tip/{{item.tipId}}">修改于</a>{{item.lastModifiedTime}}</p>
+					<div>
+						<b>{{news.newsTitle}}</b> 
+						<pre>{{news.newsContent}}</pre>
+					</div>
 				</div>
-				<div class="gushen-comment-block clearfix">
-					<div class="pull-left" ng-click="gotoProfile()"><img width="60%" src="images/home/gushen.png"></div>
+				<button class="btn btn-danger btn-small form-control" ng-click="addTip()">
+					<span class="glyphicon glyphicon-plus-sign"></span> 对此咨询添加评述
+				</button>
+				<div class="gushen-comment-block clearfix" ng-repeat="tip in news.tips">
+					<div class="pull-left" ng-click="gotoProfile()"><img width="60%" ng-src="{{pubInfo.ownerImg}}"></div>
 					<div class="clearfix">
 						<b>{{pubInfo.owner}}</b>
+						<span class="bg-info" style="padding:2px; font-size:10px;">最后<a href="#/history/tip/{{tip.tipId}}">修改于</a>{{tip.lastModifiedTime}}</span>
 						<p>
-							<button ng-show="!pubInfo.available" class="btn btn-info btn-small" ng-click="visitOrBuyPub(item)">
+							<button ng-show="!pubInfo.available" class="btn btn-info btn-small" ng-click="visitOrBuyPub(tip)">
 								<span>购买此Pub</span>
 							</button>
-							<button class="btn btn-danger btn-small" ng-click="modifyTip(item)">
-								<span ng-if="item.isModifyTip">保存修改</span>
-								<span ng-if="!item.isModifyTip">修改Tip</span>
+							<button class="btn btn-danger btn-small" ng-click="modifyTip(tip)">
+								<span ng-if="tip.isModifyTip">保存修改</span>
+								<span ng-if="!tip.isModifyTip">修改Tip</span>
 							</button>
 						</p> 
-						<textarea ng-show="item.isModifyTip" rows="4" style="width:100%; border-radius:4px; margin-bottom:15px;" ng-model="item.tipContent"></textarea>
+						<textarea ng-show="tip.isModifyTip" rows="4" style="width:100%; border-radius:4px; margin-bottom:15px;" ng-model="tip.tipContent"></textarea>
 					</div>
-					<div ng-show="!item.isModifyTip">
-						<pre>{{item.tipContent}}</pre>
+					<div ng-show="!tip.isModifyTip">
+						<pre>{{tip.tipContent}}</pre>
 					</div>
 					<div class="clearfix share-block">
-						<div collapse="item.isCollapsedShare" class="pull-left user-comments">
+						<div collapse="tip.isCollapsedShare" class="pull-left user-comments">
 							<button class="btn"><img width="25px" src="images/3rd/qq.png"></button>
 							<button class="btn"><img width="25px" src="images/3rd/wb.png"></button>
 							<button class="btn"><img width="25px" src="images/3rd/wx.png"></button>
 						</div> 
 						<div class="pull-right">
-							<button class="btn btn-default btn-small" ng-click="item.isCollapsedShare=!item.isCollapsedShare">分享到朋友圈</button>
-							<button  ng-click="item.isCollapsedCmt = !item.isCollapsedCmt" class="btn btn-default">
-								<span class="glyphicon glyphicon-thumbs-up" style="padding-right:2px"></span>{{item.nbLikes}} 
-								<span class="glyphicon glyphicon-thumbs-down" style="padding-right:2px"></span>{{item.nbDislikes}}
+							<button class="btn btn-default btn-small" ng-click="tip.isCollapsedShare=!tip.isCollapsedShare">分享到朋友圈</button>
+							<button  ng-click="tip.isCollapsedCmt = !tip.isCollapsedCmt" class="btn btn-default">
+								<span class="glyphicon glyphicon-thumbs-up" style="padding-right:2px"></span>{{tip.nbLikes}} 
+								<span class="glyphicon glyphicon-thumbs-down" style="padding-right:2px"></span>{{tip.nbDislikes}}
 							</button>
 							<!-- <button class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up" style="padding-right:2px"></span> 234</button> -->
 						</div>
 					</div>
 							
-					<div collapse="item.isCollapsedCmt" class="user-comments">
-						<div ng-repeat="cmt in item.comments.likes">
+					<div collapse="tip.isCollapsedCmt" class="user-comments">
+						<div ng-repeat="cmt in tip.comments.likes">
 							<div class="col-xs-12">
 								<div>
 									<span class="glyphicon glyphicon-thumbs-up" style="color:red"></span>
-									<img src="images/3rd/qq.png" style="width:25px;">
+									<img ng-src="{{cmt.userImg}}" style="width:25px;">
 									<span><b>{{cmt.username}}</b></span>
 									<span>[{{cmt.time}}]</span>
 								</div>
@@ -133,11 +136,11 @@
 								</div>
 							</div>
 						</div>
-						<div ng-repeat="cmt in item.comments.dislikes">
+						<div ng-repeat="cmt in tip.comments.dislikes">
 							<div class="col-xs-12">
 								<div>
 									<span class="glyphicon glyphicon-thumbs-down" style="color:green"></span>
-									<img src="images/3rd/qq.png" style="width:25px;">
+									<img ng-src="{{cmt.userImg}}" style="width:25px;">
 									<span><b>{{cmt.username}}</b></span>
 									<span>[{{cmt.time}}]</span>
 								</div>
