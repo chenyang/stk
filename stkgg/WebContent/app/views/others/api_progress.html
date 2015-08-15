@@ -710,8 +710,72 @@
 				</div>
 				<div class="well">
 					<label>Coverpage页</label>
-					<p>	
-					</p>	
+					<div>
+							<span class="label label-default">获取pub信息</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/coverpage/get
+							<pre>
+								{
+									 "sessionId":"IUWID987398OSI", //关联用户
+									 "pubId":15, //关联pub
+								 },
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"//功能上的
+									"reason": null / "错误原因", 
+									"pubInfo":{
+										"createDate":"2015-06-04", 
+										"desc":"一段关于股神小白的自我评价", 
+										"owner":"股神小白", 
+										"ownerImg":"images/home/gushen.png", //作者头像img, 
+										"pubImg":"images/home/exp1.png", //图像
+										"available":false, //是否免费或未过期之类的
+										"totalLikes":289, //全部点赞数 针对pub
+										"totalProfit": 138, //全局盈利率, 
+										"price":37.99, 
+										"boughtNum":29, //多少人购买
+										"cmts":[
+											{
+												"time":"2015-08-07 12:59:59", 
+						    	  				"title":null, 
+						    	  				"username":"小红", 
+						    	  				"cmt":"不错 挺准确的", 
+							    	  			"userImg":"images/3rd/qq.png" //用户头像
+											}, 
+											{
+												"time":"2015-08-07 12:59:59", 
+						    	  				"title":null, 
+						    	  				"username":"小白", 
+						    	  				"cmt":"不怎么样", 
+							    	  			"userImg":"images/3rd/qq.png"
+											}, 	
+										]
+									}
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">举报</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/report/add
+							<pre>
+								{
+									 "sessionId":"IUWID987398OSI", //关联用户
+									 "pubId":15, //关联pub
+									 "contact":"123929201", // 联系方式
+									 "cmt":"nnnnn..."//其他信息
+								 },
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"//功能上的
+									"reason": null / "错误原因"
+								}
+							</pre>
+						</div>
 				</div>
 				<div class="well">
 					<label>修改历史页面</label>

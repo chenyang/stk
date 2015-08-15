@@ -1,8 +1,8 @@
 (function(){
 	'use strict';
 	var mod = angular.module('user.controller');
-	mod.controller("LoginCtrl", ['$scope', '$cookies', 'APIMOCK', '$http', '$location',
-	                             function($scope, $cookies, APIMOCK, $http, $location){
+	mod.controller("LoginCtrl", ['$scope', '$cookies', 'APIMOCK', '$http', '$location', 'API', 
+	                             function($scope, $cookies, APIMOCK, $http, $location, API){
 
 		//!!set cookie for app
 		var setCookie = function(data){
@@ -78,6 +78,8 @@
 					password:$scope.userLoginInfo.password,
 					captcha:$scope.userLoginInfo.inputCapcha
 			};
+			
+			console.log("/member/login", data);
 			
 			$http({
 				method: 'POST', 

@@ -85,30 +85,33 @@
 	
 			mod.constant('API', {
 				//登陆
-					CHECKPHONE:'http://123.57.210.176/util/checkphone', 
-					GETCAPCHA:'http://123.57.210.176/util/getcaptcha ', 
-					SENDCODE:'http://123.57.210.176/util/sendcode', 
-					LOGIN:'http://123.57.210.176/util/login', 
-					REGISTER:'http://123.57.210.176/member/reg', 
-					LOGOUT:'http://123.57.210.176/member/logout', 
-					FINDPWD:'http://123.57.210.176/member/findpwd', 
-					RESETPWD:'http://123.57.210.176/member/resetpwd', 
+					CHECKPHONE:'http://123.57.210.176/util/checkphone?access-token=test', 
+					GETCAPCHA:'http://123.57.210.176/util/getcaptcha?access-token=test', 
+					SENDCODE:'http://123.57.210.176/util/sendcode?access-token=test', 
+					LOGIN:'http://123.57.210.176/member/login?access-token=test', 
+					REGISTER:'http://123.57.210.176/member/reg?access-token=test',  
+					LOGOUT:'http://123.57.210.176/member/logout?access-token=test', 
+					FINDPWD:'http://123.57.210.176/member/findpwd?access-token=test', 
+					RESETPWD:'http://123.57.210.176/member/resetpwd?access-token=test', 
 				//发现页
-					SEARCHPUBS:'http://123.57.210.176/util/search', 
-					DEFAULTPUBS:'http://123.57.210.176/util/pubs', 
+					SEARCHPUBS:'http://123.57.210.176/util/search?access-token=test', 
+					DEFAULTPUBS:'http://123.57.210.176/util/pubs?access-token=test', 
 				//创建新PUB页
 					SEARCHSTOCK:'http://123.57.210.176/stocks',
-					UPLOADIMG: 'http://123.57.210.176/upload/img', 
+					UPLOADIMG: 'http://123.57.210.176/upload/img?access-token=test', 
 					POSTPUB:'http://123.57.210.176/pubs',
 				//Timeline页
-					TIMELINEPUBS:'http://123.57.210.176/pubs/id', 
-					ADDTIP:'??', 
-					EDITTIP:'??', 
+					TIMELINEPUBS:'http://123.57.210.176/pubs/id?access-token=test', 
+					ADDTIP:'http://123.57.210.176/tips/add?access-token=test', 
+					EDITTIP:'http://123.57.210.176/tips/edit?access-token=test', 
 				//预测发布
-					ADDPREDICTION:'http://123.57.210.176/prediction/add', 
-					EDITPREDICTION:'http://123.57.210.176/prediction/edit'
+					ADDPREDICTION:'http://123.57.210.176/prediction/add?access-token=test', 
+					EDITPREDICTION:'http://123.57.210.176/prediction/edit?access-token=test', 
 					
 				//Coverpage页
+					COVERPAGEGET: 'http://123.57.210.176/coverpage/get?access-token=test', 
+					REPORTADD:'http://123.57.210.176/report/add?access-token=test',
+					
 				//修改历史页面
 				//"我的"页面
 				//个人详情页面
@@ -139,9 +142,11 @@
 				//预测发布
 					GETPREDICTION:'/stkgg/app/mockData/prediction/get.json',
 					ADDPREDICTION:'/stkgg/app/mockData/prediction/add.json', 
-					EDITPREDICTION:'/stkgg/app/mockData/prediction/edit.json'
+					EDITPREDICTION:'/stkgg/app/mockData/prediction/edit.json',
 					
 				//Coverpage页
+					COVERPAGEGET: '/stkgg/app/mockData/coverpage/get.json', 
+					REPORTADD:'/stkgg/app/mockData/coverpage/report.json',
 				//修改历史页面
 				//"我的"页面
 				//个人详情页面
