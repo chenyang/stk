@@ -781,8 +781,56 @@
 				</div>
 				<div class="well">
 					<label>修改历史页面</label>
-					<p>
-					</p>	
+					<div>
+						<span class="label label-default">TIPS 修改历史</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/history/tip
+						<pre>
+							{
+								 "sessionId":"IUWID987398OSI", //关联用户
+								 "tipId":15, //关联tip
+							 },
+						</pre>
+						<br>Response:
+						<pre>
+							{
+								"result":"success", / "fail"//功能上的
+								"reason": null / "错误原因", 
+								"history":[
+									{
+										"date":"2015-07-01", 
+										"content":"周一的市场仅小幅高开，便再次出现大跌，这就是我们所说的趋势的力量，在逼近4000点时，管理层表态，说明“政策底”已出，但“市场底”会滞后。周一大盘一度击破4000大关，跌到我们前期提示的调整极限3856-3886区域，随即止跌回升，收在4000之上"
+									}
+								
+								]
+							}
+						</pre>
+					</div>
+					
+					<div>
+						<span class="label label-default">PREDICTION 修改历史</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/history/prediction
+						<pre>
+							{
+								 "sessionId":"IUWID987398OSI", //关联用户
+								 "pubId":15, //pub
+							 },
+						</pre>
+						<br>Response:
+						<pre>
+							{
+								"result":"success", / "fail"//功能上的
+								"reason": null / "错误原因", 
+								"history":[
+									{
+										"date":"2015-07-01", 
+										"content":"周一的市场仅小幅高开，便再次出现大跌，这就是我们所说的趋势的力量，在逼近4000点时，管理层表态，说明“政策底”已出，但“市场底”会滞后。周一大盘一度击破4000大关，跌到我们前期提示的调整极限3856-3886区域，随即止跌回升，收在4000之上"
+									}
+								]
+							}
+						</pre>
+					</div>
 				</div>
 				
 				<div class="well">

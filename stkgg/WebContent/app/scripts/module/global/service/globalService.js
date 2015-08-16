@@ -113,6 +113,9 @@
 					REPORTADD:'http://123.57.210.176/report/add?access-token=test',
 					
 				//修改历史页面
+					HISTORYTIP:'http://123.57.210.176/hisotry/tip?access-token=test', 
+					HISTORYPREDICTION:'http://123.57.210.176/hisotry/prediction?access-token=test', 
+					
 				//"我的"页面
 				//个人详情页面
 				//动态页
@@ -148,6 +151,8 @@
 					COVERPAGEGET: '/stkgg/app/mockData/coverpage/get.json', 
 					REPORTADD:'/stkgg/app/mockData/coverpage/report.json',
 				//修改历史页面
+					HISTORYTIP:'/stkgg/app/mockData/history/tip.json', 
+					HISTORYPREDICTION:'/stkgg/app/mockData/history/prediction.json', 
 				//"我的"页面
 				//个人详情页面
 				//动态页
