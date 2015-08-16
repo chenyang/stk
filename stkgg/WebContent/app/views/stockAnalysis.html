@@ -1,33 +1,39 @@
 <div class="container-fluid stock-analysis" ng-controller="StockAnalysisCtrl">
 	<div class="stock-graph-block">
 		<div class="row">
-			<div class="col-xs-3 revenu-block-left">
+			<div class="col-xs-4 revenu-block-left">
 				<div >{{pubInfo.stockPrice}}</div>
 				<div >{{pubInfo.chgVal}} {{pubInfo.chgPct}}%</div>
 				<div >{{pubInfo.today|date:'yyyy-MM-dd'}}</div>
 			</div>
 			
-			<div class="col-xs-6 text-center revenu-block-center">
+			<div class="col-xs-4 text-center revenu-block-center">
 				<span>总收益 ( 创建于 {{pubInfo.createDate}}) </span>
 				<div style="">{{pubInfo.totalProfit}}%</div>
 			</div>
 			
-			<div class="col-xs-3 revenu-block-right">
+			<div class="col-xs-4 revenu-block-right">
 				<div>
 					<!-- 修改预测 -->
-					<a href="">
-						<span ng-show="prediction==null" ng-click="editPrecidtion()"><span class="glyphicon glyphicon-plus-sign" style="padding-right:2px"></span>发布预测</span>
-						<span ng-show="prediction!=null" ng-click="editPrecidtion()"><span class="glyphicon glyphicon-pencil" style="padding-right:2px"></span>修改预测</span>
-					</a>
-					<!-- 预测解释 -->
-					<a href="">
-						<span popover-template="predictPopover.templateUrl" popover-title="{{predictPopover.title}}" popover-trigger="mouseenter" popover-placement="left"><span class="glyphicon glyphicon-eye-open"></span> 预测解释 </span>
-					</a>
-					<!-- 选择新闻 -->
-					<a href="">
-						<span><span class="glyphicon glyphicon-globe"></span> 选取新闻</span>
-					</a>
+					<p>
+						<a href="">
+							<span ng-show="prediction==null" ng-click="editPrecidtion()"><span class="glyphicon glyphicon-plus-sign" style="padding-right:2px"></span>发布预测</span>
+							<span ng-show="prediction!=null" ng-click="editPrecidtion()"><span class="glyphicon glyphicon-pencil" style="padding-right:2px"></span>修改预测</span>
+						</a>
+					</p>
 					
+					<!-- 预测解释 -->
+					<p>
+						<a href="">
+							<span popover-template="predictPopover.templateUrl" popover-title="{{predictPopover.title}}" popover-trigger="mouseenter" popover-placement="left"><span class="glyphicon glyphicon-eye-open"></span> 预测解释 </span>
+						</a>
+					</p>
+					<!-- 选择新闻 -->
+					<p>
+						<a href="">
+						<span><span class="glyphicon glyphicon-globe"></span> 选取新闻</span>
+						</a>
+					</p>
 				</div>
 			</div>
 			<div class="col-xs-12 chart">
