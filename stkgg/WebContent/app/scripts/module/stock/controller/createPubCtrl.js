@@ -59,7 +59,7 @@
 					
 					$http({
 						method: 'POST', 
-						url: APIMOCK.POSTPUB, 
+						url: API.POSTPUB, 
 						data:data
 					})
 					.then(function(res){
