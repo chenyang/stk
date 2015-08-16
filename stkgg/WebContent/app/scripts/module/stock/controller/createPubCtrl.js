@@ -26,6 +26,15 @@
 
 
 		//上传图片。。
+		$scope.uploadImg = function(flowFile, evt, $flow){
+             var reader = new FileReader();
+             reader.onload = function(readerEvt) {
+            	 var binaryString = readerEvt.target.result;
+            	 $scope.binaryImgStr = binaryString;
+             };
+             reader.readAsDataURL(flowFile.file);
+		};
+
 				
 		//创建
 		$scope.submit = function(){
@@ -40,11 +49,13 @@
 							"sessionId":sessionId,
 							"stockId":$scope.pubInfo.stock.id, 
 							"type":1, //商品类型 1 股票
-							"imageUrl": null, 
+							"imageUrl": $scope.binaryImgStr, //临时
 							"desc":$scope.pubInfo.desc,
 							"price":$scope.pubInfo.price,
 							"pubName":$scope.pubInfo.pubName
 					};
+					
+					console.log("data", data);
 					
 					$http({
 						method: 'POST', 
@@ -69,6 +80,7 @@
 		var init = function(){
 			$scope.pubInfo = {};
 			$scope.stocks = [];
+			$scope.binaryImgStr = null;
 		};
 		//initialisation
 		init();

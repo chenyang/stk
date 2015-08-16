@@ -36,6 +36,7 @@
 	appDeps.push('ngCookies');
 	appDeps.push('ui.bootstrap');
 	appDeps.push('nvd3');
+	appDeps.push('flow');
 	
 	
 	/**

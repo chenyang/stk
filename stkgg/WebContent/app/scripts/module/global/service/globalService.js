@@ -99,7 +99,7 @@
 				//创建新PUB页
 					SEARCHSTOCK:'http://123.57.210.176/stocks',
 					UPLOADIMG: 'http://123.57.210.176/upload/img?access-token=test', 
-					POSTPUB:'http://123.57.210.176/pubs/add',
+					POSTPUB:'http://123.57.210.176/pubs/add?access-token=test',
 				//Timeline页
 					TIMELINEPUBS:'http://123.57.210.176/pubs/timeline/id?access-token=test', 
 					ADDTIP:'http://123.57.210.176/tips/add?access-token=test', 

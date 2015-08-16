@@ -1,8 +1,8 @@
 (function(){
 	'use strict';
 	var mod = angular.module('stock.controller');
-	mod.controller("HomePageCtrl", ['$scope', '$location','$cookies', '$http', 'APIMOCK', '$rootScope', 
-	                                function($scope, $location, $cookies, $http, APIMOCK, $rootScope){
+	mod.controller("HomePageCtrl", ['$scope', '$location','$cookies', '$http', 'APIMOCK', '$rootScope','API',  
+	                                function($scope, $location, $cookies, $http, APIMOCK, $rootScope, API){
 		
 		//自动推荐
 		$scope.defaultPubs = function(){
@@ -14,7 +14,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: APIMOCK.DEFAULTPUBS, 
+				url: API.DEFAULTPUBS, 
 				data:data
 			})
 			.then(function(res){

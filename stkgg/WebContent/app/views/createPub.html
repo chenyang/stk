@@ -33,9 +33,17 @@
 		  	<input type="text" class="form-control" ng-model="pubInfo.pubName" required>
 		  </div>
 		  <div class="form-group">
-		    <label>上传图片</label>
-		    <input type="file">
-		    <p class="help-block">请上传pub图片，也可选择不传</p>
+		    <label>上传图片 (可选)</label>  
+		  	<div flow-init flow-file-added="uploadImg( $file, $event, $flow)">
+		  		<span class="btn btn-info" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">选择图片</span>
+		  		<span class="btn btn-danger" ng-show="$flow.files.length" ng-click="$flow.cancel()">删除</span>
+			    <p class="help-block">图片格式仅支持PNG, GIF, JPG</p>
+			    
+			    <label>预览</label>
+			    <div class="thumbnail" ng-show="$flow.files.length" style="width:100px">
+				   <img flow-img="$flow.files[0]"/>
+				</div>
+			</div>
 		  </div>
 		  <div class="form-group">
 		  	<label>添加描述</label>
@@ -72,4 +80,5 @@
 		  <button type="submit" class="btn btn-primary">创建</button>
 		</form>
 	</div>	
+	
 </div>
