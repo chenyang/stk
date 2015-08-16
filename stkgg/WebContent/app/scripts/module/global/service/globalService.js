@@ -88,20 +88,20 @@
 					CHECKPHONE:'http://123.57.210.176/util/checkphone?access-token=test', 
 					GETCAPCHA:'http://123.57.210.176/util/getcaptcha?access-token=test', 
 					SENDCODE:'http://123.57.210.176/util/sendcode?access-token=test', 
-					LOGIN:'http://123.57.210.176/member/login?access-token=test', 
-					REGISTER:'http://123.57.210.176/member/reg?access-token=test',  
-					LOGOUT:'http://123.57.210.176/member/logout?access-token=test', 
-					FINDPWD:'http://123.57.210.176/member/findpwd?access-token=test', 
-					RESETPWD:'http://123.57.210.176/member/resetpwd?access-token=test', 
+					LOGIN:'http://123.57.210.176/user/login?access-token=test', 
+					REGISTER:'http://123.57.210.176/user/reg?access-token=test',  
+					LOGOUT:'http://123.57.210.176/user/logout?access-token=test', 
+					FINDPWD:'http://123.57.210.176/user/findpwd?access-token=test', 
+					RESETPWD:'http://123.57.210.176/user/resetpwd?access-token=test', 
 				//发现页
 					SEARCHPUBS:'http://123.57.210.176/util/search?access-token=test', 
 					DEFAULTPUBS:'http://123.57.210.176/util/pubs?access-token=test', 
 				//创建新PUB页
 					SEARCHSTOCK:'http://123.57.210.176/stocks',
 					UPLOADIMG: 'http://123.57.210.176/upload/img?access-token=test', 
-					POSTPUB:'http://123.57.210.176/pubs',
+					POSTPUB:'http://123.57.210.176/pubs/add',
 				//Timeline页
-					TIMELINEPUBS:'http://123.57.210.176/pubs/id?access-token=test', 
+					TIMELINEPUBS:'http://123.57.210.176/pubs/timeline/id?access-token=test', 
 					ADDTIP:'http://123.57.210.176/tips/add?access-token=test', 
 					EDITTIP:'http://123.57.210.176/tips/edit?access-token=test', 
 				//预测发布

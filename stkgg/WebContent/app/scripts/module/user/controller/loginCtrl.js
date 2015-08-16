@@ -47,7 +47,7 @@
 				};
 				$http({
 					method: 'POST', 
-					url: APIMOCK.SENDCODE, 
+					url: API.SENDCODE, 
 					data:data
 				})
 				.then(function(res){
@@ -79,11 +79,11 @@
 					captcha:$scope.userLoginInfo.inputCapcha
 			};
 			
-			console.log("/member/login", data);
+			console.log("/user/login", data);
 			
 			$http({
 				method: 'POST', 
-				url: APIMOCK.LOGIN, 
+				url: API.LOGIN, 
 				data:data
 			})
 			.then(function(res){
@@ -113,7 +113,7 @@
 				};
 				$http({
 					method: 'POST', 
-					url: APIMOCK.REGISTER, 
+					url: API.REGISTER, 
 					data:data
 				}).then(function(res){
 					if(res.data.result=="success"){

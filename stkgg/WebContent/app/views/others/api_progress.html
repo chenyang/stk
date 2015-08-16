@@ -59,7 +59,7 @@
 						<div>
 							<span class="label label-default">登陆</span>
 							<br>Request:
-							<br>POST http://123.57.210.176/member/login
+							<br>POST http://123.57.210.176/user/login
 							<pre>
 								{
 									"login":("dellgcy",/"qq"/"cellphone" ):用户只搜索username, 但可以是手机，qq，或者自定义名称. 
@@ -81,7 +81,7 @@
 						<div>
 							<span class="label label-default">注册</span>
 							<br>Request:
-							<br>POST http://123.57.210.176/member/reg
+							<br>POST http://123.57.210.176/user/reg
 							<pre>
 								{
 									"login":("dellgcy",/"qq"/"cellphone" ):用户可以用手机，qq，或者自定义名称登陆,
@@ -102,7 +102,7 @@
 						<div>
 							<span class="label label-default">登出</span>
 							<br>Request:
-							<br>POST http://123.57.210.176/member/logout
+							<br>POST http://123.57.210.176/user/logout
 							<pre>
 								{
 									"sessionId":"IUWID987398OSI" / null(如果fail)
@@ -119,7 +119,7 @@
 						<div>
 							<span class="label label-default">找回密码</span>
 							<br>Request:
-							<br>POST http://123.57.210.176/member/findpwd
+							<br>POST http://123.57.210.176/user/findpwd
 							<pre>
 								<span class="label label-warning">未完待续。。</span>
 							</pre>
@@ -128,7 +128,7 @@
 						<div>
 							<span class="label label-default">重置密码</span>
 							<br>Request:
-							<br>POST http://123.57.210.176/member/resetpwd
+							<br>POST http://123.57.210.176/user/resetpwd
 							<pre>
 								<span class="label label-warning">未完待续。。</span>
 							</pre>
@@ -270,7 +270,7 @@
 						<div>
 							<span class="label label-default">发布pubs</span>
 							<br>Request:
-							<br>POST http://123.57.210.176/pubs
+							<br>POST http://123.57.210.176/pubs/add
 							<pre>
 								{
 									"sessionId":"IUWID987398OSI" //关联用户
@@ -307,7 +307,7 @@
 						<div>
 							<span class="label label-default">pub细节相关</span>
 							<br>Request:
-							<br>POST http://123.57.210.176/pubs/id
+							<br>POST http://123.57.210.176/pubs/timeline/	id
 							<pre>
 								{
 									 "sessionId":"IUWID987398OSI", //关联用户
