@@ -49,7 +49,7 @@
 							"sessionId":sessionId,
 							"stockId":$scope.pubInfo.stock.id, 
 							"type":1, //商品类型 1 股票
-							"imageUrl": $scope.binaryImgStr, //临时
+							"imageData": $scope.binaryImgStr, //临时
 							"desc":$scope.pubInfo.desc,
 							"price":$scope.pubInfo.price,
 							"pubName":$scope.pubInfo.pubName
