@@ -1,8 +1,8 @@
 (function(){
 	'use strict';
 	var mod = angular.module('stock.controller');
-	mod.controller("PredictionCtrl", ['$scope', '$modalInstance', 'prediction','$location', '$http', '$cookies', 'APIMOCK', 
-	                                function($scope, $modalInstance, prediction, $location, $http, $cookies, APIMOCK){
+	mod.controller("PredictionCtrl", ['$scope', '$modalInstance', 'prediction','$location', '$http', '$cookies', 'APIMOCK', 'API', 
+	                                function($scope, $modalInstance, prediction, $location, $http, $cookies, APIMOCK, API){
 
 
 		$scope.gotoHistoryPage = function(pubId){
@@ -36,7 +36,7 @@
 					};
 					$http({
 						method: 'POST', 
-						url: APIMOCK.EDITPREDICTION, 
+						url: API.EDITPREDICTION, 
 						data:data
 					})
 					.then(function(res){
@@ -78,7 +78,7 @@
 					};
 					$http({
 						method: 'POST', 
-						url: APIMOCK.EDITPREDICTION, 
+						url: APIMOCK.ADDPREDICTION, 
 						data:data
 					})
 					.then(function(res){

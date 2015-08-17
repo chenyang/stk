@@ -2,8 +2,8 @@
 	'use strict';
 	var mod = angular.module('stock.controller');
 	mod.controller("StockAnalysisCtrl", 
-			['$scope', '$modal', '$cookies', '$location', '$http','$routeParams', 'APIMOCK', '$filter', 'NumToChineseTime', 
-			 function($scope, $modal, $cookies, $location, $http, $routeParams, APIMOCK, $filter, NumToChineseTime){
+			['$scope', '$modal', '$cookies', '$location', '$http','$routeParams', 'APIMOCK', 'API', '$filter', 'NumToChineseTime', 
+			 function($scope, $modal, $cookies, $location, $http, $routeParams, APIMOCK, API, $filter, NumToChineseTime){
 
 
 				//图标部分		
@@ -121,7 +121,7 @@
 							};
 							$http({
 								method: 'POST', 
-								url: APIMOCK.EDITTIP, 
+								url: API.EDITTIP, 
 								data:data
 							})
 							.then(function(res){
@@ -152,7 +152,7 @@
 						};
 						$http({
 							method: 'POST', 
-							url: APIMOCK.GETTIMELINE, 
+							url: API.GETTIMELINE, 
 							data:data
 						})
 						.then(function(res){
@@ -214,7 +214,7 @@
 						};
 						$http({
 							method: 'POST', 
-							url: APIMOCK.GETPREDICTION, 
+							url: API.GETPREDICTION, 
 							data:data
 						})
 						.then(function(res){

@@ -101,10 +101,11 @@
 					UPLOADIMG: 'http://123.57.210.176/upload/img?access-token=test', 
 					POSTPUB:'http://123.57.210.176/pubs/add?access-token=test',
 				//Timeline页
-					TIMELINEPUBS:'http://123.57.210.176/pubs/timeline/id?access-token=test', 
+					GETTIMELINE:'http://123.57.210.176/pubs/timeline/get?access-token=test', 
 					ADDTIP:'http://123.57.210.176/tips/add?access-token=test', 
 					EDITTIP:'http://123.57.210.176/tips/edit?access-token=test', 
 				//预测发布
+					GETPREDICTION:'http://123.57.210.176/prediction/get?access-token=test', 
 					ADDPREDICTION:'http://123.57.210.176/prediction/add?access-token=test', 
 					EDITPREDICTION:'http://123.57.210.176/prediction/edit?access-token=test', 
 					
@@ -117,7 +118,11 @@
 					HISTORYPREDICTION:'http://123.57.210.176/hisotry/prediction?access-token=test', 
 					
 				//"我的"页面
+					
+					
 				//个人详情页面
+					
+					
 				//动态页
 			});
 			
