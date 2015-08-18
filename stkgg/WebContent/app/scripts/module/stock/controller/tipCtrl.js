@@ -9,9 +9,10 @@
 			if(_.isEmpty(tipInfo.content)){
 				alert('请输入评述');
 			}else{
-				var  data= {
-					content:tipInfo.content, 
-					date: $filter('date')(new Date(), 'yyyy-MM-dd')
+				var data= {
+					pubId:params.pubId, 
+					newsId:params.newsId, 
+					content:tipInfo.content
 				};
 				
 				$http({

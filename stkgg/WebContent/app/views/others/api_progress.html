@@ -558,8 +558,9 @@
 							<br>POST http://123.57.210.176/tips/add
 							<pre>
 								{
-									"content":"预计股指将有小幅调整， 建议持续观察", 
-									"date":"2015-08-07"
+									"pubId":5, 
+									"newsId":12, 
+									"content":"预计股指将有小幅调整， 建议持续观察"
 								}
 							</pre>
 							<br>Response:
@@ -569,6 +570,8 @@
 									"reason":null, 
 									"tip":{
 										"id":10, 
+										"pubId":5, 
+										"newsId":12, 
 										"content":"预计股指将有小幅调整， 建议持续观察", 
 										"lastModifiedTime":"2015-08-08 12:39"
 									}
@@ -582,8 +585,7 @@
 							<pre>
 								{
 									"id": 5, 
-									"content":"预计股指将有小幅调整， 建议持续观察", 
-									"date":"2015-08-07"
+									"content":"预计股指将有小幅调整， 建议持续观察"
 								}
 							</pre>
 							<br>Response:
@@ -593,6 +595,8 @@
 									"reason":null, 
 									"tip":{
 										"id":10, 
+										"pubId":5, 
+										"newsId":12, 
 										"content":"预计股指将有小幅调整， 建议持续观察", 
 										"lastModifiedTime":"2015-08-08 12:39"
 									}
@@ -835,14 +839,129 @@
 				
 				<div class="well">
 					<label>"我的"页面</label>
-					<p>
-					</p>	
+					
+					<div>
+						<span class="label label-default">获取个人账户信息</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/user/get
+						<pre>
+							{
+								"sessionId":"xxx", 
+								"pubId":"xxx"
+							}
+						</pre>
+						<br>Response:
+						<pre>
+							{
+								"result":"success", 
+								"reason":null, 
+								"userInfo":{
+								????????
+								}
+							
+						</pre>
+					</div>
+					
+					<div>
+						<span class="label label-default">修改个人账户信息</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/user/edit
+						<pre>
+							???
+						</pre>
+						<br>Response:
+						<pre>
+							???
+						</pre>
+					</div>
+					
+					<div>
+						<span class="label label-default">我的发布列表</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/user/pubs
+						<pre>
+							{
+								"sessionId":"xxx", 
+								"pubId":"xxx"
+							}
+						</pre>
+						<br>Response:
+						<pre>
+							格式仿照pub 列表 （POST http://123.57.210.176/util/pubs）， 只是根据此用户给出
+						</pre>
+					</div>
+					
+					<div>
+						<span class="label label-default">我的收藏列表</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/user/favorites
+						<pre>
+							{
+								"sessionId":"xxx", 
+								"pubId":"xxx"
+							}
+						</pre>
+						<br>Response:
+						<pre>
+							格式仿照pub 列表 （POST http://123.57.210.176/util/pubs）， 只是根据此用户给出
+						</pre>
+					</div>
+					
+					<div>
+						<span class="label label-default">我的购买记录列表</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/user/boughts
+						<pre>
+							{
+								"sessionId":"xxx", 
+								"pubId":"xxx"
+							}
+						</pre>
+						<br>Response:
+						<pre>
+							{
+								"result":"success", 
+								"reason":null, 
+								"boughts":[
+									{
+										"time": "2015-07-08 12:09"
+										"price": 14.99, 
+										"pubId":15, 
+										"pubName":"小巴说中车"
+									}, 
+									{
+										"time": "2015-07-08 12:09"
+										"price": 14.99, 
+										"pubId":12, 
+										"pubName":"白说中车"
+									}
+								]
+							}
+						</pre>
+					</div>
+
+					
+					<div>
+						<span class="label label-default">申请小巴</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/user/applyVIP
+						<pre>
+							???
+						</pre>
+						<br>Response:
+						<pre>
+							{
+								"result":"success", 
+								"reason":null
+							}
+						</pre>
+					</div>
+					
 				</div>
 				
 				<div class="well">
 					<label>个人详情页面</label>
-					<p>
-					</p>	
+					<p>==“我的”页面--->获取个人账户信息</p>
 				</div>
 				
 				<div class="well">

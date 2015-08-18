@@ -82,12 +82,13 @@
 
 				//评述tips部分
 				//open modal for tip
-				$scope.addTip = function(){
+				$scope.addTip = function(news){
 					var sessionId =  $cookies.getObject('cookieUserProfile').sessionId;
 					var pubId = $routeParams.pubId;
 					var params = {
 							sessionId: sessionId, 
-							pubId: pubId
+							pubId: pubId, 
+							newsId:news.newsId
 					};
 					var modalInstance = $modal.open({
 						animation: true,
@@ -99,7 +100,6 @@
 							}
 						}
 					});
-
 
 					modalInstance.result.then(function (selectedItem) {
 						getTimeline();
@@ -116,8 +116,7 @@
 					if(!item.isModifyTip){//保存修改
 						var  data= {
 								id:item.tipId, 
-								content:item.tipContent, 
-								date: $filter('date')(new Date(), 'yyyy-MM-dd')
+								content:item.tipContent
 							};
 							$http({
 								method: 'POST', 
