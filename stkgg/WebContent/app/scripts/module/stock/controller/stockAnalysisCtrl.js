@@ -115,7 +115,7 @@
 					item.isModifyTip = !item.isModifyTip;
 					if(!item.isModifyTip){//保存修改
 						var  data= {
-								id:item.tipId, 
+								tipId:item.tipId, 
 								content:item.tipContent
 							};
 							$http({
