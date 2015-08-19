@@ -6,9 +6,7 @@
 		
 		//自动推荐
 		$scope.defaultPubs = function(){
-			
-			var cookieProfile = $cookies.getObject('cookieUserProfile');
-			var sessionId = _.isEmpty(cookieProfile)?cookieProfile.sessionId:null;
+			var sessionId =  $cookies.getObject('cookieUserProfile').sessionId;
 			var data = {
 				sessionId:sessionId
 			};
