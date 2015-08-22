@@ -151,12 +151,12 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.GETTIMELINE, 
+				url: APIMOCK.GETTIMELINE, 
 				data:data
 			})
 			.then(function(res){
 				if(res.data.result=="success"){
-					var pubInfo = res.data;
+					var pubInfo = res.data.timelineInfo;
 					_.each(pubInfo.news, function(news){
 						_.each(news.tips, function(tipItem){
 							tipItem.isCollapsedShare = true;  
@@ -215,7 +215,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.GETPREDICTION, 
+				url: APIMOCK.GETPREDICTION, 
 				data:data
 			})
 			.then(function(res){

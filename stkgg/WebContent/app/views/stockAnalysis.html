@@ -90,19 +90,19 @@
 						<pre>{{news.newsContent}}</pre>
 					</div>
 				</div>
-				<button class="btn btn-danger btn-small form-control" ng-click="addTip(news)">
+				<button class="btn btn-danger btn-small form-control" ng-click="addTip(news)" ng-show="pubInfo.isOwner">
 					<span class="glyphicon glyphicon-plus-sign"></span> 对此咨询添加评述
 				</button>
 				<div class="gushen-comment-block clearfix" ng-repeat="tip in news.tips">
 					<div class="pull-left" ng-click="gotoProfile()"><img width="60%" ng-src="{{pubInfo.ownerImg}}"></div>
-					<div class="clearfix">
+					<div class="clearfix" style="padding:10px">
 						<b>{{pubInfo.owner}}</b>
-						<span class="bg-info" style="padding:2px; font-size:10px;">最后<a href="#/history/tip/{{tip.tipId}}">修改于</a>{{tip.lastModifiedTime}}</span>
+						<span ng-show="pubInfo.isOwner" class="bg-info" style="padding:2px; font-size:10px;">最后<a href="#/history/tip/{{tip.tipId}}">修改于</a>{{tip.lastModifiedTime}}</span>
 						<p>
-							<button ng-show="!pubInfo.available" class="btn btn-info btn-small" ng-click="visitOrBuyPub(tip)">
+							<!-- <button ng-show="!pubInfo.available" class="btn btn-info btn-small" ng-click="visitOrBuyPub(tip)">
 								<span>购买此Pub</span>
-							</button>
-							<button class="btn btn-danger btn-small" ng-click="modifyTip(tip)">
+							</button> -->
+							<button ng-show="pubInfo.isOwner" class="btn btn-danger btn-small" ng-click="modifyTip(tip)">
 								<span ng-if="tip.isModifyTip">保存修改</span>
 								<span ng-if="!tip.isModifyTip">修改Tip</span>
 							</button>
