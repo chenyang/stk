@@ -106,10 +106,8 @@
 		 * initialization
 		 */
 		var init = function(){
-			
 			$scope.prediction = prediction;
 			$scope.isPredictionNew = true;
-			
 			if(!_.isEmpty(prediction)){
 				$scope.isPredictionNew = false;
 			}

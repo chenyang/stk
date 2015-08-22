@@ -56,6 +56,10 @@
 			});
 		};
 		
+		$scope.$on('refreshPage', function(){
+			getUserProfile();
+		});
+		
 		//init
 		var init = function(){
 			$scope.userInfo = {};

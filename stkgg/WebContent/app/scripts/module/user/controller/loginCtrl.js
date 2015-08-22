@@ -130,7 +130,7 @@
 				});
 			}
 		};
-
+		
 		/**initialization**/
 		var init= function(){
 			//default collapse for 3rd party login
@@ -143,12 +143,11 @@
 			//获取随机验证码
 			$scope.refreshCapcha();
 		};
-
 		//init
 		init();
-
+		
+		
 	}]);
-
 })();
 
 

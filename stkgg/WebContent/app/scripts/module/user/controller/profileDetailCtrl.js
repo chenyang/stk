@@ -77,6 +77,7 @@
 			
 		};
 		
+		
 		$scope.$on('refreshPage', function(){
 			getUserProfile();
 		});
@@ -87,7 +88,6 @@
 			$scope.binaryImgStr = null;
 			getUserProfile();
 		};
-		
 		//init
 		$scope.init();
 		

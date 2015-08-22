@@ -65,6 +65,10 @@
 			$location.path("/payment");
 		};
 		
+		$scope.$on('refreshPage', function(){
+			getPubInfo();
+		});
+		
 		//init
 		var init = function(){
 			//default is true
@@ -74,10 +78,7 @@
 			$scope.reportInfo = {};
 			getPubInfo();
 		};
-		
 		init();
-		
-		
 	}]);
 	
 })();

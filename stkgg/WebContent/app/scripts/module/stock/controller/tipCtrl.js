@@ -41,7 +41,6 @@
 		var init = function(){
 			$scope.tipInfo = {};
 		};
-		
 		init();
 		
 	}]);

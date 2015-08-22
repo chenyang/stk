@@ -51,6 +51,11 @@
 			});
 		};
 		
+		$scope.$on('refreshPage', function(){
+			init();
+		});
+		
+		//init
 		var init = function(){
 			$scope.history = [];
 			var path = $location.path();

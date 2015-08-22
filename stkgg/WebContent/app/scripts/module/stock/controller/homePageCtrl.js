@@ -5,7 +5,7 @@
 	                                function($scope, $location, $cookies, $http, APIMOCK, API, $rootScope){
 		
 		//自动推荐
-		$scope.defaultPubs = function(){
+		var defaultPubs = function(){
 			var sessionId =  $cookies.getObject('cookieUserProfile').sessionId;
 			var data = {
 				sessionId:sessionId
@@ -94,15 +94,15 @@
 			}			
 		};
 		
+		$scope.$on('refreshPage', function(){
+			defaultPubs();
+		});
 		
+		//init
 		var init = function(){
 			$scope.pubs = [];
-			$scope.defaultPubs();
+			defaultPubs();
 		};
-		
-		/**
-		 * Initialization
-		 */
 		init();
 		
 	}]);
