@@ -151,7 +151,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: APIMOCK.GETTIMELINE, 
+				url: API.GETTIMELINE, 
 				data:data
 			})
 			.then(function(res){
@@ -215,7 +215,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: APIMOCK.GETPREDICTION, 
+				url: API.GETPREDICTION, 
 				data:data
 			})
 			.then(function(res){
