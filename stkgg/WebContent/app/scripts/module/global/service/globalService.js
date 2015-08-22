@@ -104,6 +104,7 @@
 					GETTIMELINE:'http://123.57.210.176/pubs/timeline/get?access-token=test', 
 					ADDTIP:'http://123.57.210.176/tips/add?access-token=test', 
 					EDITTIP:'http://123.57.210.176/tips/edit?access-token=test', 
+					ADDFAVORITE:'http://123.57.210.176/user/favorites/add?access-token=test', 
 				//预测发布
 					GETPREDICTION:'http://123.57.210.176/prediction/get?access-token=test', 
 					ADDPREDICTION:'http://123.57.210.176/prediction/add?access-token=test', 
@@ -151,6 +152,7 @@
 					GETTIMELINE:'/stkgg/app/mockData/timeline/timeline.json', 
 					ADDTIP:'/stkgg/app/mockData/timeline/add.json', 
 					EDITTIP:'/stkgg/app/mockData/timeline/edit.json', 
+					ADDFAVORITE:'/stkgg/app/mockData/timeline/fav.json', 
 				//预测发布
 					GETPREDICTION:'/stkgg/app/mockData/prediction/get.json',
 					ADDPREDICTION:'/stkgg/app/mockData/prediction/add.json', 

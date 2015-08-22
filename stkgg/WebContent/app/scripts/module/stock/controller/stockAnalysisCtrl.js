@@ -184,6 +184,31 @@
 			});
 		}
 	};
+	
+	$scope.addToFav = function(){
+		var sessionId =  $cookies.getObject('cookieUserProfile').sessionId;
+		var pubId = $routeParams.pubId;
+		
+		var data = {
+			sessionId:sessionId, 
+			pubId:pubId
+		};
+		$http({
+			method: 'POST', 
+			url: API.ADDFAVORITE, 
+			data:data
+		})
+		.then(function(res){
+			if(res.data.result=="success"){
+				alert('成功加入收藏');
+				$scope.pubInfo.isFavorite = true;
+			}else{
+				alert(res.data.reason);
+			}
+		}, function(res){
+			console.log('error tech', res.data);
+		});
+	};
 
 	$scope.visitOrBuyPub = function(tip){
 		tip.available = $scope.pubInfo.available;

@@ -332,6 +332,7 @@
 		"ownerId":1, 
 		"owner":"股神小白", 
 		"isOwner":false, //当前登录用户是不是此pub的作者
+		"isFavorite":false, //当前登录用户是不是收藏了此pub
 		"ownerImg":"images/home/gushen.png", 
 		//"available":true, 不要了
 		"totalLikes":289, 
@@ -604,6 +605,25 @@
 										"content":"预计股指将有小幅调整， 建议持续观察", 
 										"lastModifiedTime":"2015-08-08 12:39"
 									}
+								}
+							</pre>
+						</div>
+						
+						<div>
+							<span class="label label-default">读者收藏</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/user/favorites/add
+							<pre>
+								{
+									 "sessionId":"IUWID987398OSI", //关联用户
+									 "pubId":15, //关联pub
+								 },
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"
+									"reason": null
 								}
 							</pre>
 						</div>
