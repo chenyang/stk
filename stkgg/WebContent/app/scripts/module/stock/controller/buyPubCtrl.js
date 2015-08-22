@@ -1,8 +1,8 @@
 (function(){
 	'use strict';
 	var mod = angular.module('stock.controller');
-	mod.controller("BuyPubCtrl", ['$scope', '$location', '$http', 'APIMOCK', '$routeParams', '$cookies', 
-	                              function($scope, $location, $http, APIMOCK, $routeParams, $cookies){
+	mod.controller("BuyPubCtrl", ['$scope', '$location', '$http', 'APIMOCK', 'API', '$routeParams', '$cookies', 
+	                              function($scope, $location, $http, APIMOCK, API, $routeParams, $cookies){
 		
 		
 		//举报
@@ -19,7 +19,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: APIMOCK.REPORTADD, 
+				url: API.REPORTADD, 
 				data:data
 			})
 			.then(function(res){
@@ -46,7 +46,7 @@
 			
 			$http({
 				method: 'POST', 
-				url: APIMOCK.COVERPAGEGET, 
+				url: API.COVERPAGEGET, 
 				data:data
 			})
 			.then(function(res){

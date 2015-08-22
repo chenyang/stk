@@ -2,9 +2,9 @@
 	<ul class="list-group">
 	  <li class="list-group-item">
 	  	<div class="photo text-center">	  		
-	  		<img src="images/3rd/qq.png" width="80px">	  		
+	  		<img ng-src="{{userInfo.imgUrl}}" width="80px">	  		
 	  	</div>
-	  	<div class="photo text-center">	  		
+	  	<div class="photo text-center" ng-show="userInfo.isVIP">	  		
 	  		<img src="images/user/vip.png" width="30px">	  		
 	  	</div>
 	  </li>
@@ -28,9 +28,9 @@
 	  		<a href="#/myBought">我的购买记录<span class="glyphicon glyphicon-menu-right"></span></a> 
 	  	</div>
 	  </li>
-	   <li class="list-group-item">
+	   <li ng-show="!userInfo.isVIP" class="list-group-item">
 	  	<div class="text-center">
-	  		<a href="#/myApply">申请小巴 <span class="glyphicon glyphicon-menu-right"></span></a>
+	  		<a href="#/myApply">申请加VIP<span class="glyphicon glyphicon-menu-right"></span></a>
 	  	</div>
 	  </li>
 	</ul>

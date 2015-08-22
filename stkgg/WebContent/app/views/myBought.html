@@ -3,12 +3,12 @@
   		<label>购买历史</label>
   	</div>
 	<ul class="list-group tips">
-	  <li ng-repeat="i in items" class="list-group-item">
+	  <li ng-repeat="item in userBoughts" class="list-group-item">
 	  	<div class="bg-primary title text-right">
-	  		2015-07-01 （未过期）
+	  		{{item.time}}
 	  	</div>
 	  	<div class="bg-info content">
-	  		<p>购买了<a href="#/stkAnal/12">xxxx</a>, 花费 。。。</p>
+	  		<p>购买了<a href="#/stkAnal/{{item.pubId}}">{{item.pubName}}</a>, 花费 {{item.price}}元</p>
 	  	</div>
 	  </li>
 	 </ul>

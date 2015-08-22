@@ -1,19 +1,23 @@
 (function(){
 	'use strict';
 	var mod = angular.module('global.controller');
-	mod.controller("GlobalCtrl", ['$scope', '$cookies', '$location', '$http', 'APIMOCK',
-	                              function($scope, $cookies, $location, $http, APIMOCK){
+	mod.controller("GlobalCtrl", ['$scope', '$cookies', '$location', '$http', 'APIMOCK', 'API', '$rootScope', 
+	                              function($scope, $cookies, $location, $http, APIMOCK, API, $rootScope){
 
+		//刷新  broadcast event
+		$scope.refreshPage = function(){
+			$rootScope.$broadcast('refreshPage');
+		};
+		
 		//登出
 		$scope.logout = function(){
 			if(!_.isEmpty($cookies.getObject('cookieUserProfile'))){
 				var data = {
 						"sessionId":$cookies.getObject('cookieUserProfile').sessionId
 				};
-
 				$http({
 					method: 'POST', 
-					url: APIMOCK.LOGOUT, 
+					url: API.LOGOUT, 
 					data:data
 				})
 				.then(function(res){

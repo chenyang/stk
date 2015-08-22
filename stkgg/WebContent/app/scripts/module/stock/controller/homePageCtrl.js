@@ -1,8 +1,8 @@
 (function(){
 	'use strict';
 	var mod = angular.module('stock.controller');
-	mod.controller("HomePageCtrl", ['$scope', '$location','$cookies', '$http', 'APIMOCK', '$rootScope','API',  
-	                                function($scope, $location, $cookies, $http, APIMOCK, $rootScope, API){
+	mod.controller("HomePageCtrl", ['$scope', '$location','$cookies', '$http', 'APIMOCK', 'API', '$rootScope',  
+	                                function($scope, $location, $cookies, $http, APIMOCK, API, $rootScope){
 		
 		//自动推荐
 		$scope.defaultPubs = function(){
@@ -24,7 +24,6 @@
 			}, function(res){
 				console.log('error tech', res.data);
 			});
-			
 		};
 		
 		//搜索
@@ -41,7 +40,7 @@
 				};
 				$http({
 					method: 'POST', 
-					url: APIMOCK.SEARCHPUBS, 
+					url: API.SEARCHPUBS, 
 					data:data
 				})
 				.then(function(res){

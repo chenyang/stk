@@ -1,8 +1,8 @@
 (function(){
 	'use strict';
 	var mod = angular.module('stock.controller');
-	mod.controller("TipCtrl", ['$scope', '$modalInstance', 'APIMOCK', '$http', 'params', '$filter', 
-	                           function($scope, $modalInstance, APIMOCK, $http, params, $filter){	
+	mod.controller("TipCtrl", ['$scope', '$modalInstance', 'APIMOCK', 'API', '$http', 'params', '$filter', 
+	                           function($scope, $modalInstance, APIMOCK, API, $http, params, $filter){	
 		
 		$scope.add = function(){
 			var tipInfo = $scope.tipInfo;
@@ -17,7 +17,7 @@
 				
 				$http({
 					method: 'POST', 
-					url: APIMOCK.ADDTIP, 
+					url: API.ADDTIP, 
 					data:data
 				})
 				.then(function(res){

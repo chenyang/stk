@@ -6,24 +6,24 @@
 	  		</li>
 	  		<li class="list-group-item">
 			  	<div class="row">
-			 		<div ng-repeat="n in items" class="col-xs-6 col-md-3">
-			 		 	<div class="thumbnail">
+			 		<div ng-repeat="pub in userPubs" class="col-xs-6 col-md-3">
+			 		 	<div class="thumbnail" ng-click="goToCoverPage(pub)">
 			 		 		<div class="thumbnail-header caption">
-			    				<span class="">孤注一掷</span>
-			    				<span class="pull-right glyphicon glyphicon-thumbs-up"><span>3450</span></span>
+			    				<span class="">{{pub.pubName}}</span>
+			    				<span class="pull-right glyphicon glyphicon-thumbs-up"><span>{{pub.likes}}</span></span>
 			    			</div>
-			    			<a><img class="thumbnail-image" src="images/home/exp1.png" alt="..."></a>
+			    			<a><img class="thumbnail-image" ng-src="{{pub.imgUrl}}" alt="..."></a>
 			    			<div class="thumbnail-desc caption clearfix">
 			    				<div class="pull-left">
 			    					<div class="moto">
-			    						<span>maybeza</span>
+			    						<span>{{pub.moto}}</span>
 		    						</div>
 				    				<div class="user">
-				    					<span>多福多</span>
+				    					<span>{{pub.owner}}</span>
 				    				</div>
 			    				</div>
 			    				<div class="profit pull-right">
-			    					<span>138%</span>
+			    					<span>{{pub.stats}}%</span>
 			    				</div>
 			    			</div>
 				   		</div>

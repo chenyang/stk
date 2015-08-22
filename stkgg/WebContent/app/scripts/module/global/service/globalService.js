@@ -116,9 +116,13 @@
 				//修改历史页面
 					HISTORYTIP:'http://123.57.210.176/hisotry/tip?access-token=test', 
 					HISTORYPREDICTION:'http://123.57.210.176/hisotry/prediction?access-token=test', 
-					
 				//"我的"页面
-					
+					MYPROFILE:'http://123.57.210.176/user/get?access-token=test', 
+					MYPROFILEEDIT:'http://123.57.210.176/user/edit?access-token=test', 
+					MYPUBS:'http://123.57.210.176/user/pubs?access-token=test', 
+					MYFAVORITES:'http://123.57.210.176/user/favorites?acess-token=test', 
+					MYBOUGHTS:'http://123.57.210.176/user/boughts?access-token=test', 
+					MYAPPLY:'http://123.57.210.176/user/applyVIP?access-token=test', 
 					
 				//个人详情页面
 					
@@ -159,7 +163,17 @@
 					HISTORYTIP:'/stkgg/app/mockData/history/tip.json', 
 					HISTORYPREDICTION:'/stkgg/app/mockData/history/prediction.json', 
 				//"我的"页面
+					
+					MYPROFILE:'/stkgg/app/mockData/my/profile.json', 
+					MYPROFILEEDIT:'/stkgg/app/mockData/my/edit.json', 
+					MYPUBS:'/stkgg/app/mockData/my/pub.json', 
+					MYFAVORITES:'/stkgg/app/mockData/my/fav.json', 
+					MYBOUGHTS:'/stkgg/app/mockData/my/bought.json', 
+					MYAPPLY:'/stkgg/app/mockData/my/apply.json', 
+					
 				//个人详情页面
+					
+					
 				//动态页
 			});
 	

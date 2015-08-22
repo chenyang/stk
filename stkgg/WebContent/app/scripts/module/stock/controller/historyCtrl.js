@@ -14,7 +14,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: APIMOCK.HISTORYTIP, 
+				url: API.HISTORYTIP, 
 				data:data
 			})
 			.then(function(res){
@@ -37,7 +37,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: APIMOCK.HISTORYPREDICTION, 
+				url: API.HISTORYPREDICTION, 
 				data:data
 			})
 			.then(function(res){

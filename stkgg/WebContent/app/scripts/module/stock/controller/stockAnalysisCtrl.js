@@ -22,19 +22,19 @@
 								y: function(d){ return d.value; },	
 								useInteractiveGuideline: true,
 								/*dispatch: {
-							stateChange: function(e){ 
-								//console.log("stateChange"); 
-							},
-							changeState: function(e){ 
-								//console.log("changeState"); 
-							},
-							tooltipShow: function(e){ 
-								//console.log("tooltipShow"); 
-							},
-							tooltipHide: function(e){ 
-								//console.log("tooltipHide"); 
-							}
-						},*/
+									stateChange: function(e){ 
+										//console.log("stateChange"); 
+									},
+									changeState: function(e){ 
+										//console.log("changeState"); 
+									},
+									tooltipShow: function(e){ 
+										//console.log("tooltipShow"); 
+									},
+									tooltipHide: function(e){ 
+										//console.log("tooltipHide"); 
+									}
+								},*/
 								xAxis: {
 									axisLabel: '证监会公告日期', 
 									tickFormat: function(d) {
@@ -120,7 +120,7 @@
 							};
 							$http({
 								method: 'POST', 
-								url: APIMOCK.EDITTIP, 
+								url: API.EDITTIP, 
 								data:data
 							})
 							.then(function(res){
@@ -176,6 +176,8 @@
 
 							}else{
 								alert(res.data.reason);
+								//reason mainly not buying this pub
+								$location.path("/buyPub/"+pubId);
 							}
 						}, function(res){
 							console.log('error tech', res.data);
@@ -213,7 +215,7 @@
 						};
 						$http({
 							method: 'POST', 
-							url: APIMOCK.GETPREDICTION, 
+							url: API.GETPREDICTION, 
 							data:data
 						})
 						.then(function(res){
