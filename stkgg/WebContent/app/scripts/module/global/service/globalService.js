@@ -104,7 +104,7 @@
 					SEARCHPUBS:'http://123.57.210.176/util/search?access-token=test', 
 					DEFAULTPUBS:'http://123.57.210.176/util/pubs?access-token=test', 
 				//创建新PUB页
-					SEARCHSTOCK:'http://123.57.210.176/stocks',
+					SEARCHSTOCK:'http://123.57.210.176/stocks?access-token=test',
 					UPLOADIMG: 'http://123.57.210.176/upload/img?access-token=test', 
 					POSTPUB:'http://123.57.210.176/pubs/add?access-token=test',
 				//Timeline页
@@ -134,7 +134,7 @@
 					MYPROFILE:'http://123.57.210.176/user/get?access-token=test', 
 					MYPROFILEEDIT:'http://123.57.210.176/user/edit?access-token=test', 
 					MYPUBS:'http://123.57.210.176/user/pubs?access-token=test', 
-					MYFAVORITES:'http://123.57.210.176/user/favorites?acess-token=test', 
+					MYFAVORITES:'http://123.57.210.176/user/favorites?access-token=test', 
 					MYBOUGHTS:'http://123.57.210.176/user/boughts?access-token=test', 
 					MYAPPLY:'http://123.57.210.176/user/applyVIP?access-token=test', 
 					
