@@ -10,6 +10,7 @@
 			 		 	<div class="thumbnail" ng-click="goToCoverPage(pub)">
 			 		 		<div class="thumbnail-header caption">
 			    				<span class="">{{pub.pubName}}</span>
+			    				<span ng-show="!pub.available" class="glyphicon glyphicon-lock" style="color:red"></span>
 			    				<span class="pull-right glyphicon glyphicon-thumbs-up"><span>{{pub.likes}}</span></span>
 			    			</div>
 			    			<a><img class="thumbnail-image" ng-src="{{pub.imgUrl}}" alt="..."></a>

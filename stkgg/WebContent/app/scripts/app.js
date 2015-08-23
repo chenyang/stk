@@ -46,7 +46,7 @@
 	//Configure route provider, route controller and template url
 	app.config(['$httpProvider', '$routeProvider','Navigation', function($httpProvider, $routeProvider, Navigation) {
 		
-		$httpProvider.interceptors.push('myHttpInterceptor');
+		$httpProvider.interceptors.push('globalHttpInterceptor');
 		
 		var listeNavigation=Navigation;
 		_.each(listeNavigation, function(navigation){

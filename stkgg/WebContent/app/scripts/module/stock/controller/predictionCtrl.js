@@ -47,7 +47,7 @@
 							alert(res.data.reason);
 						}
 					}, function(res){
-						console.log('error tech', res.data);
+						console.log('error tech', res);
 					});		
 			}
 		};
@@ -89,7 +89,7 @@
 							alert(res.data.reason);
 						}
 					}, function(res){
-						console.log('error tech', res.data);
+						console.log('error tech', res);
 					});		
 			}
 		};

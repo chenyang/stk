@@ -2,6 +2,26 @@
 	'use strict';
 	var mod = angular.module('global.service');
 	
+	//httpInterceptor for default $http behavior
+	mod.factory('globalHttpInterceptor', ['$q', '$window', '$location', function ($q, $window, $location) {
+		return {
+			'request': function(config) {
+				return config;
+			},
+			'requestError': function(rejection) {
+				return $q.reject(rejection);
+			},
+			'response': function(response) {
+				return response;
+			},
+			'responseError': function(rejection) {
+				alert('服务器端技术/对接出现问题');
+				return $q.reject(rejection);
+			}
+		};
+	}]);
+	
+	
 	mod.constant('Navigation',
 			[
 			 {  when:"/", 
