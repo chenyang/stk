@@ -57,10 +57,17 @@
 			 }, 
 			 {  when:"/payment",
 					templateUrl:"views/payment.html"
-				 },
+			 },
 			 {  when:"/register",
 				templateUrl:"views/register.html"
 			 },
+			 {  when:"/newsList",
+				templateUrl:"views/newsList.html"
+			 },
+			 {  when:"/newsContent/:newsId",
+				templateUrl:"views/newsContent.html"
+			 },
+			 
 			 
 			 //项目进展
 			 {  when:"/projectProgress",
@@ -105,6 +112,11 @@
 					ADDTIP:'http://123.57.210.176/tips/add?access-token=test', 
 					EDITTIP:'http://123.57.210.176/tips/edit?access-token=test', 
 					ADDFAVORITE:'http://123.57.210.176/user/favorites/add?access-token=test', 
+					//新闻相关
+					GETNEWSLIST:'http://123.57.210.176/news/list?access-token=test', 
+					GETNEWSCONTENT:'http://123.57.210.176/news/get?access-token=test', 
+					BOOKNEWS:'http://123.57.210.176/news/book?access-token=test', 
+					
 				//预测发布
 					GETPREDICTION:'http://123.57.210.176/prediction/get?access-token=test', 
 					ADDPREDICTION:'http://123.57.210.176/prediction/add?access-token=test', 
@@ -117,6 +129,7 @@
 				//修改历史页面
 					HISTORYTIP:'http://123.57.210.176/hisotry/tip?access-token=test', 
 					HISTORYPREDICTION:'http://123.57.210.176/hisotry/prediction?access-token=test', 
+					
 				//"我的"页面
 					MYPROFILE:'http://123.57.210.176/user/get?access-token=test', 
 					MYPROFILEEDIT:'http://123.57.210.176/user/edit?access-token=test', 
@@ -124,9 +137,6 @@
 					MYFAVORITES:'http://123.57.210.176/user/favorites?acess-token=test', 
 					MYBOUGHTS:'http://123.57.210.176/user/boughts?access-token=test', 
 					MYAPPLY:'http://123.57.210.176/user/applyVIP?access-token=test', 
-					
-				//个人详情页面
-					
 					
 				//动态页
 			});
@@ -153,6 +163,11 @@
 					ADDTIP:'/stkgg/app/mockData/timeline/add.json', 
 					EDITTIP:'/stkgg/app/mockData/timeline/edit.json', 
 					ADDFAVORITE:'/stkgg/app/mockData/timeline/fav.json', 
+					//新闻相关
+					GETNEWSLIST:'/stkgg/app/mockData/timeline/getNewsList.json', 
+					GETNEWSCONTENT:'/stkgg/app/mockData/timeline/getNewsContent.json', 
+					BOOKNEWS:'/stkgg/app/mockData/timeline/bookNews.json', 
+					
 				//预测发布
 					GETPREDICTION:'/stkgg/app/mockData/prediction/get.json',
 					ADDPREDICTION:'/stkgg/app/mockData/prediction/add.json', 
@@ -164,17 +179,14 @@
 				//修改历史页面
 					HISTORYTIP:'/stkgg/app/mockData/history/tip.json', 
 					HISTORYPREDICTION:'/stkgg/app/mockData/history/prediction.json', 
-				//"我的"页面
 					
+				//"我的"页面
 					MYPROFILE:'/stkgg/app/mockData/my/profile.json', 
 					MYPROFILEEDIT:'/stkgg/app/mockData/my/edit.json', 
 					MYPUBS:'/stkgg/app/mockData/my/pub.json', 
 					MYFAVORITES:'/stkgg/app/mockData/my/fav.json', 
 					MYBOUGHTS:'/stkgg/app/mockData/my/bought.json', 
 					MYAPPLY:'/stkgg/app/mockData/my/apply.json', 
-					
-				//个人详情页面
-					
 					
 				//动态页
 			});

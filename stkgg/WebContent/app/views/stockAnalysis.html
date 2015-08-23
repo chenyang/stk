@@ -30,7 +30,7 @@
 					</p>
 					<!-- 选择新闻 -->
 					<p>
-						<a href="">
+						<a href="" ng-click="manageNews()">
 						<span><span class="glyphicon glyphicon-globe"></span> 选取新闻</span>
 						</a>
 					</p>
@@ -88,13 +88,14 @@
 		<div ng-repeat="news in pubInfo.news"> <!-- ng-repeat -->
 			<div class="header col-xs-12">
 				<span class="icon glyphicon glyphicon-volume-up"></span>
-				<span class="time">{{news.newsDate}}</span>
+				<span class="time">{{news.newsDate}}</span><br>
 			</div>
 			<div class="col-xs-12 timeline-content-block">
 				<div class="content">
 					<div>
+						<a href="#/newsContent/{{news.newsId}}"><span>点击查看新闻全文</span></a><br>
 						<b>{{news.newsTitle}}</b> 
-						<pre>{{news.newsContent}}</pre>
+						<pre>{{news.newsAbstract}}</pre>
 					</div>
 				</div>
 				<button class="btn btn-danger btn-small form-control" ng-click="addTip(news)" ng-show="pubInfo.isOwner">

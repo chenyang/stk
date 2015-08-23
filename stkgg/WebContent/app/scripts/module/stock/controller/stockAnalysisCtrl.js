@@ -2,8 +2,10 @@
 	'use strict';
 	var mod = angular.module('stock.controller');
 	mod.controller("StockAnalysisCtrl", 
-			['$scope', '$modal', '$cookies', '$location', '$http','$routeParams', 'APIMOCK', 'API', '$filter', 'NumToChineseTime', 
-			 function($scope, $modal, $cookies, $location, $http, $routeParams, APIMOCK, API, $filter, NumToChineseTime){
+			['$scope', '$modal', '$cookies', '$location', '$http','$routeParams', 
+			 'APIMOCK', 'API', '$filter', 'NumToChineseTime',
+			 function($scope, $modal, $cookies, $location, $http, $routeParams, 
+					 APIMOCK, API, $filter, NumToChineseTime){
 
 
 	//图标部分		
@@ -223,6 +225,11 @@
 
 	$scope.gotoProfile = function(){
 		$location.path("/profileDetail");
+	};
+	
+	//新闻相关
+	$scope.manageNews = function(){
+		$location.path("/newsList");
 	};
 
 
