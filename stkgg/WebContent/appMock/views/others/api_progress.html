@@ -1,0 +1,1003 @@
+		<div style="margin-top:5px;" class="alert alert-success" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+				<label>API进展</label>
+				<p>
+					由于项目进度需要，目前把重点放在功能及接口上. 无美工和优化 
+					<br><br><span class="label label-info">token验证临时用access-token=	test</span>  <span class="label label-info">分页先放一放</span>  
+					<br><br><span class="label label-warning">(service名称可由@jiangwei定义)</span>
+				</p>
+				
+				<br/><br/>
+				<label>各个API进展及数据结构定义</label>
+				<div class="well">
+					<label>登陆页</label>
+						<div>
+							<span class="label label-default">手机号验证</span>，
+							<br>Request:
+							<br>POST http://123.57.210.176/util/checkphone
+							<pre>
+								{
+									"cellphone":"1367xxx88xx"
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success" / "fail", //功能上的
+									"reason":null / "错误原因"
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">获取验证码</span>，需要后台随机给出
+							<br>Request:
+							<br>GET http://123.57.210.176/util/getcaptcha
+							<br>Response:
+							<pre>
+								直接给出图片
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">发送短信激活码</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/util/sendcode
+							<pre>
+								{
+									"cellphone":"1367xxx88xx"
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"//功能上的
+									"reason": null / "错误原因"
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">登陆</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/user/login
+							<pre>
+								{
+									"login":("dellgcy",/"qq"/"cellphone" ):用户只搜索username, 但可以是手机，qq，或者自定义名称. 
+									手机号验证可能是后台/util/checkphone
+									"password":"toto", 
+									"captcha":"PNRY88"（随机验证码）
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success" / "fail", //功能上的
+									"reason": null / "错误原因",
+									"sessionId":"IUWID987398OSI", / null(如果fail), 
+									"isVIP": true / false  //是否为加V用户
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">注册</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/user/reg
+							<pre>
+								{
+									"login":("dellgcy",/"qq"/"cellphone" ):用户可以用手机，qq，或者自定义名称登陆,
+									"password":"toto"
+									"code":"PN7YIS8I" (短信激活码)
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success" /"fail", //功能上的
+									"reason": null / "错误原因", 
+									"sessionId":"IUWID987398OSI" / null(如果fail), 
+									"isVIP": true / false  //是否为加V用户
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">登出</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/user/logout
+							<pre>
+								{
+									"sessionId":"IUWID987398OSI" / null(如果fail)
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success" / "fail", //功能上的
+									"reason": null / "错误原因"
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">找回密码</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/user/findpwd
+							<pre>
+								<span class="label label-warning">未完待续。。</span>
+							</pre>
+						</div>
+						<div>
+						<div>
+							<span class="label label-default">重置密码</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/user/resetpwd
+							<pre>
+								<span class="label label-warning">未完待续。。</span>
+							</pre>
+						</div>
+						<p>
+							<br><br><span class="label label-danger">第三方登陆(NOK, 需APPID, 暂时无法实现)</span>
+							<br><br><span class="label label-success">五天内免登陆：由cookie完成。如果登陆成功，记录user信息，前台自动跳转到发现页</span>
+						</p>
+				</div>
+				
+				<div class="well">
+					<label>发现页</label>
+						<div>
+							<span class="label label-default">搜索</span>，<span class="label label-info">临时不考虑分页</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/util/search
+							<pre>
+								{
+									"sessionId":"IUWID987398OSI" //关联用户, 
+									"keyword":"中国重车 06160" //可随意关键词
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success" / "fail", //功能上的
+									"reason":null / "错误原因（功能上）"
+									"pubs":[
+										{
+											"pubId":12, 
+											"available":true //根据用户信息+pub信息 ，是否可看， 如免费，非免费但付款，非免费未付款
+											"pubName":"孤注一掷", 
+											"likes":3890, //总体点赞 
+											"desc":"maybeza", 
+											"stats":"138",// -24 盈利率 
+											"owner":"小巴", 
+											"imgUrl":"images/toto.png", //图像地址， （要由服务器给出）
+											"lastUpdate":"2015-06-07 11:58" //最近一次更新时间
+										}, 
+										{	
+											"pubId":5, 
+											"available":false
+											"pubName":"孤注一掷", 
+											"likes":3890, //总体点赞 
+											"desc":"maybeza", 
+											"stats":"138",// -24 盈利率 
+											"owner":"小强", 
+											"imgUrl":"images/toto.png", //图像地址（要由服务器给出）
+											"lastUpdate":"2015-06-07 11:58"
+										}
+									]
+									
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">pub 列表（未搜索时自动推荐）</span>，<span class="label label-info">临时不考虑分页, 按时间更新顺序排列</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/util/pubs 
+							<pre>
+								{
+									"sessionId":"IUWID987398OSI" //关联用户  根据用户信息 推荐显示pubs
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success" / "fail", //功能上的
+									"reason":null / "错误原因（功能上）"
+									"pubs":[
+										{
+											"pubId":12, 
+											"available":true //根据用户信息+pub信息 ，是否可看， 如免费，非免费但付款，非免费未付款
+											"pubName":"孤注一掷", 
+											"likes":3890, //总体点赞 
+											"desc":"maybeza", 
+											"stats":"138",// -24 盈利率 
+											"owner":"小巴" , 
+											"imgUrl":"images/toto.png" //图像地址 （要由服务器给出）
+										}, 
+										{	
+											"pubId":5, 
+											"available":false
+											"pubName":"孤注一掷", 
+											"likes":3890, //总体点赞 
+											"desc":"maybeza", 
+											"stats":"138",// -24 盈利率 
+											"owner":"小强", 
+											"imgUrl":"images/toto.png" //图像地址（要由服务器给出）
+										}
+									]
+									
+								}
+							</pre>
+						</div>
+					<p>
+					</p>
+				</div>
+				
+				<div class="well">
+					<label>创建新Pub页</label>
+						<div>
+							<span class="label label-default">股票下拉列表</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/stocks
+							<pre>
+								{
+									"keyword":"中国重车" //关键词
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", 
+									"reason":null, 
+									"stocks":[
+										{
+											"name":"中国石油",
+											"code":"06160", 
+											"id":12329
+										},
+										{
+											"name":"中国石油",
+											"code":"06160", 
+											"id":12330
+										}
+									]
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">上传图片</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/upload/img
+							<pre>
+								<span class="label label-warning">发送base64数据</span>
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">发布pubs</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/pubs/add
+							<pre>
+								{
+									"sessionId":"IUWID987398OSI" //关联用户
+									"stockId":12329, 
+									"type":1, //商品类型 1 股票
+									"imageData": null(预设), 
+									或者base64数据, 如
+									data:image/jpeg;base64,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…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
+									"desc":"一段描述", 
+									"price":0, //1, 5, 10, 0: 1元/周
+									"pubName":"孤注一掷"
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"//功能上的
+									"reason": null / "错误原因", 
+									"pubId":12, //新建的
+									"sessionId":"IUWID987398OSI" //关联用户
+									"stockId":12329, 
+									"type":1, //商品类型 1 股票
+									"imageUrl": "../images/pub1.png"// 图片地址 （要由服务器给出）
+									"desc":"一段描述", 
+									"price":0, //1, 5, 10, 0: 1元/周
+									"pubName":"孤注一掷"
+								}
+							</pre>
+						</div>
+					
+					<p>
+					</p>	
+				</div>
+				<div class="well">
+					<label>Timeline页</label>
+						<div>
+							<span class="label label-default">pub细节相关</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/pubs/timeline/get
+							<pre>
+								{
+									 "sessionId":"IUWID987398OSI", //关联用户
+									 "pubId":15, //关联pub
+								 }
+								
+							</pre>
+							<br>Response:
+							<pre>
+{
+	"result":"success", 
+	"reason": null, 
+	"timelineInfo":{
+		"pubId":1, 
+		"createDate":"2015-06-04", 
+		"stockId":123, 
+		"stockName": "中石油",
+		"stockCode": "06160",
+		"desc":"一段关于股神小白的自我评价", 
+		"ownerId":1, 
+		"owner":"股神小白", 
+		"isOwner":false, //当前登录用户是不是此pub的作者
+		"isFavorite":false, //当前登录用户是不是收藏了此pub
+		"ownerImg":"images/home/gushen.png", 
+		//"available":true, 不要了
+		"totalLikes":289, 
+		"totalProfit": 138, 
+		"stockPrice":16.68, 
+		"chgVal": 0.16, 
+		"chgPct": 1.01, 
+		"news":
+		[
+			{
+				"newsId":1, 
+				"newsTitle":"消息称国务院将特批银行持券商牌照试点", 
+		    	"newsDate":"2015-09-09",
+		    	<span class="lebel label-warning">"newsAbstract"</span>:"伴随着银行混合所有制改革拉开大幕，混业经营备受关注，放开券商牌照的问题如一把悬在头上的达摩克利斯之剑。日前，《经济参考报》记者从知情人士处获悉，《商业银行法》修改的内容里，除了取消存贷比外，更重要的是涉及银行经营业务范围的进一步完善和补充，给混业经营在法律层面上预留空间。银行受托理财的功能，银行不能直接做信托业务，但实际上银行理财产品已经承担了代客理财、受托投资的功能。收益与风险挂钩，不可能全是刚性兑付，而现实是投资者无法接受损失风险，这也是制度层面不完善所带来的误区。未来银行业在混业经营的趋势下，业务范围需要进一步界定。在监管方面，未来一定是倾向于根据金融机构的具体业务划定监管职责，而非根据机构本身来划定监管，因此协同监管也越来越重要。”鲁政委说。", 		
+				"tips":
+				[
+					{
+					      "tipId":1, 
+				    	  "tipContent":"持续的资金注入难改短期的弱势格局1， 便再次出现大跌", 
+				    	  "lastModifiedTime":"2015-07-01 16:26", 
+				    	  "comments":
+				    	  	{
+				    	  		"likes":[
+				    	  					{
+						    	  				"time":"2015-08-07 12:59:59", 
+						    	  				"title":null, 
+						    	  				"username":"小红", 
+						    	  				"cmt":"不错 挺准确的", 
+						    	  				"userImg":"images/3rd/qq.png"
+						    	  			}
+				    	  				], 
+				    	  		"dislikes":
+						    	  		[
+						    	  			{
+						    	  				"time":"2015-08-07 12:59:59", 
+						    	  				"title":null, 
+						    	  				"username":"小强", 
+						    	  				"cmt":"不怎么样， 根本不准", 
+						    	  				"userImg":"images/3rd/qq.png"
+						    	  			}, 
+						    	  			{
+						    	  				"time":"2015-08-07 12:59:59", 
+						    	  				"title":null, 
+						    	  				"username":"小强", 
+						    	  				"cmt":"什么嘛。。", 
+						    	  				"userImg":"images/3rd/qq.png"
+						    	  			}, 
+						    	  			{
+						    	  				"time":"2015-08-07 12:59:59", 
+						    	  				"title":null, 
+						    	  				"username":"小东", 
+						    	  				"cmt":"毫无新意可言", 
+						    	  				"userImg":"images/3rd/qq.png"
+						    	  			}
+						    	  		]
+				    	  		}
+					}, 
+					{
+				      "tipId":2, 
+			    	  "tipContent":"持续的资金注入难改短期的弱势格局1， 便再次出现大跌", 
+			    	  "lastModifiedTime":"2015-07-01 16:26", 
+			    	  "comments":
+			    	  	{
+			    	  		"likes":[
+			    	  					{
+					    	  				"time":"2015-08-07 12:59:59", 
+					    	  				"title":null, 
+					    	  				"username":"小红", 
+					    	  				"cmt":"不错 挺准确的", 
+					    	  				"userImg":"images/3rd/qq.png"
+					    	  			}
+			    	  				], 
+			    	  		"dislikes":
+					    	  		[
+					    	  		]
+			    	  		}
+					}
+				]
+			
+			}
+		], 
+	
+		"historyData":
+		[
+			 {
+	        	 "date": "2015-08-01",
+	        	 "value": 15.7
+	         }, 
+	         {
+	        	 "date": "2015-08-02",
+	        	 "value": 15.8
+	         }
+		]
+	}
+	
+}
+							</pre>
+						</div>	
+						<div>
+							<span class="label label-default">添加TIP</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/tips/add
+							<pre>
+								{
+									"pubId":5, 
+									"newsId":12, 
+									"content":"预计股指将有小幅调整， 建议持续观察"
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":success, 
+									"reason":null, 
+									"tip":{
+										"tipId":10, 
+										"pubId":5, 
+										"newsId":12, 
+										"content":"预计股指将有小幅调整， 建议持续观察", 
+										"lastModifiedTime":"2015-08-08 12:39"
+									}
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">修改TIP</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/tips/edit
+							<pre>
+								{
+									"tipId": 5, 
+									"content":"预计股指将有小幅调整， 建议持续观察"
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":success, 
+									"reason":null, 
+									"tip":{
+										"tipId":10, 
+										"pubId":5, 
+										"newsId":12, 
+										"content":"预计股指将有小幅调整， 建议持续观察", 
+										"lastModifiedTime":"2015-08-08 12:39"
+									}
+								}
+							</pre>
+						</div>
+						
+						<div>
+							<span class="label label-default">读者收藏</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/user/favorites/add
+							<pre>
+								{
+									 "sessionId":"IUWID987398OSI", //关联用户
+									 "pubId":15, //关联pub
+								 },
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"
+									"reason": null
+								}
+							</pre>
+						</div>
+						
+						<div>
+							<span class="label label-default">获取新闻详情 </span>
+							<br>Request:
+							<br>POST http://123.57.210.176/news/get
+							<pre>
+								{
+									"newsId": 5
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", 
+									"reason":null, 
+									"news":
+									{
+										"newsId":5, 
+										"newsTitle":"消息称国务院将特批银行持券商牌照试点5", 
+										"newsContent":"伴随着银行混合所有制改革拉开大幕，混业经营备受关注，放开券商牌照的问题如一把悬在头上的达摩克利斯之剑。日前，《经济参考报》记者从知情人士处获悉，《商业银行法》修改的内容里，除了取消存贷比外，更重要的是涉及银行经营业务范围的进一步完善和补充，给混业经营在法律层面上预留空间。银行受托理财的功能，银行不能直接做信托业务，但实际上银行理财产品已经承担了代客理财、受托投资的功能。收益与风险挂钩，不可能全是刚性兑付，而现实是投资者无法接受损失风险，这也是制度层面不完善所带来的误区。未来银行业在混业经营的趋势下，业务范围需要进一步界定。在监管方面，未来一定是倾向于根据金融机构的具体业务划定监管职责，而非根据机构本身来划定监管，因此协同监管也越来越重要。”鲁政委说。", 
+								    	"newsDate":"2015-09-09"
+									}
+								}
+							</pre>
+						</div>
+						
+						<div>
+							<span class="label label-default">预订/取消预订新闻 </span>
+							<br>Request:
+							<br>POST http://123.57.210.176/news/book
+							<pre>
+								{
+									"sessionId":"xxxx", 
+									"newsId": 5, 
+									"isBook":true //是否预订新闻。true==预订 false==取消预订新闻
+								}
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", 
+									"reason":null, 
+									"isBooked":true //最终新闻预订的结果。true==此用户已经预订此新闻 false==此用户已取消预订了此新闻
+								}
+							</pre>
+						</div>
+						
+						<div>
+							<span class="label label-default">获取新闻List</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/news/list
+							<pre>
+								{
+									"sessionId": "xxx" //此处只有用户Id。 功能为：返回半年内所有新闻， 对于每条新闻， 针对此session用户， 看每条新闻此用户是否预订 
+								}
+							</pre>
+							<br>Response:
+							<pre>
+		{
+			"result":"success", 
+			"reason":null, 
+			"newsList":[
+				{
+					"newsId":1, 
+					"newsTitle":"消息称国务院将特批银行持券商牌照试点1", 
+			    	"newsDate":"2015-09-09", 
+			    	"isBooked":true, //此条新闻用户是否已经预订
+			    	<span class="lebel label-warning">"newsAbstract"</span>:"伴随着银行混合所有制改革拉开大幕，混业经营备受关注，放开券商牌照的问题如一把悬在头上的达摩克利斯之剑。日前，《经济参考报》记者从知情人士处获悉，《商业银行法》修改的内容里，除了取消存贷比外，更重要的是涉及银行经营业务范围的进一步完善和补充，给混业经营在法律层面上预留空间。银行受托理财的功能，银行不能直接做信托业务，但实际上银行理财产品已经承担了代客理财、受托投资的功能。收益与风险挂钩，不可能全是刚性兑付，而现实是投资者无法接受损失风险，这也是制度层面不完善所带来的误区。未来银行业在混业经营的趋势下，业务范围需要进一步界定。在监管方面，未来一定是倾向于根据金融机构的具体业务划定监管职责，而非根据机构本身来划定监管，因此协同监管也越来越重要。”鲁政委说。"
+				}, 
+				{
+					"newsId":2, 
+					"newsTitle":"消息称国务院将特批银行持券商牌照试点2", 
+			    	"newsDate":"2015-09-09", 
+			    	"isBooked":false,  //此条新闻用户是否已经预订
+			    	<span class="lebel label-warning">"newsAbstract"</span>:"伴随着银行混合所有制改革拉开大幕，混业经营备受关注，放开券商牌照的问题如一把悬在头上的达摩克利斯之剑。日前，《经济参考报》记者从知情人士处获悉，《商业银行法》修改的内容里，除了取消存贷比外，更重要的是涉及银行经营业务范围的进一步完善和补充，给混业经营在法律层面上预留空间。银行受托理财的功能，银行不能直接做信托业务，但实际上银行理财产品已经承担了代客理财、受托投资的功能。收益与风险挂钩，不可能全是刚性兑付，而现实是投资者无法接受损失风险，这也是制度层面不完善所带来的误区。未来银行业在混业经营的趋势下，业务范围需要进一步界定。在监管方面，未来一定是倾向于根据金融机构的具体业务划定监管职责，而非根据机构本身来划定监管，因此协同监管也越来越重要。”鲁政委说。"
+				}
+			]
+		}
+							</pre>
+						</div>
+						
+				</div>
+				<div class="well">
+					<label>预测发布页</label>
+						<div>
+							<span class="label label-default">获取预测</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/prediction/get
+							<pre>
+								{
+									 "sessionId":"IUWID987398OSI", //关联用户
+									 "pubId":15, //关联pub
+								 },
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"//功能上的
+									"reason": null / "错误原因", 
+									"prediction":{
+										 "sessionId":"IUWID987398OSI", //关联用户
+										 "pubId":15, //关联pub
+										 "time":7, （预测周期）: 1,7,14,30,90,180 天
+										 "minVal":-2, 最小涨跌幅
+										 "maxVal":3.5, 最大涨跌幅
+										 "minPct":15, 最小涨跌百分比
+										 "maxPct":20, 最大跌百分比
+										 "cmt"":"预测跌幅较大，建议抛售", 
+										 "lastModifiedTime":"2015-07-01 15:37:28" //最后一次更新/创建时间
+									} 
+									//或prediction: null 即没有预测
+								}
+							</pre>
+						</div>
+					
+						<div>
+							<span class="label label-default">预测发布</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/prediction/add
+							<pre>
+								{
+									 "sessionId":"IUWID987398OSI", //关联用户
+									 "pubId":15, //关联pub
+									 "time":7, （预测周期）: 1,7,14,30,90,180 天
+									 "minVal":-2, 最小涨跌幅
+									 "maxVal":3.5, 最大涨跌幅
+									 "minPct":15, 最小涨跌百分比
+									 "maxPct":20, 最大跌百分比
+									 "cmt":"预测跌幅较大，建议抛售"
+								 },
+								
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"//功能上的
+									"reason": null / "错误原因", 
+									"prediction":{
+										 "sessionId":"IUWID987398OSI", //关联用户
+										 "pubId":15, //关联pub
+										 "time":7, （预测周期）: 1,7,14,30,90,180 天
+										 "minVal":-2, 最小涨跌幅
+										 "maxVal":3.5, 最大涨跌幅
+										 "minPct":15, 最小涨跌百分比
+										 "maxPct":20, 最大跌百分比
+										 "cmt"":"预测跌幅较大，建议抛售", 
+										 "lastModifiedTime":"2015-07-01 15:37:28" //最后一次更新/创建时间
+									}
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">预测修改</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/prediction/edit
+							<pre>
+								{
+									 "sessionId":"IUWID987398OSI", //关联用户
+									 "pubId":15, //关联pub
+									 "time":7, （预测周期）: 1,7,14,30,90,180 天
+									 "minVal":-2, 最小涨跌幅
+									 "maxVal":3.5, 最大涨跌幅
+									 "minPct":15, 最小涨跌百分比
+									 "maxPct":20, 最大跌百分比
+									 "cmt:"预测跌幅较大，建议抛售"
+								 },
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"//功能上的
+									"reason": null / "错误原因", 
+									"prediction":{
+										 "sessionId":"IUWID987398OSI", //关联用户
+										 "pubId":15, //关联pub
+										 "time":7, （预测周期）: 1,7,14,30,90,180 天
+										 "minVal":-2, 最小涨跌幅
+										 "maxVal":3.5, 最大涨跌幅
+										 "minPct":15, 最小涨跌百分比
+										 "maxPct":20, 最大跌百分比
+										 "cmt"":"预测跌幅较大，建议抛售", 
+										 "lastModifiedTime":"2015-07-01 15:37:28" //最后一次更新/创建时间
+									}
+								}
+							</pre>
+						</div>
+				</div>
+				<div class="well">
+					<label>Coverpage页</label>
+					<div>
+							<span class="label label-default">获取pub信息</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/coverpage/get
+							<pre>
+								{
+									 "sessionId":"IUWID987398OSI", //关联用户
+									 "pubId":15, //关联pub
+								 },
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"//功能上的
+									"reason": null / "错误原因", 
+									"pubInfo":{
+										"createDate":"2015-06-04", 
+										"desc":"一段关于股神小白的自我评价", 
+										"owner":"股神小白", 
+										"ownerImg":"images/home/gushen.png", //作者头像img, 
+										"pubImg":"images/home/exp1.png", //图像
+										"available":false, //是否免费或未过期之类的
+										"totalLikes":289, //全部点赞数 针对pub
+										"totalProfit": 138, //全局盈利率, 
+										"price":37.99, 
+										"boughtNum":29, //多少人购买
+										"cmts":[
+											{
+												"time":"2015-08-07 12:59:59", 
+						    	  				"title":null, 
+						    	  				"username":"小红", 
+						    	  				"cmt":"不错 挺准确的", 
+							    	  			"userImg":"images/3rd/qq.png" //用户头像
+											}, 
+											{
+												"time":"2015-08-07 12:59:59", 
+						    	  				"title":null, 
+						    	  				"username":"小白", 
+						    	  				"cmt":"不怎么样", 
+							    	  			"userImg":"images/3rd/qq.png"
+											}, 	
+										]
+									}
+								}
+							</pre>
+						</div>
+						<div>
+							<span class="label label-default">举报</span>
+							<br>Request:
+							<br>POST http://123.57.210.176/report/add
+							<pre>
+								{
+									 "sessionId":"IUWID987398OSI", //关联用户
+									 "pubId":15, //关联pub
+									 "contact":"123929201", // 联系方式
+									 "cmt":"nnnnn..."//其他信息
+								 },
+							</pre>
+							<br>Response:
+							<pre>
+								{
+									"result":"success", / "fail"//功能上的
+									"reason": null / "错误原因"
+								}
+							</pre>
+						</div>
+				</div>
+				<div class="well">
+					<label>修改历史页面</label>
+					<div>
+						<span class="label label-default">TIPS 修改历史</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/history/tip
+						<pre>
+							{
+								 "sessionId":"IUWID987398OSI", //关联用户
+								 "tipId":15, //关联tip
+							 },
+						</pre>
+						<br>Response:
+						<pre>
+							{
+								"result":"success", / "fail"//功能上的
+								"reason": null / "错误原因", 
+								"history":[
+									{
+										"date":"2015-07-01", 
+										"content":"周一的市场仅小幅高开，便再次出现大跌，这就是我们所说的趋势的力量，在逼近4000点时，管理层表态，说明“政策底”已出，但“市场底”会滞后。周一大盘一度击破4000大关，跌到我们前期提示的调整极限3856-3886区域，随即止跌回升，收在4000之上"
+									}
+								
+								]
+							}
+						</pre>
+					</div>
+					
+					<div>
+						<span class="label label-default">PREDICTION 修改历史</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/history/prediction
+						<pre>
+							{
+								 "sessionId":"IUWID987398OSI", //关联用户
+								 "pubId":15, //pub
+							 },
+						</pre>
+						<br>Response:
+						<pre>
+							{
+								"result":"success", / "fail"//功能上的
+								"reason": null / "错误原因", 
+								"history":[
+									{
+										"date":"2015-07-01", 
+										"content":"周一的市场仅小幅高开，便再次出现大跌，这就是我们所说的趋势的力量，在逼近4000点时，管理层表态，说明“政策底”已出，但“市场底”会滞后。周一大盘一度击破4000大关，跌到我们前期提示的调整极限3856-3886区域，随即止跌回升，收在4000之上"
+									}
+								]
+							}
+						</pre>
+					</div>
+				</div>
+				
+				<div class="well">
+					<label>"我的"页面</label>
+					
+					<div>
+						<span class="label label-default">获取个人账户信息</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/user/get
+						<pre>
+							{
+								"sessionId":"xxx"
+							}
+						</pre>
+						<br>Response:
+						<pre>
+							{
+								"result":"success",
+								"reason":null, 
+								"userInfo":{
+									"isVIP":false,
+									"userId":"G23837KIl", 
+									"imgUrl":"images/3rd/qq.png", 
+									"nickName":"GAOGAO", 
+									"moto":"God bless U", 
+									"gender":"男",
+									"address":"北京 - 海淀", 
+									"birthday":"1900-01-01", 
+									"realName":"GAOCHENYANG", 
+									"company":"XXX", 
+									"contact":"XXX", //邮箱
+									"contact2":null, // 电话
+									"education":"研究生", 	
+									"pubs":[
+										{
+											"pubId":1, 
+											"date":"2015-01-01", 
+											"pubName":"孤注一掷", 
+											"desc":"东半球最准预测pub..", 
+											"imgUrl":"images/home/exp1.png"
+										}, 
+										{
+											"pubId":2, 
+											"date":"2015-01-01", 
+											"pubName":"孤注一掷", 
+											"desc":"西半球最准预测pub..", 
+											"imgUrl":"images/home/exp2.png"
+										}
+									]	
+								}
+							}
+							
+						</pre>
+					</div>
+					
+					<div>
+						<span class="label label-default">修改个人账户信息</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/user/edit
+						<pre>
+							{
+								sessionId:"xxx", 
+								userInfo:{
+											nickName:"GGA", 
+											moto:"xx", 
+											gender:"男", //或 女
+											address:"xxx", 	
+											birthday:"1900-01-01", 
+											imageData:null //图像数据 与createpub相同 
+									}
+							}
+						</pre>
+						<br>Response:
+						<pre>
+							{
+								"result":"success", 
+								"reason":null
+							}
+						</pre>
+					</div>
+					
+					<div>
+						<span class="label label-default">我的发布列表</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/user/pubs
+						<pre>
+							{
+								"sessionId":"xxx"
+							}
+						</pre>
+						<br>Response:
+						<pre>
+							格式仿照pub 列表 （POST http://123.57.210.176/util/pubs）， 只是根据此用户给出
+						</pre>
+					</div>
+					
+					<div>
+						<span class="label label-default">我的收藏列表</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/user/favorites
+						<pre>
+							{
+								"sessionId":"xxx"
+							}
+						</pre>
+						<br>Response:
+						<pre>
+							格式仿照pub 列表 （POST http://123.57.210.176/util/pubs）， 只是根据此用户给出
+						</pre>
+					</div>
+					
+					<div>
+						<span class="label label-default">我的购买记录列表</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/user/boughts
+						<pre>
+							{
+								"sessionId":"xxx"
+							}
+						</pre>
+						<br>Response:
+						<pre>
+							{
+								"result":"success", 
+								"reason":null, 
+								"boughts":[
+									{
+										"time": "2015-07-08 12:09"
+										"price": 14.99, 
+										"pubId":15, 
+										"pubName":"小巴说中车"
+									}, 
+									{
+										"time": "2015-07-08 12:09"
+										"price": 14.99, 
+										"pubId":12, 
+										"pubName":"白说中车"
+									}
+								]
+							}
+						</pre>
+					</div>
+
+					
+					<div>
+						<span class="label label-default">申请小巴</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/user/applyVIP
+						<pre>
+							{
+								sessionId:"xxx", 
+								applyInfo:{
+									realName:"xxx",//真实姓名 
+									company:"xxx", 
+									contact:"xxx", //邮箱
+									contact2:"xxx", //电话
+									education:"研究生", //或 大学， 博士， 博士后
+								}
+							};
+						</pre>
+						<br>Response:
+						<pre>
+							{
+								"result":"success", 
+								"reason":null
+							}
+						</pre>
+					</div>
+					
+				</div>
+				
+				<div class="well">
+					<label>个人详情页面</label>
+					<p>==“我的”页面--->获取个人账户信息</p>
+				</div>
+				
+				<div class="well">
+					<label>动态页</label>
+					<p>
+						<span class="label label-danger">未完成</span>
+					</p>	
+				</div>
+				
+				<div class="well">
+					<label>其他临时</label>
+					<p>
+						<br>关于登陆， 可以查看右上角的登陆提示。如果没有选择5天登陆，则关闭浏览器自动销毁seesion。
+						从 2015-08-07只有登陆后，才可继续查看其他页面
+					</p>	
+				</div>
+				
+		</div>
