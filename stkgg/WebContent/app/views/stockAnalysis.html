@@ -16,7 +16,7 @@
 				<div>
 					<!-- 修改预测 -->
 					<p>
-						<a ng-show="isOwner" href="">
+						<a ng-show="pubInfo.isOwner" href="">
 							<span ng-show="prediction==null" ng-click="editPrecidtion()"><span class="glyphicon glyphicon-plus-sign" style="padding-right:2px"></span>发布预测</span>
 							<span ng-show="prediction!=null" ng-click="editPrecidtion()"><span class="glyphicon glyphicon-pencil" style="padding-right:2px"></span>修改预测</span>
 						</a>
@@ -30,7 +30,7 @@
 					</p>
 					<!-- 选择新闻 -->
 					<p>
-						<a ng-show="isOwner" href="" ng-click="manageNews()">
+						<a ng-show="pubInfo.isOwner" href="" ng-click="manageNews()">
 							<span><span class="glyphicon glyphicon-globe"></span> 选取新闻</span>
 						</a>
 					</p>
