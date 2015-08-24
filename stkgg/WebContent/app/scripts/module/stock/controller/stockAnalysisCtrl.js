@@ -229,7 +229,8 @@
 	
 	//新闻相关
 	$scope.manageNews = function(){
-		$location.path("/newsList");
+		var pubId =  $routeParams.pubId;
+		$location.path("/newsList/"+pubId);
 	};
 
 

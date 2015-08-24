@@ -81,7 +81,7 @@
 			 {  when:"/register",
 				templateUrl:"views/register.html"
 			 },
-			 {  when:"/newsList",
+			 {  when:"/newsList/:pubId",//for pubId, current user, newsList booked situation
 				templateUrl:"views/newsList.html"
 			 },
 			 {  when:"/newsContent/:newsId",

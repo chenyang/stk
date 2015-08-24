@@ -16,22 +16,22 @@
 				<div>
 					<!-- 修改预测 -->
 					<p>
-						<a href="">
+						<a ng-show="isOwner" href="">
 							<span ng-show="prediction==null" ng-click="editPrecidtion()"><span class="glyphicon glyphicon-plus-sign" style="padding-right:2px"></span>发布预测</span>
 							<span ng-show="prediction!=null" ng-click="editPrecidtion()"><span class="glyphicon glyphicon-pencil" style="padding-right:2px"></span>修改预测</span>
 						</a>
 					</p>
 					
-					<!-- 预测解释 -->
+					<!-- 查看预测-->
 					<p>
 						<a href="">
-							<span popover-template="predictPopover.templateUrl" popover-title="{{predictPopover.title}}" popover-trigger="mouseenter" popover-placement="left"><span class="glyphicon glyphicon-eye-open"></span> 预测解释 </span>
+							<span popover-template="predictPopover.templateUrl" popover-title="{{predictPopover.title}}" popover-trigger="mouseenter" popover-placement="left"><span class="glyphicon glyphicon-eye-open"></span> 查看预测</span>
 						</a>
 					</p>
 					<!-- 选择新闻 -->
 					<p>
-						<a href="" ng-click="manageNews()">
-						<span><span class="glyphicon glyphicon-globe"></span> 选取新闻</span>
+						<a ng-show="isOwner" href="" ng-click="manageNews()">
+							<span><span class="glyphicon glyphicon-globe"></span> 选取新闻</span>
 						</a>
 					</p>
 				</div>

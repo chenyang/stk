@@ -1,8 +1,8 @@
 (function(){
 	'use strict';
 	var mod = angular.module('stock.controller');
-	mod.controller("NewsCtrl", ['$scope', '$http', 'APIMOCK', 'API', '$cookies', '$routeParams', 
-	                            function($scope, $http, APIMOCK, API, $cookies, $routeParams){
+	mod.controller("NewsCtrl", ['$scope', '$http', 'APIMOCK', 'API', '$cookies', '$routeParams', '$location', 
+	                            function($scope, $http, APIMOCK, API, $cookies, $routeParams, $location){
 
 		//预订/取消预订新闻
 		$scope.bookNews = function(news, isToBook){
@@ -58,9 +58,11 @@
 		
 		//获取半年内 newsList
 		var getNewsList = function(){
+			var pubId = $routeParams.pubId;
 			var sessionId =  $cookies.getObject('cookieUserProfile').sessionId;
 			var data = {
-				sessionId:sessionId
+				sessionId:sessionId, 
+				pubId:pubId
 			};
 			$http({
 				method: 'POST', 
@@ -88,7 +90,7 @@
 			$scope.newsList = [];
 			$scope.news = {};
 			//see if newsList or newsContent
-			if(_.isEmpty($routeParams.newsId)){
+			if($location.path().indexOf('newsList')!=-1){
 				getNewsList();
 			}else{
 				getNewsContent();
