@@ -49,7 +49,7 @@
 	
 	<div class="row stock-gushen-comment">
 		<div class="col-xs-3 col-md-3 col-md-2 col-lg-1 text-center">
-			<div><img ng-src="{{pubInfo.ownerImg}}" ng-click="gotoProfile()"></div>
+			<div><img style="width:60px;" ng-src="{{pubInfo.ownerImg}}" ng-click="gotoProfile()"></div>
 			<div class="user-star">
 				<span class="glyphicon glyphicon-star"></span>
 				<span class="glyphicon glyphicon-star"></span>
@@ -102,7 +102,7 @@
 					<span class="glyphicon glyphicon-plus-sign"></span> 对此咨询添加评述
 				</button>
 				<div class="gushen-comment-block clearfix" ng-repeat="tip in news.tips">
-					<div class="pull-left" ng-click="gotoProfile()"><img width="60%" ng-src="{{pubInfo.ownerImg}}"></div>
+					<div class="pull-left" ng-click="gotoProfile()"><img style="width:50px; margin-right:5px" ng-src="{{pubInfo.ownerImg}}"></div>
 					<div class="clearfix" style="padding:10px">
 						<b>{{pubInfo.owner}}</b>
 						<span ng-show="pubInfo.isOwner" class="bg-info" style="padding:2px; font-size:10px;">最后<a href="#/history/tip/{{tip.tipId}}">修改于</a>{{tip.lastModifiedTime}}</span>

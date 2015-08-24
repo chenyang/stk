@@ -147,8 +147,8 @@
 					REPORTADD:'http://123.57.210.176/report/add?access-token=test',
 					
 				//修改历史页面
-					HISTORYTIP:'http://123.57.210.176/hisotry/tip?access-token=test', 
-					HISTORYPREDICTION:'http://123.57.210.176/hisotry/prediction?access-token=test', 
+					HISTORYTIP:'http://123.57.210.176/history/tip?access-token=test', 
+					HISTORYPREDICTION:'http://123.57.210.176/history/prediction?access-token=test', 
 					
 				//"我的"页面
 					MYPROFILE:'http://123.57.210.176/user/get?access-token=test', 
