@@ -87,6 +87,10 @@
 			 {  when:"/newsContent/:newsId",
 				templateUrl:"views/newsContent.html"
 			 },
+			 {
+				when:"/comments/:tipId",
+				templateUrl:"views/comment.html" 
+			 },
 			 
 			 
 			 //项目进展
@@ -131,6 +135,7 @@
 					GETTIMELINE:'http://123.57.210.176/pubs/timeline/get?access-token=test', 
 					ADDTIP:'http://123.57.210.176/tips/add?access-token=test', 
 					EDITTIP:'http://123.57.210.176/tips/edit?access-token=test', 
+					EVALUATETIP:'http://123.57.210.176/tips/evaluate?access-token=test', 
 					ADDFAVORITE:'http://123.57.210.176/user/favorites/add?access-token=test', 
 					//新闻相关
 					GETNEWSLIST:'http://123.57.210.176/news/list?access-token=test', 
@@ -160,6 +165,11 @@
 					
 				//动态页
 					GETFEED:'http://123.57.210.176/feed/get?access-token=test', 
+					
+				//评论相关
+					GETCOMMENT:'http://123.57.210.176/comments/get?access-token=test', 
+					ADDCOMMENT:'http://123.57.210.176/comments/add?access-token=test', 
+					
 			});
 			
 			mod.constant('APIMOCK', {
@@ -183,6 +193,7 @@
 					GETTIMELINE:'/stkgg/app/mockData/timeline/timeline.json', 
 					ADDTIP:'/stkgg/app/mockData/timeline/add.json', 
 					EDITTIP:'/stkgg/app/mockData/timeline/edit.json', 
+					EVALUATETIP:'/stkgg/app/mockData/timeline/evaluate.json', 
 					ADDFAVORITE:'/stkgg/app/mockData/timeline/fav.json', 
 					//新闻相关
 					GETNEWSLIST:'/stkgg/app/mockData/timeline/getNewsList.json', 
@@ -211,6 +222,9 @@
 					
 				//动态页
 					GETFEED:'/stkgg/app/mockData/feed/get.json', 
+				//评论相关
+					GETCOMMENT:'/stkgg/app/mockData/comment/get.json', 
+					ADDCOMMENT:'/stkgg/app/mockData/comment/add.json', 
 			});
 	
 })();

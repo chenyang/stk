@@ -1,0 +1,39 @@
+{
+	"result":"success", 
+	"reason":null, 
+	"comments":[
+		{
+			"content":"此评论翔实挺好的， 不错.",
+			"time":"2015-01-01", 
+			"userId":123, 
+			"userName":"小红", 
+			"attitude":"like", 
+			"userImgUrl":"images/3rd/qq.png"
+		}, 
+		{
+			"content":"创业板估值太高、太高！！！成了套利板，炒诈板，中小投资者千万不要接最后一捧，让他们自炒自拉吧！！！6月份就要实施新的基金交易规则，估计利益输送没那么方便了！！！",
+			"time":"2015-01-01", 
+			"userId":123, 
+			"userName":"小红", 
+			"attitude":"dislike", 
+			"userImgUrl":"images/3rd/qq.png"
+		}, 
+		{
+			"content":"此评论翔实挺好的， 不错",
+			"time":"2015-01-01", 
+			"userId":123, 
+			"userName":"小红", 
+			"attitude":"like", 
+			"userImgUrl":"images/3rd/qq.png"
+		}, 
+		{
+			"content":"此评论翔实挺好的， 不错",
+			"time":"2015-01-01", 
+			"userId":123, 
+			"userName":"小红", 
+			"attitude":"like", 
+			"userImgUrl":"images/3rd/qq.png"
+		}
+	]
+}
+		

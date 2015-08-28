@@ -122,7 +122,7 @@
 				};
 				$http({
 					method: 'POST', 
-					url: API.EDITTIP, 
+					url: APIMOCK.EDITTIP, 
 					data:data
 				})
 				.then(function(res){
@@ -153,7 +153,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.GETTIMELINE, 
+				url: APIMOCK.GETTIMELINE, 
 				data:data
 			})
 			.then(function(res){
@@ -164,10 +164,12 @@
 							tipItem.isCollapsedShare = true;  
 							tipItem.isCollapsedCmt = true;
 							tipItem.isModifyTip = false;
-							var totalCmts = tipItem.comments.likes.length + tipItem.comments.dislikes.length;
-							tipItem.totalCmts = parseInt(totalCmts);
-							tipItem.nbLikes = tipItem.comments.likes.length;
-							tipItem.nbDislikes= tipItem.comments.dislikes.length;
+							/*
+							 * 	var totalCmts = tipItem.comments.likes.length + tipItem.comments.dislikes.length;
+								tipItem.totalCmts = parseInt(totalCmts);
+								tipItem.nbLikes = tipItem.comments.likes.length;
+								tipItem.nbDislikes= tipItem.comments.dislikes.length;
+							*/
 						});
 					});
 
@@ -197,7 +199,7 @@
 		};
 		$http({
 			method: 'POST', 
-			url: API.ADDFAVORITE, 
+			url: APIMOCK.ADDFAVORITE, 
 			data:data
 		})
 		.then(function(res){
@@ -227,6 +229,37 @@
 		$location.path("/profileDetail");
 	};
 	
+	
+	//评论相关
+	$scope.gotoComment = function(tip){
+		$location.path("/comments/"+tip.tipId);
+	};
+	
+	$scope.addComment = function(tip, attitude){
+		var param = {
+			tip:tip, 
+			attitude:attitude
+		};
+		var modalInstance = $modal.open({
+			animation: true,
+			templateUrl: 'views/modal/addCommentModal.html',
+			controller: 'CommentModalCtrl',
+			resolve: {
+				param: function () {
+					return param;
+				}
+			}
+		});
+		modalInstance.result.then(function (selectedItem) {
+			//OK/selected items form Modal..
+			//跳转到所有评论页面
+			$scope.gotoComment(tip);
+		}, function () {
+			//canceled/dismiss
+			console.log('Modal dismissed at: ' + new Date());
+		});
+	};
+	
 	//新闻相关
 	$scope.manageNews = function(){
 		var pubId =  $routeParams.pubId;
@@ -248,7 +281,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.GETPREDICTION, 
+				url: APIMOCK.GETPREDICTION, 
 				data:data
 			})
 			.then(function(res){

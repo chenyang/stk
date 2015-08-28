@@ -31,89 +31,25 @@
 					      "tipId":1, 
 				    	  "tipContent":"持续的资金注入难改短期的弱势格局1， 便再次出现大跌", 
 				    	  "lastModifiedTime":"2015-07-01 16:26", 
-				    	  "comments":
-				    	  	{
-				    	  		"likes":[
-				    	  					{
-						    	  				"time":"2015-08-07 12:59:59", 
-						    	  				"title":null, 
-						    	  				"username":"小红", 
-						    	  				"cmt":"不错 挺准确的", 
-						    	  				"userImg":"images/3rd/qq.png"
-						    	  			}
-				    	  				], 
-				    	  		"dislikes":
-						    	  		[
-						    	  			{
-						    	  				"time":"2015-08-07 12:59:59", 
-						    	  				"title":null, 
-						    	  				"username":"小强", 
-						    	  				"cmt":"不怎么样， 根本不准", 
-						    	  				"userImg":"images/3rd/qq.png"
-						    	  			}, 
-						    	  			{
-						    	  				"time":"2015-08-07 12:59:59", 
-						    	  				"title":null, 
-						    	  				"username":"小强", 
-						    	  				"cmt":"什么嘛。。", 
-						    	  				"userImg":"images/3rd/qq.png"
-						    	  			}, 
-						    	  			{
-						    	  				"time":"2015-08-07 12:59:59", 
-						    	  				"title":null, 
-						    	  				"username":"小东", 
-						    	  				"cmt":"毫无新意可言", 
-						    	  				"userImg":"images/3rd/qq.png"
-						    	  			}
-						    	  		]
-				    	  		}
+				    	  "nbComments":7, 
+				    	  "nbLikes":3, 
+				    	  "nbDislikes":4
 					}, 
 					{
 				      "tipId":2, 
 			    	  "tipContent":"持续的资金注入难改短期的弱势格局1， 便再次出现大跌", 
 			    	  "lastModifiedTime":"2015-07-01 16:26", 
-			    	  "comments":
-			    	  	{
-			    	  		"likes":[
-			    	  					{
-					    	  				"time":"2015-08-07 12:59:59", 
-					    	  				"title":null, 
-					    	  				"username":"小红", 
-					    	  				"cmt":"不错 挺准确的", 
-					    	  				"userImg":"images/3rd/qq.png"
-					    	  			}
-			    	  				], 
-			    	  		"dislikes":
-					    	  		[
-					    	  		]
-			    	  		}
+			    	  "nbComments":7, 
+			    	  "nbLikes":3, 
+				   	  "nbDislikes":4
 					}, 
 					{
 				      "tipId":3, 
 			    	  "tipContent":"持续的资金注入难改短期的弱势格局1， 便再次出现大跌", 
 			    	  "lastModifiedTime":"2015-07-01 16:26", 
-			    	  "comments":
-			    	  	{
-			    	  		"likes":[
-			    	  					{
-					    	  				"time":"2015-08-07 12:59:59", 
-					    	  				"title":null, 
-					    	  				"username":"小红", 
-					    	  				"cmt":"不错 挺准确的", 
-						    	  			"userImg":"images/3rd/qq.png"
-					    	  			}
-			    	  				], 
-			    	  		"dislikes":
-					    	  		[
-					    	  			{
-					    	  				"time":"2015-08-07 12:59:59", 
-					    	  				"title":null, 
-					    	  				"username":"小强", 
-					    	  				"cmt":"不怎么样， 根本不准", 
-					    	  				"userImg":"images/3rd/qq.png"
-					    	  			}
-					    	  		]
-			    	  		}
+			    	  "nbComments":7, 
+			    	  "nbLikes":3, 
+				   	  "nbDislikes":4
 					}
 				]
 			
@@ -129,22 +65,10 @@
 				      "tipId":4, 
 			    	  "tipContent":"持续的资金注入难改短期的弱势格局1， 便再次出现大跌", 
 			    	  "lastModifiedTime":"2015-07-01 16:26", 
-			    	  "comments":
-			    	  	{
-			    	  		"likes":[
-			    	  					{
-					    	  				"time":"2015-08-07 12:59:59", 
-					    	  				"title":null, 
-					    	  				"username":"小红", 
-					    	  				"cmt":"不错 挺准确的", 
-						    	  			"userImg":"images/3rd/qq.png"
-					    	  			}
-			    	  				], 
-			    	  		"dislikes":
-					    	  		[
-					    	  		]
-			    	  		}
-					}
+			    	  "nbComments":7, 
+			    	  "nbLikes":3, 
+				   	  "nbDislikes":4
+				    }
 				]
 			}, 
 			{
@@ -158,34 +82,17 @@
 				      "tipId":5, 
 			    	  "tipContent":"持续的资金注入难改短期的弱势格局1， 便再次出现大跌", 
 			    	  "lastModifiedTime":"2015-07-01 16:26", 
-			    	  "comments":
-			    	  	{
-			    	  		"likes":[
-			    	  					{
-					    	  				"time":"2015-08-07 12:59:59", 
-					    	  				"title":null, 
-					    	  				"username":"小红", 
-					    	  				"cmt":"不错 挺准确的", 
-						    	  			"userImg":"images/3rd/qq.png"
-					    	  			}
-			    	  				], 
-			    	  		"dislikes":
-					    	  		[
-					    	  		]
-			    	  		}
+			    	  "nbComments":7, 
+			    	  "nbLikes":3, 
+				   	  "nbDislikes":4
 					}, 
 					{
 				      "tipId":6, 
 			    	  "tipContent":"持续的资金注入难改短期的弱势格局1， 便再次出现大跌", 
 			    	  "lastModifiedTime":"2015-07-01 16:26", 
-			    	  "comments":
-			    	  	{
-			    	  		"likes":[
-			    	  				], 
-			    	  		"dislikes":
-					    	  		[
-					    	  		]
-			    	  		}
+			    	  "nbComments":7, 
+			    	  "nbLikes":3, 
+				   	  "nbDislikes":4
 					}
 				]
 			}
