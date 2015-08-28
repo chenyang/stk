@@ -159,6 +159,7 @@
 					MYAPPLY:'http://123.57.210.176/user/applyVIP?access-token=test', 
 					
 				//动态页
+					GETFEED:'http://123.57.210.176/feed/get?access-token=test', 
 			});
 			
 			mod.constant('APIMOCK', {
@@ -209,6 +210,7 @@
 					MYAPPLY:'/stkgg/app/mockData/my/apply.json', 
 					
 				//动态页
+					GETFEED:'/stkgg/app/mockData/feed/get.json', 
 			});
 	
 })();

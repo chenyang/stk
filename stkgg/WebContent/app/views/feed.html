@@ -1,31 +1,56 @@
 <div class="feed" ng-controller="FeedCtrl">
-	<div class="row">
-		<div class="timeline" ng-repeat="n in items"> <!-- ng-repeat -->
-			<div class="col-xs-12 content">
-				<div class="gushen-comment-block clearfix">
-					<div class="image pull-left"><img width="50px" src="images/home/gushen.png"></div>
-					
-					<div class="non-image panel panel-info clearfix">
-						<div class="panel-heading">
-							<span>股神007</span>
-							<span class="pull-right">2015-07-07</span>
-						</div>
-					  	<div class="panel-body">
-					   		<div class="comment">
-							<p class="tips">
-								<span class="glyphicon glyphicon-flag" style="color:orange"></span>
-								持续的资金注入难改短期的弱势格局</p>
-							<p class="prediction">
-								<span class="glyphicon glyphicon-flag" style="color:orange"></span>
-								预计将有小幅震动，希望可以减持农业股。。</p>
-						</div>
-					  	</div>
+	<div class="container-fluid">
+		<div ng-repeat="feed in feeds">
+			<!-- row for tipFeed -->
+			<div class="row" ng-show="feed.type=='tipFeed'">
+				<div class="user-block col-xs-2 text-center">
+					<img src="images/3rd/somua.jpg" class="photo">
+				</div>
+				<div class="feed-block col-xs-10">
+					<div>
+						<span class="name">{{feed.pubName}}</span>
+						<span class="action">{{feed.pubOwner}}发表了新的Tip</span>
+					</div>
+					<div class="content">
+						<b>{{feed.newsTitle}}</b><br/>
+						<span>{{feed.tipContent}}</span>
 					</div>
 					
+					<div class="well">
+						<div>
+							{{feed.newsAbstract}}
+						</div>
+						<a href="#/newsContent/{{feed.newsId}}">点击查看相关新闻详情</a>
+					</div>
+					<div class="footer">
+						<span class="text-left">发表于{{feed.time}}</span>
+						<div class="pull-right">
+							<span class="comment-icon glyphicon glyphicon-thumbs-up"></span>
+							<span class="comment-icon glyphicon glyphicon-thumbs-down"></span>
+							<span class="comment-icon glyphicon glyphicon-comment"></span>
+						</div>
+					</div>
 				</div>
-			</div><!-- timeline-content-block -->
-		</div><!-- ng-repeat -->
+			</div>
+			<!-- row for predictionFeed -->
+			<div class="row" ng-show="feed.type=='predictionFeed'">
+				<div class="user-block col-xs-2 text-center">
+					<img src="images/3rd/somua.jpg" class="photo">
+				</div>
+				<div class="feed-block col-xs-10">
+					<div>
+						<span class="name">{{feed.pubName}}</span>
+						<span class="action">{{feed.pubOwner}}发表了新的预测</span>
+					</div>
+					<div class="content">
+						<span>{{feed.predictionContent}}</span><br/>	
+					</div>
+					<div class="footer">
+						发表于{{feed.time}}
+					</div>
+				</div>
+			</div>
+		</div>
 		
-	</div><!-- row -->
-
+	</div>
 </div>

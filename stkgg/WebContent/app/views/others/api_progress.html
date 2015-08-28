@@ -989,9 +989,47 @@
 				
 				<div class="well">
 					<label>动态页</label>
-					<p>
-						<span class="label label-danger">未完成</span>
-					</p>	
+					<div>
+						<span class="label label-default">申请小巴</span>
+						<br>Request:
+						<br>POST http://123.57.210.176/feed/get
+						<pre>
+							{
+								sessionId:"xxx"
+							};
+						</pre>
+						<br>Response:
+						<pre>
+							{
+								"result":"success", 
+								"reason":null, 
+								"feeds":[
+									{
+										"type":"tipFeed", //种类 是tip feed 还是 prediction feed
+										"time":"2015-07-01 15:30", 
+										"pubId":3, 
+										"pubName":"股神小吧的Pub", 
+										"pubOwner": "股神小吧", 
+										"tipId":1, 
+										"newsId":2, 
+										"newsTitle":"消息称国务院将特批银行持券商牌照试点", 
+										"newsAbstract":"伴随着银行混合所有制改革拉开大幕，混业经营备受关注，放开券商牌照的问题如一把悬在头上的达摩克利斯之剑。日前，《经济参考报》记者从知情人士处获悉，《商业银行法》修改的内容里，除了取消存贷比外，更重要的是...", 
+										"tipContent":"伴随着银行混合所有制改革拉开大幕，混业经营备受关注，放开券商牌照的问题如一把悬在头上的达摩克利斯之剑"
+									}, 
+									{
+										"type":"predictionFeed", 
+										"time":"2015-07-01 15:30", 
+										"pubOwner": "股神小吧", 
+										"pubName":"股神小吧的Pub", 
+										"pubId":3, 
+										"predictionId":3,
+										"predictionContent":"预测将要大涨， 建议持股等待"
+									}
+									
+								]
+							}
+						</pre>
+					</div>	
 				</div>
 				
 				<div class="well">

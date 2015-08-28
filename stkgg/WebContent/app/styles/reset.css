@@ -13,4 +13,8 @@ input, p, div, span{
 	padding:1px;
 }
 
+.img-with-border{
+	border:5px solid rgb(250, 245, 245);
+}
+
 /**padding**/
