@@ -131,8 +131,11 @@
 								<span class="glyphicon glyphicon-arrow-down"></span>
 								<span>踩 {{tip.nbDislikes}}</span>
 							</span>
+							<span ng-click="gotoComment(tip)" style="margin-right:5px" class="label label-primary">
+								相关评论
+							</span>
 						
-							<button class="btn btn-default btn-small" ng-click="tip.isCollapsedShare=!tip.isCollapsedShare">分享到朋友圈</button>
+							<button class="btn btn-success btn-small" ng-click="tip.isCollapsedShare=!tip.isCollapsedShare">分享到朋友圈</button>
 							
 							
 							<!-- 保留 -->

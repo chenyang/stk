@@ -25,71 +25,94 @@
 	mod.constant('Navigation',
 			[
 			 {  when:"/", 
-				 templateUrl:"views/homePage.html"
+				templateUrl:"views/homePage.html", 
+				headerName:"发现 PUB"
 			 }, 
 			 {  when:"/home", 
-				 templateUrl:"views/homePage.html"
+				templateUrl:"views/homePage.html", 
+				headerName: "发现 PUB"
+				 
 			 }, 
 			 {  when:"/stkAnal", 
-				 templateUrl:"views/stockAnalysis.html"
+				templateUrl:"views/stockAnalysis.html", 
+				headerName: "股票时间线"
 			 }, 
 			 {  when:"/stkAnal/:pubId", 
-				 templateUrl:"views/stockAnalysis.html"
+				templateUrl:"views/stockAnalysis.html", 
+				headerName: "股票时间线"
 			 }, 
 			 {  when:"/buyPub", 
-				 templateUrl:"views/buyPub.html"
+				templateUrl:"views/buyPub.html", 
+				headerName: "PUB介绍"
 			 }, 
 			 {  when:"/buyPub/:pubId", 
-				 templateUrl:"views/buyPub.html"
+				templateUrl:"views/buyPub.html", 
+				headerName: "PUB介绍"
 			 }, 
 			 {  when:"/login", 
-				 templateUrl:"views/login.html"
+				templateUrl:"views/login.html", 
+				headerName: "登录"
 			 }, 
 			 {  when:"/createPub", 
-				 templateUrl:"views/createPub.html"
+				templateUrl:"views/createPub.html", 
+				headerName: "创建新的PUB"
 			 },
 			 {  when:"/feed", 
-				 templateUrl:"views/feed.html"
+				templateUrl:"views/feed.html", 
+				headerName: "PUB动态"
 			 }, 
 			 {  when:"/history/tip/:tipId", 
-				 templateUrl:"views/historyTip.html"
+				templateUrl:"views/historyTip.html", 
+				headerName: "TIP历史"
 			 }, 
 			 {  when:"/history/prediction/:pubId", 
-				 templateUrl:"views/historyPrediction.html"
+				templateUrl:"views/historyPrediction.html", 
+				headerName: "预测历史"
 			 }, 
 			 {  when:"/myProfile", 
-				 templateUrl:"views/myProfile.html"
+				templateUrl:"views/myProfile.html", 
+				headerName: "我的"
 			 }, 
 			 {  when:"/myBought", 
-				 templateUrl:"views/myBought.html"
+				templateUrl:"views/myBought.html", 
+				headerName: "我的购买记录"
 			 }, 
 			 {  when:"/myApply", 
-				 templateUrl:"views/myApply.html"
+				templateUrl:"views/myApply.html", 
+				headerName: "申请小巴"
 			 }, 
 			 {  when:"/myPub", 
-				 templateUrl:"views/myPub.html"
+				templateUrl:"views/myPub.html", 
+				headerName: "我的PUB"
 			 }, 
 			 {  when:"/myFavorite", 
-				 templateUrl:"views/myFavorite.html"
+				templateUrl:"views/myFavorite.html", 
+				headerName: "我的收藏"
 			 }, 
 			 {  when:"/profileDetail", 
-				 templateUrl:"views/profileDetail.html"
+				templateUrl:"views/profileDetail.html", 
+				headerName: "我的帐户"
 			 }, 
 			 {  when:"/payment",
-					templateUrl:"views/payment.html"
+				templateUrl:"views/payment.html", 
+				headerName: "支付"
 			 },
 			 {  when:"/register",
-				templateUrl:"views/register.html"
+				templateUrl:"views/register.html", 
+				headerName: "注册"
 			 },
 			 {  when:"/newsList/:pubId",//for pubId, current user, newsList booked situation
-				templateUrl:"views/newsList.html"
+				templateUrl:"views/newsList.html", 
+				headerName: "新闻列表"
 			 },
 			 {  when:"/newsContent/:newsId",
-				templateUrl:"views/newsContent.html"
+				templateUrl:"views/newsContent.html", 
+				headerName: "新闻详情"
 			 },
 			 {
 				when:"/comments/:tipId",
-				templateUrl:"views/comment.html" 
+				templateUrl:"views/comment.html" , 
+				headerName: "用户评论"
 			 },
 			 
 			 
@@ -113,6 +136,7 @@
 				"90":"三个月", 
 				"180":"半年", 
 			});
+			
 	
 			mod.constant('API', {
 				//登陆

@@ -71,16 +71,11 @@
 
 		//login
 		$scope.login = function(){
-			console.log("login", $scope.userLoginInfo);
-			
 			var data = {
 					login:$scope.userLoginInfo.login, 
 					password:$scope.userLoginInfo.password,
 					captcha:$scope.userLoginInfo.inputCapcha
-			};
-			
-			console.log("/user/login", data);
-			
+			};			
 			$http({
 				method: 'POST', 
 				url: API.LOGIN, 

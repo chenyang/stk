@@ -53,7 +53,7 @@
 						showMaxMin: false
 					},
 					callback: function(chart){
-						console.log('chart callbacks here');
+						//console.log('chart callbacks here');
 					}
 				}, 
 				title: {
@@ -107,7 +107,7 @@
 			getTimeline();
 		}, function () {
 			//canceled/dismiss
-			console.log('Modal dismissed at: ' + new Date());
+			//console.log('Modal dismissed at: ' + new Date());
 		});
 	};
 
