@@ -22,11 +22,11 @@
 			'response': function(response) {
 				//for mock api
 				if(response.config.method=='GET'&&response.config.url.indexOf('.json')!=-1){
-					console.log('[RES]['+response.config.method+']', response.data);
+					console.log('[RES]['+response.config.method+']'+response.config.url, response.data);
 				}
 				//for real api
 				if(response.config.method=='POST'){
-					console.log('[RES]['+response.config.method+']', response.data);
+					console.log('[RES]['+response.config.method+']'+response.config.url, response.data);
 				}
 				return response;
 			},
