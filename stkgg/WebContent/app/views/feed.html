@@ -27,11 +27,11 @@
 							<span class="text-left">发表于{{feed.time}}</span>
 						</div>
 						<div class="text-right comment-icon">
-							<span ng-click="evaluateTip(feed, 'like')" style="margin-right:5px" class="label label-danger">
+							<span ng-click="addComment(feed, 1)" style="margin-right:5px" class="label label-danger">
 								<span class="glyphicon glyphicon-thumbs-up"></span>
 								<span>赞{{feed.nbLikes}}</span>
 							</span>
-							<span ng-click="evaluateTip(feed, 'dislike')" style="margin-right:5px" class="label label-default">
+							<span ng-click="addComment(feed, 1)" style="margin-right:5px" class="label label-default">
 								<span class="glyphicon glyphicon-thumbs-down"></span>
 								<span>踩{{feed.nbDislikes}}</span>
 							</span>

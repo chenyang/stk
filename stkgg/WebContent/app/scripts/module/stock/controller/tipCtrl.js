@@ -1,15 +1,17 @@
 (function(){
 	'use strict';
 	var mod = angular.module('stock.controller');
-	mod.controller("TipCtrl", ['$scope', '$modalInstance', 'APIMOCK', 'API', '$http', 'params', '$filter', 
-	                           function($scope, $modalInstance, APIMOCK, API, $http, params, $filter){	
+	mod.controller("TipCtrl", ['$scope', '$modalInstance', '$cookies', 'APIMOCK', 'API', '$http', 'params', '$filter', 
+	                           function($scope, $modalInstance, $cookies, APIMOCK, API, $http, params, $filter){	
 		
 		$scope.add = function(){
+			var sessionId =  $cookies.getObject('cookieUserProfile').sessionId;
 			var tipInfo = $scope.tipInfo;
 			if(_.isEmpty(tipInfo.content)){
 				alert('请输入评述');
 			}else{
 				var data= {
+					sessionId:sessionId,
 					pubId:params.pubId, 
 					newsId:params.newsId, 
 					content:tipInfo.content

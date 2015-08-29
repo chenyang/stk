@@ -12,7 +12,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: APIMOCK.MYBOUGHTS, 
+				url: API.MYBOUGHTS, 
 				data:data
 			})
 			.then(function(res){

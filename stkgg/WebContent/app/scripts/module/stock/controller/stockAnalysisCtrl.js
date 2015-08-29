@@ -122,7 +122,7 @@
 				};
 				$http({
 					method: 'POST', 
-					url: APIMOCK.EDITTIP, 
+					url: API.EDITTIP, 
 					data:data
 				})
 				.then(function(res){
@@ -153,7 +153,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: APIMOCK.GETTIMELINE, 
+				url: API.GETTIMELINE, 
 				data:data
 			})
 			.then(function(res){
@@ -199,7 +199,7 @@
 		};
 		$http({
 			method: 'POST', 
-			url: APIMOCK.ADDFAVORITE, 
+			url: API.ADDFAVORITE, 
 			data:data
 		})
 		.then(function(res){
@@ -235,10 +235,11 @@
 		$location.path("/comments/"+tip.tipId);
 	};
 	
-	$scope.addComment = function(tip, attitude){
+	$scope.addComment = function(tip, agree){
 		var param = {
+			pubId:$routeParams.pubId,
 			tip:tip, 
-			attitude:attitude
+			agree:agree
 		};
 		var modalInstance = $modal.open({
 			animation: true,
@@ -281,13 +282,13 @@
 			};
 			$http({
 				method: 'POST', 
-				url: APIMOCK.GETPREDICTION, 
+				url: API.GETPREDICTION, 
 				data:data
 			})
 			.then(function(res){
 				if(res.data.result=="success"){
 					$scope.prediction = res.data.prediction;
-					var prediction = $scope.prediction;
+					var prediction = angular.copy($scope.prediction);
 					prediction.time = NumToChineseTime[''+prediction.time+''];
 					$scope.predictPopover = {
 						content: prediction, 

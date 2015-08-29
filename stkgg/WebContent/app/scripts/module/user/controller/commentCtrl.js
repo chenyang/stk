@@ -7,17 +7,22 @@
 		
 		//获取评论
 		var getComments = function(){
+			var sessionId =  $cookies.getObject('cookieUserProfile').sessionId;
 			var tipId =  $routeParams.tipId;
+			var data = {
+				tipId:tipId, 
+				sessionId:sessionId
+			};
 			$http({
 				method: 'POST', 
-				url: APIMOCK.GETCOMMENT, 
-				tipId:tipId
+				url: API.GETCOMMENT, 
+				data:data
 			})
 			.then(function(res){
 				if(res.data.result=="success"){
-					var comments = res.data.comments;
-					$scope.positiveComments = _.where(comments, {attitude: "like"});
-					$scope.negativeComments = _.where(comments, {attitude: "dislike"});
+					var comments = res.data.tipInfo.comments;
+					$scope.positiveComments = comments.likes;
+					$scope.negativeComments = comments.dislikes;
 				}else{
 					alert(res.data.reason);
 				}

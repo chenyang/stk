@@ -32,8 +32,7 @@
 			if(_.isEmpty($scope.searchText)){
 				alert('请输入搜索关键词');
 			}else{
-				var cookieProfile = $cookies.getObject('cookieUserProfile');
-				var sessionId = _.isEmpty(cookieProfile)?cookieProfile.sessionId:null;
+				var sessionId =  $cookies.getObject('cookieUserProfile').sessionId;
 				var data = {
 						sessionId: sessionId, 
 						keyword:$scope.searchText
@@ -96,6 +95,7 @@
 		
 		$scope.$on('refreshPage', function(){
 			defaultPubs();
+			$scope.searchText = '';
 		});
 		
 		//init

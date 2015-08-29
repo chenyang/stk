@@ -123,16 +123,16 @@
 					<div class="clearfix share-block">
 						
 						<div class="pull-right">
-							<span ng-click="addComment(tip, 'like')" style="margin-right:5px" class="label label-danger">
+							<span ng-click="addComment(tip, 1)" style="margin-right:5px" class="label label-danger">
 								<span class="glyphicon glyphicon-arrow-up"></span>
 								<span>赞 {{tip.nbLikes}} </span>
 							</span>
-							<span ng-click="addComment(tip, 'dislike')" style="margin-right:5px" class="label label-default">
+							<span ng-click="addComment(tip, 0)" style="margin-right:5px" class="label label-default">
 								<span class="glyphicon glyphicon-arrow-down"></span>
 								<span>踩 {{tip.nbDislikes}}</span>
 							</span>
 							<span ng-click="gotoComment(tip)" style="margin-right:5px" class="label label-primary">
-								相关评论
+								相关评论 {{tip.nbComments}}
 							</span>
 						
 							<button class="btn btn-success btn-small" ng-click="tip.isCollapsedShare=!tip.isCollapsedShare">分享到朋友圈</button>

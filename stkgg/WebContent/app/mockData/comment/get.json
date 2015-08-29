@@ -1,39 +1,29 @@
 {
-	"result":"success", 
-	"reason":null, 
-	"comments":[
-		{
-			"content":"此评论翔实挺好的， 不错.",
-			"time":"2015-01-01", 
-			"userId":123, 
-			"userName":"小红", 
-			"attitude":"like", 
-			"userImgUrl":"images/3rd/qq.png"
-		}, 
-		{
-			"content":"创业板估值太高、太高！！！成了套利板，炒诈板，中小投资者千万不要接最后一捧，让他们自炒自拉吧！！！6月份就要实施新的基金交易规则，估计利益输送没那么方便了！！！",
-			"time":"2015-01-01", 
-			"userId":123, 
-			"userName":"小红", 
-			"attitude":"dislike", 
-			"userImgUrl":"images/3rd/qq.png"
-		}, 
-		{
-			"content":"此评论翔实挺好的， 不错",
-			"time":"2015-01-01", 
-			"userId":123, 
-			"userName":"小红", 
-			"attitude":"like", 
-			"userImgUrl":"images/3rd/qq.png"
-		}, 
-		{
-			"content":"此评论翔实挺好的， 不错",
-			"time":"2015-01-01", 
-			"userId":123, 
-			"userName":"小红", 
-			"attitude":"like", 
-			"userImgUrl":"images/3rd/qq.png"
-		}
-	]
-}
-		
+	    "result": "success",
+	    "reason": null,
+	    "tipInfo": {
+	        "tipId": 4,
+	        "tipContent": "测试添加 Tips 哈哈哈好1 1231231223123221\n哎呀 22222",
+	        "lastModifiedTime": "2015-08-24 07:47:44",
+	        "comments": {
+	            "likes": [
+	                {
+	                    "time": "2015-08-29 16:36:16",
+	                    "title": "",
+	                    "username": "Wayne Jiang",
+	                    "cmt": "浦发",
+	                    "userImg": "http://123.57.210.176/images/users/1.jpeg"
+	                }
+	            ],
+	            "dislikes": [
+	                {
+	                    "time": "2015-08-29 16:36:21",
+	                    "title": "",
+	                    "username": "Wayne Jiang",
+	                    "cmt": "浦发2",
+	                    "userImg": "http://123.57.210.176/images/users/1.jpeg"
+	                }
+	            ]
+	        }
+	    }
+	}	

@@ -6,12 +6,28 @@
 	mod.factory('globalHttpInterceptor', ['$q', '$window', '$location', function ($q, $window, $location) {
 		return {
 			'request': function(config) {
+				//for mock api
+				if(config.method=='GET' && config.url.indexOf('.json')!=-1){
+					console.log('[REQ]['+config.method+']'+config.url, config.data);
+				}
+				//for real api
+				if(config.method=='POST'){
+					console.log('[REQ]['+config.method+']'+config.url, config.data);
+				}
 				return config;
 			},
 			'requestError': function(rejection) {
 				return $q.reject(rejection);
 			},
 			'response': function(response) {
+				//for mock api
+				if(response.config.method=='GET'&&response.config.url.indexOf('.json')!=-1){
+					console.log('[RES]['+response.config.method+']', response.data);
+				}
+				//for real api
+				if(response.config.method=='POST'){
+					console.log('[RES]['+response.config.method+']', response.data);
+				}
 				return response;
 			},
 			'responseError': function(rejection) {
@@ -180,75 +196,75 @@
 					HISTORYPREDICTION:'http://123.57.210.176/history/prediction?access-token=test', 
 					
 				//"我的"页面
-					MYPROFILE:'http://123.57.210.176/user/get?access-token=test', 
-					MYPROFILEEDIT:'http://123.57.210.176/user/edit?access-token=test', 
-					MYPUBS:'http://123.57.210.176/user/pubs?access-token=test', 
-					MYFAVORITES:'http://123.57.210.176/user/favorites?access-token=test', 
-					MYBOUGHTS:'http://123.57.210.176/user/boughts?access-token=test', 
-					MYAPPLY:'http://123.57.210.176/user/applyVIP?access-token=test', 
+					MYPROFILE:'http://123.57.210.176/member/get?access-token=test', 
+					MYPROFILEEDIT:'http://123.57.210.176/member/edit?access-token=test', 
+					MYPUBS:'http://123.57.210.176/member/pubs?access-token=test', 
+					MYFAVORITES:'http://123.57.210.176/member/collection?access-token=test', 
+					MYBOUGHTS:'http://123.57.210.176/member/buylog?access-token=test', 
+					MYAPPLY:'http://123.57.210.176/member/applyvip?access-token=test', 
 					
 				//动态页
 					GETFEED:'http://123.57.210.176/feed/get?access-token=test', 
 					
 				//评论相关
-					GETCOMMENT:'http://123.57.210.176/comments/get?access-token=test', 
-					ADDCOMMENT:'http://123.57.210.176/comments/add?access-token=test', 
+					GETCOMMENT:'http://123.57.210.176/discussion/list?access-token=test', 
+					ADDCOMMENT:'http://123.57.210.176/discussion/add?access-token=test', 
 					
 			});
 			
 			mod.constant('APIMOCK', {
 				//登陆
-					CHECKPHONE:'/stkgg/app/mockData/login/checkphone.json', 
-					GETCAPCHA:'/stkgg/app/mockData/login/getcapcha.json', 
-					SENDCODE:'/stkgg/app/mockData/login/sendcode.json', 
-					LOGIN:'/stkgg/app/mockData/login/login.json', 
-					REGISTER:'/stkgg/app/mockData/login/reg.json', 
-					LOGOUT:'/stkgg/app/mockData/login/logout.json', 
-					FINDPWD:'/stkgg/app/mockData/login/findpwd.json', 
-					RESETPWD:'/stkgg/app/mockData/login/resetpwd.json', 
+					CHECKPHONE:'http://localhost:8080/stkgg/app/mockData/login/checkphone.json', 
+					GETCAPCHA:'http://localhost:8080/stkgg/app/mockData/login/getcapcha.json', 
+					SENDCODE:'http://localhost:8080/stkgg/app/mockData/login/sendcode.json', 
+					LOGIN:'http://localhost:8080/stkgg/app/mockData/login/login.json', 
+					REGISTER:'http://localhost:8080/stkgg/app/mockData/login/reg.json', 
+					LOGOUT:'http://localhost:8080/stkgg/app/mockData/login/logout.json', 
+					FINDPWD:'http://localhost:8080/stkgg/app/mockData/login/findpwd.json', 
+					RESETPWD:'http://localhost:8080/stkgg/app/mockData/login/resetpwd.json', 
 				//发现页
-					SEARCHPUBS:'/stkgg/app/mockData/find/search.json', 
-					DEFAULTPUBS:'/stkgg/app/mockData/find/pubs.json', 
+					SEARCHPUBS:'http://localhost:8080/stkgg/app/mockData/find/search.json', 
+					DEFAULTPUBS:'http://localhost:8080/stkgg/app/mockData/find/pubs.json', 
 				//创建新PUB页
-					SEARCHSTOCK:'/stkgg/app/mockData/createPub/stocks.json',
-					UPLOADIMG: '/stkgg/app/mockData/createPub/img.json', 
-					POSTPUB:'/stkgg/app/mockData/createPub/postpubs.json',
+					SEARCHSTOCK:'http://localhost:8080/stkgg/app/mockData/createPub/stocks.json',
+					UPLOADIMG: 'http://localhost:8080/stkgg/app/mockData/createPub/img.json', 
+					POSTPUB:'http://localhost:8080/stkgg/app/mockData/createPub/postpubs.json',
 				//Timeline页
-					GETTIMELINE:'/stkgg/app/mockData/timeline/timeline.json', 
-					ADDTIP:'/stkgg/app/mockData/timeline/add.json', 
-					EDITTIP:'/stkgg/app/mockData/timeline/edit.json', 
-					EVALUATETIP:'/stkgg/app/mockData/timeline/evaluate.json', 
-					ADDFAVORITE:'/stkgg/app/mockData/timeline/fav.json', 
+					GETTIMELINE:'http://localhost:8080/stkgg/app/mockData/timeline/timeline.json', 
+					ADDTIP:'http://localhost:8080/stkgg/app/mockData/timeline/add.json', 
+					EDITTIP:'http://localhost:8080/stkgg/app/mockData/timeline/edit.json', 
+					EVALUATETIP:'http://localhost:8080/stkgg/app/mockData/timeline/evaluate.json', 
+					ADDFAVORITE:'http://localhost:8080/stkgg/app/mockData/timeline/fav.json', 
 					//新闻相关
-					GETNEWSLIST:'/stkgg/app/mockData/timeline/getNewsList.json', 
-					GETNEWSCONTENT:'/stkgg/app/mockData/timeline/getNewsContent.json', 
-					BOOKNEWS:'/stkgg/app/mockData/timeline/bookNews.json', 
+					GETNEWSLIST:'http://localhost:8080/stkgg/app/mockData/timeline/getNewsList.json', 
+					GETNEWSCONTENT:'http://localhost:8080/stkgg/app/mockData/timeline/getNewsContent.json', 
+					BOOKNEWS:'http://localhost:8080/stkgg/app/mockData/timeline/bookNews.json', 
 					
 				//预测发布
-					GETPREDICTION:'/stkgg/app/mockData/prediction/get.json',
-					ADDPREDICTION:'/stkgg/app/mockData/prediction/add.json', 
-					EDITPREDICTION:'/stkgg/app/mockData/prediction/edit.json',
+					GETPREDICTION:'http://localhost:8080/stkgg/app/mockData/prediction/get.json',
+					ADDPREDICTION:'http://localhost:8080/stkgg/app/mockData/prediction/add.json', 
+					EDITPREDICTION:'http://localhost:8080/stkgg/app/mockData/prediction/edit.json',
 					
 				//Coverpage页
-					COVERPAGEGET: '/stkgg/app/mockData/coverpage/get.json', 
-					REPORTADD:'/stkgg/app/mockData/coverpage/report.json',
+					COVERPAGEGET: 'http://localhost:8080/stkgg/app/mockData/coverpage/get.json', 
+					REPORTADD:'http://localhost:8080/stkgg/app/mockData/coverpage/report.json',
 				//修改历史页面
-					HISTORYTIP:'/stkgg/app/mockData/history/tip.json', 
-					HISTORYPREDICTION:'/stkgg/app/mockData/history/prediction.json', 
+					HISTORYTIP:'http://localhost:8080/stkgg/app/mockData/history/tip.json', 
+					HISTORYPREDICTION:'http://localhost:8080/stkgg/app/mockData/history/prediction.json', 
 					
 				//"我的"页面
-					MYPROFILE:'/stkgg/app/mockData/my/profile.json', 
-					MYPROFILEEDIT:'/stkgg/app/mockData/my/edit.json', 
-					MYPUBS:'/stkgg/app/mockData/my/pub.json', 
-					MYFAVORITES:'/stkgg/app/mockData/my/fav.json', 
-					MYBOUGHTS:'/stkgg/app/mockData/my/bought.json', 
-					MYAPPLY:'/stkgg/app/mockData/my/apply.json', 
+					MYPROFILE:'http://localhost:8080/stkgg/app/mockData/my/profile.json', 
+					MYPROFILEEDIT:'http://localhost:8080/stkgg/app/mockData/my/edit.json', 
+					MYPUBS:'http://localhost:8080/stkgg/app/mockData/my/pub.json', 
+					MYFAVORITES:'http://localhost:8080/stkgg/app/mockData/my/fav.json', 
+					MYBOUGHTS:'http://localhost:8080/stkgg/app/mockData/my/bought.json', 
+					MYAPPLY:'http://localhost:8080/stkgg/app/mockData/my/apply.json', 
 					
 				//动态页
-					GETFEED:'/stkgg/app/mockData/feed/get.json', 
+					GETFEED:'http://localhost:8080/stkgg/app/mockData/feed/get.json', 
 				//评论相关
-					GETCOMMENT:'/stkgg/app/mockData/comment/get.json', 
-					ADDCOMMENT:'/stkgg/app/mockData/comment/add.json', 
+					GETCOMMENT:'http://localhost:8080/stkgg/app/mockData/comment/get.json', 
+					ADDCOMMENT:'http://localhost:8080/stkgg/app/mockData/comment/add.json', 
 			});
 	
 })();

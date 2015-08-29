@@ -84,7 +84,6 @@
 			if(_.isEmpty(strTemp)){
 				strTemp = path.substring(_.lastIndexOf(path, '/'), path.length);
 			}
-			console.log(strTemp);
 			
 			var filteredNav = _.filter(Navigation, function(nav){
 				return nav.when.indexOf(strTemp)!=-1;

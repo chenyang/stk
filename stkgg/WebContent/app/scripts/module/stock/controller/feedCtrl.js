@@ -1,17 +1,21 @@
 (function(){
 	'use strict';
 	var mod = angular.module('stock.controller');
-	mod.controller("FeedCtrl", ['$scope', '$http', 'APIMOCK', '$cookies', 'API', '$location', 
-	                            function($scope, $http, APIMOCK, $cookies, API, $location){
+	mod.controller("FeedCtrl", ['$scope', '$http', 'APIMOCK', '$cookies', 'API', '$location', '$modal', 
+	                            function($scope, $http, APIMOCK, $cookies, API, $location, $modal){
 		
 		//点赞/踩 tip
-		$scope.evaluateTip = function(feed, evaluation){
+		/**
+		 * $scope.evaluateTip = function(feed, evaluation){
 			var sessionId =  $cookies.getObject('cookieUserProfile').sessionId;
-			$http({
-				method: 'POST', 
-				url: APIMOCK.EVALUATETIP, 
+			var data = {
 				sessionId:sessionId, 
 				tipId:feed.tipId
+			}
+			$http({
+				method: 'POST', 
+				url: API.EVALUATETIP, 
+				data:data
 			})
 			.then(function(res){
 				if(res.data.result=="success"){
@@ -25,15 +29,51 @@
 				console.log('error tech', res);
 			});
 		};
+		 * 
+		 */
 		
+		//评论相关
+		$scope.gotoComment = function(feed){
+			$location.path("/comments/"+feed.tipId);
+		};
+		
+		//添加评论
+		$scope.addComment = function(feed, agree){
+			var param = {
+				pubId:feed.pubId,
+				tip:feed, 
+				agree:agree
+			};
+			var modalInstance = $modal.open({
+				animation: true,
+				templateUrl: 'views/modal/addCommentModal.html',
+				controller: 'CommentModalCtrl',
+				resolve: {
+					param: function () {
+						return param;
+					}
+				}
+			});
+			modalInstance.result.then(function (selectedItem) {
+				//OK/selected items form Modal..
+				//跳转到所有评论页面
+				$scope.gotoComment(feed);
+			}, function () {
+				//canceled/dismiss
+				console.log('Modal dismissed at: ' + new Date());
+			});
+		};
 		
 		//获取动态
 		var getFeeds = function(){
 			var sessionId =  $cookies.getObject('cookieUserProfile').sessionId;
+			var data = {
+				sessionId:sessionId
+			}
 			$http({
 				method: 'POST', 
-				url: APIMOCK.GETFEED, 
-				sessionId:sessionId
+				url: API.GETFEED, 
+				data:data
 			})
 			.then(function(res){
 				if(res.data.result=="success"){

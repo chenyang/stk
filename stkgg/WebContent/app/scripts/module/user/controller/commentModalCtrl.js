@@ -4,6 +4,7 @@
 	mod.controller("CommentModalCtrl", ['$scope', '$http', 'APIMOCK', '$cookies', 'API', '$routeParams','param', '$modalInstance', 
 	                                    function($scope, $http, APIMOCK, $cookies, API, $routeParams, param, $modalInstance){
 
+		//添加评论
 		$scope.add = function(){
 			var commentInfo = $scope.commentInfo;
 			var sessionId =  $cookies.getObject('cookieUserProfile').sessionId;
@@ -11,17 +12,16 @@
 				alert('请输入评论');
 			}else{
 				var data= {
+					pubId:param.pubId, 
 					sessionId:sessionId, 
 					tipId:param.tip.tipId,
-					attitude:param.attitude, 
+					agree:param.agree, 
 					content:commentInfo.content
 				};
 				
-				console.log('data is ', data)
-				
 				$http({
 					method: 'POST', 
-					url: APIMOCK.ADDCOMMENT, 
+					url: API.ADDCOMMENT, 
 					data:data
 				})
 				.then(function(res){

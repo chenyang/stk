@@ -17,4 +17,7 @@ input, p, div, span{
 	border:5px solid rgb(250, 245, 245);
 }
 
-/**padding**/
+
+.api-progress pre{
+	margin-top:5px;
+}
