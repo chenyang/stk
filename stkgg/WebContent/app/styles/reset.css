@@ -18,6 +18,10 @@ input, p, div, span{
 }
 
 
+/*临时 项目进展*/
 .api-progress pre{
 	margin-top:5px;
+}
+.api-progress .btn{
+	width:100%;
 }
