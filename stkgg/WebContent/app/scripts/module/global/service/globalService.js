@@ -199,12 +199,12 @@
 					HISTORYPREDICTION:hostUrl+'history/prediction?access-token=test', 
 					
 				//"我的"页面
-					MYPROFILE:hostUrl+'member/get?access-token=test', 
-					MYPROFILEEDIT:hostUrl+'member/edit?access-token=test', 
-					MYPUBS:hostUrl+'member/pubs?access-token=test', 
-					MYFAVORITES:hostUrl+'member/collection?access-token=test', 
-					MYBOUGHTS:hostUrl+'member/buylog?access-token=test', 
-					MYAPPLY:hostUrl+'member/applyvip?access-token=test', 
+					MYPROFILE:hostUrl+'user/get?access-token=test', 
+					MYPROFILEEDIT:hostUrl+'user/edit?access-token=test', 
+					MYPUBS:hostUrl+'user/pubs?access-token=test', 
+					MYFAVORITES:hostUrl+'user/collection?access-token=test', 
+					MYBOUGHTS:hostUrl+'user/buylog?access-token=test', 
+					MYAPPLY:hostUrl+'user/applyvip?access-token=test', 
 					
 				//动态页
 					GETFEED:hostUrl+'feed/get?access-token=test', 
