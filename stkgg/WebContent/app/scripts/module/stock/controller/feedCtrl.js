@@ -14,7 +14,7 @@
 			}
 			$http({
 				method: 'POST', 
-				url: APIMOCK.EVALUATETIP, 
+				url: API.EVALUATETIP, 
 				data:data
 			})
 			.then(function(res){
@@ -72,7 +72,7 @@
 			}
 			$http({
 				method: 'POST', 
-				url: APIMOCK.GETFEED, 
+				url: API.GETFEED, 
 				data:data
 			})
 			.then(function(res){

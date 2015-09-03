@@ -15,7 +15,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: APIMOCK.GETCOMMENT, 
+				url: API.GETCOMMENT, 
 				data:data
 			})
 			.then(function(res){
