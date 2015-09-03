@@ -43,6 +43,7 @@
 	 * App Init
 	 */
 	var app = angular.module('App', appDeps);
+	
 	//Configure route provider, route controller and template url
 	app.config(['$httpProvider', '$routeProvider','Navigation', function($httpProvider, $routeProvider, Navigation) {
 		

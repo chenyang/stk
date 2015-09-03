@@ -1,7 +1,7 @@
 <div class="comment" ng-controller="CommentCtrl">
 
 	<tabset justified="false">
-	    <tab heading="赞成评论">
+	    <tab heading="赞成评论" active="tabs[0].active" select="showAgreeTab()">
 	    	<div ng-repeat="comment in positiveComments">
 				<div class="row">
 					<div class="user-block col-xs-2 text-center">
@@ -22,7 +22,7 @@
 				</div>
 			</div>
 	    </tab>
-	    <tab heading="反对评论">
+	    <tab heading="反对评论" active="tabs[1].active" select="showDisagreeTab()">
 	    	<div ng-repeat="comment in negativeComments">
 				<div class="row">
 					<div class="user-block col-xs-2 text-center">

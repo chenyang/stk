@@ -1,8 +1,8 @@
 (function(){
 	'use strict';
 	var mod = angular.module('stock.controller');
-	mod.controller("FeedCtrl", ['$scope', '$http', 'APIMOCK', '$cookies', 'API', '$location', '$modal', 
-	                            function($scope, $http, APIMOCK, $cookies, API, $location, $modal){
+	mod.controller("FeedCtrl", ['$scope', '$http', 'APIMOCK', '$cookies', 'API', '$location', '$modal', 'CACHE_PARAM_BTW_CTRL',
+	                            function($scope, $http, APIMOCK, $cookies, API, $location, $modal, CACHE_PARAM_BTW_CTRL){
 		
 		//点赞/踩 tip
 		/**
@@ -14,7 +14,7 @@
 			}
 			$http({
 				method: 'POST', 
-				url: API.EVALUATETIP, 
+				url: APIMOCK.EVALUATETIP, 
 				data:data
 			})
 			.then(function(res){
@@ -57,7 +57,7 @@
 			modalInstance.result.then(function (selectedItem) {
 				//OK/selected items form Modal..
 				//跳转到所有评论页面
-				$scope.gotoComment(feed);
+				$scope.gotoComment(feed, agree);
 			}, function () {
 				//canceled/dismiss
 				console.log('Modal dismissed at: ' + new Date());
@@ -72,7 +72,7 @@
 			}
 			$http({
 				method: 'POST', 
-				url: API.GETFEED, 
+				url: APIMOCK.GETFEED, 
 				data:data
 			})
 			.then(function(res){
@@ -86,8 +86,15 @@
 			});
 		};
 		
-		$scope.gotoComment = function(feed){
+		$scope.gotoComment = function(feed, agree){
+			//add positive/negative agreement
+			var params = {
+				agree:agree
+			};
+			//params from feed ctrl to comment ctrl
+			CACHE_PARAM_BTW_CTRL.put('param_ctrl_feed_comment', params);
 			$location.path("/comments/"+feed.tipId);
+			
 		};
 		
 		//listen $rootScope evt
