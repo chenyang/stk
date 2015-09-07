@@ -1,8 +1,8 @@
 (function(){
 	'use strict';
 	var mod = angular.module('global.controller');
-	mod.controller("GlobalCtrl", ['$scope', '$cookies', '$location', '$http', 'APIMOCK', 'API', '$rootScope', 
-	                              function($scope, $cookies, $location, $http, APIMOCK, API, $rootScope){
+	mod.controller("GlobalCtrl", ['$scope', '$cookies', '$location', '$http', 'APIMOCK', 'API', '$rootScope', 'Navigation', 
+	                              function($scope, $cookies, $location, $http, APIMOCK, API, $rootScope, Navigation){
 
 		//刷新  broadcast event
 		$scope.refreshPage = function(){
@@ -77,6 +77,22 @@
 			}
 		};
 
+		//listen on route change
+		$scope.$on('$routeChangeStart', function(){
+			var path = $location.path();
+			var strTemp = path.substring(0, _.lastIndexOf(path, '/'));
+			if(_.isEmpty(strTemp)){
+				strTemp = path.substring(_.lastIndexOf(path, '/'), path.length);
+			}
+			
+			var filteredNav = _.filter(Navigation, function(nav){
+				return nav.when.indexOf(strTemp)!=-1;
+			});
+			
+			$scope.appHeaderName = filteredNav[0].headerName;
+		});
+		
+		
 		//init
 		var init = function(){
 			$scope.showAppHeader = false;

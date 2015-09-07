@@ -66,3 +66,15 @@ input, p, div, span{
 }
 
 
+.img-with-border{
+	border:5px solid rgb(250, 245, 245);
+}
+
+/*临时 项目进展*/
+.api-progress pre{
+	margin-top:5px;
+}
+.api-progress .btn{
+	width:100%;
+}
+

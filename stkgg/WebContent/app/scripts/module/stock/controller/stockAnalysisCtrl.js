@@ -53,7 +53,7 @@
 						showMaxMin: false
 					},
 					callback: function(chart){
-						console.log('chart callbacks here');
+						//console.log('chart callbacks here');
 					}
 				}, 
 				title: {
@@ -107,7 +107,7 @@
 			getTimeline();
 		}, function () {
 			//canceled/dismiss
-			console.log('Modal dismissed at: ' + new Date());
+			//console.log('Modal dismissed at: ' + new Date());
 		});
 	};
 
@@ -164,10 +164,12 @@
 							tipItem.isCollapsedShare = true;  
 							tipItem.isCollapsedCmt = true;
 							tipItem.isModifyTip = false;
-							var totalCmts = tipItem.comments.likes.length + tipItem.comments.dislikes.length;
-							tipItem.totalCmts = parseInt(totalCmts);
-							tipItem.nbLikes = tipItem.comments.likes.length;
-							tipItem.nbDislikes= tipItem.comments.dislikes.length;
+							/*
+							 * 	var totalCmts = tipItem.comments.likes.length + tipItem.comments.dislikes.length;
+								tipItem.totalCmts = parseInt(totalCmts);
+								tipItem.nbLikes = tipItem.comments.likes.length;
+								tipItem.nbDislikes= tipItem.comments.dislikes.length;
+							*/
 						});
 					});
 
@@ -227,6 +229,38 @@
 		$location.path("/profileDetail");
 	};
 	
+	
+	//评论相关
+	$scope.gotoComment = function(tip){
+		$location.path("/comments/"+tip.tipId);
+	};
+	
+	$scope.addComment = function(tip, agree){
+		var param = {
+			pubId:$routeParams.pubId,
+			tip:tip, 
+			agree:agree
+		};
+		var modalInstance = $modal.open({
+			animation: true,
+			templateUrl: 'views/modal/addCommentModal.html',
+			controller: 'CommentModalCtrl',
+			resolve: {
+				param: function () {
+					return param;
+				}
+			}
+		});
+		modalInstance.result.then(function (selectedItem) {
+			//OK/selected items form Modal..
+			//跳转到所有评论页面
+			$scope.gotoComment(tip);
+		}, function () {
+			//canceled/dismiss
+			console.log('Modal dismissed at: ' + new Date());
+		});
+	};
+	
 	//新闻相关
 	$scope.manageNews = function(){
 		var pubId =  $routeParams.pubId;
@@ -254,7 +288,7 @@
 			.then(function(res){
 				if(res.data.result=="success"){
 					$scope.prediction = res.data.prediction;
-					var prediction = $scope.prediction;
+					var prediction = angular.copy($scope.prediction);
 					prediction.time = NumToChineseTime[''+prediction.time+''];
 					$scope.predictPopover = {
 						content: prediction, 

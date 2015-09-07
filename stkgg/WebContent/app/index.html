@@ -15,6 +15,7 @@
 		<link rel="stylesheet" type="text/css" href="styles/history.css" />
 		<link rel="stylesheet" type="text/css" href="styles/my.css" />
 		<link rel="stylesheet" type="text/css" href="styles/feed.css" />
+		<link rel="stylesheet" type="text/css" href="styles/comment.css" />
 		<link rel="stylesheet" type="text/css" href="styles/profile_detail.css" />
 		
 		
@@ -43,6 +44,9 @@
 		<script src="scripts/module/user/controller/myPubCtrl.js"></script>
 		<script src="scripts/module/user/controller/myApplyCtrl.js"></script>
 		<script src="scripts/module/user/controller/profileDetailCtrl.js"></script>
+		<script src="scripts/module/user/controller/commentCtrl.js"></script>
+		<script src="scripts/module/user/controller/commentModalCtrl.js"></script>
+		
 		<script src="scripts/module/stock/controller/paymentCtrl.js"></script>
 		<script src="scripts/module/stock/controller/homePageCtrl.js"></script>
 		<script src="scripts/module/stock/controller/stockAnalysisCtrl.js"></script>
@@ -57,6 +61,7 @@
 		<script src="scripts/module/user/service/userService.js"></script>
 		<script src="scripts/module/stock/service/stockService.js"></script>
 		<script src="scripts/module/global/service/globalService.js"></script>
+		<script src="scripts/module/global/service/cacheService.js"></script>
 	</head>
 	
 	<body ng-controller="GlobalCtrl" >
@@ -88,20 +93,22 @@
 		            <li><a href="#/apiProgress">API 定义 </a></li>
 		          </ul>
 		        </li><!-- /.dropdown -->
-		      	<li><a href="#/">发现页</a></li>
+		      	
 		      	<li><a href="#/login">登陆页</a></li>
-		        <li><a href="#/stkAnal/12">Timeline页</a></li>
-		        <li><a href="#/buyPub/12">CoverPage页面</a></li>
 		        <li class="dropdown">
 		          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-		          		简单页面<span class="caret"></span>
+		          		简单页面（待美化）<span class="caret"></span>
 		          </a>
 		          <ul class="dropdown-menu">
-		          	<li><a href="#/createPub">创建Pub页面</a></li>
+		         	<li><a href="#/">发现页</a></li>
+		          	<li><a href="#/createPub">创建Pub</a></li>
 		            <li><a href="#/myProfile">“我的”页</a></li>
-		            <li><a href="#/feed">动态页(未完成)</a></li>
-		            <li><a href="#/history/tip/1">修改历史页(tips)</a></li>
-		            <li><a href="#/history/prediction/1">修改历史页(预测)</a></li>
+		            <li><a href="#/stkAnal/12">Timeline页</a></li>
+		        	<li><a href="#/buyPub/12">CoverPage</a></li>
+		         	<li><a href="#/comments/1">评论页</a></li>
+		            <li><a href="#/feed">动态页</a></li>
+		            <li><a href="#/history/tip/1">修改历史(tips)</a></li>
+		            <li><a href="#/history/prediction/1">修改历史(预测)</a></li>
 		             <li><a href="#/payment">支付</a></li>
 		          </ul>
 		        </li><!-- /.dropdown -->
@@ -126,7 +133,7 @@
 					<button type="button" class="btn btn-default" aria-hidden="true" ng-click="refreshPage()"><span class="icon glyphicon glyphicon-refresh"></span> 刷新 </button>
 				</div>
 				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  text-center">
-					<span class="title" aria-hidden="true">APP-HEADER (TODO)</span>
+					<span class="title" aria-hidden="true">{{appHeaderName}}</span>
 				</div>
 				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
 					<button type="button" class="btn btn-default" aria-hidden="true" ng-click="logout()"><span class="icon glyphicon glyphicon-log-out"></span> 登出 </button>

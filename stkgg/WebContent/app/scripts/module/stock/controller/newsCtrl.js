@@ -37,7 +37,7 @@
 		//获取新闻内容
 		var getNewsContent = function(){
 			var newsId = $routeParams.newsId;
-			var data = function(){
+			var data = {
 				newsId:newsId
 			};
 			$http({

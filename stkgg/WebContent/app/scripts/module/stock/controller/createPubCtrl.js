@@ -6,12 +6,13 @@
 
 		//搜索股票, return promise
 		$scope.searchStock = function(searchText){
+			var data = {
+				keyword:searchText
+			}
 			return $http({
 				method: 'POST', 
 				url: API.SEARCHSTOCK, 
-				data:{
-					keyword:searchText
-				}
+				data:data
 			})
 			.then(function(res){
 				if(res.data.result=="success"){
@@ -54,8 +55,6 @@
 							"price":$scope.pubInfo.price,
 							"pubName":$scope.pubInfo.pubName
 					};
-					
-					console.log("data", data);
 					
 					$http({
 						method: 'POST', 

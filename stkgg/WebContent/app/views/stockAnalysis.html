@@ -121,49 +121,78 @@
 						<pre>{{tip.tipContent}}</pre>
 					</div>
 					<div class="clearfix share-block">
-						<div collapse="tip.isCollapsedShare" class="pull-left user-comments">
-							<button class="btn"><img width="25px" src="images/3rd/qq.png"></button>
-							<button class="btn"><img width="25px" src="images/3rd/wb.png"></button>
-							<button class="btn"><img width="25px" src="images/3rd/wx.png"></button>
-						</div> 
+						
 						<div class="pull-right">
-							<button class="btn btn-default btn-small" ng-click="tip.isCollapsedShare=!tip.isCollapsedShare">分享到朋友圈</button>
+							<span ng-click="addComment(tip, 1)" style="margin-right:5px" class="label label-danger">
+								<span class="glyphicon glyphicon-arrow-up"></span>
+								<span>赞 {{tip.nbLikes}} </span>
+							</span>
+							<span ng-click="addComment(tip, 0)" style="margin-right:5px" class="label label-default">
+								<span class="glyphicon glyphicon-arrow-down"></span>
+								<span>踩 {{tip.nbDislikes}}</span>
+							</span>
+							<span ng-click="gotoComment(tip)" style="margin-right:5px" class="label label-primary">
+								相关评论 {{tip.nbComments}}
+							</span>
+						
+							<button class="btn btn-success btn-small" ng-click="tip.isCollapsedShare=!tip.isCollapsedShare">分享到朋友圈</button>
+							
+							
+							<!-- 保留 -->
+							<!--  
+							<button  ng-click="gotoComment(tip)" class="btn btn-default">
+								<span class="glyphicon glyphicon-thumbs-up" style="padding-right:2px"></span>
+								<span class="glyphicon glyphicon-thumbs-down" style="padding-right:2px"></span>
+							</button>
+							 -->
+
+							<!-- 临时保存 评论下拉
 							<button  ng-click="tip.isCollapsedCmt = !tip.isCollapsedCmt" class="btn btn-default">
 								<span class="glyphicon glyphicon-thumbs-up" style="padding-right:2px"></span>{{tip.nbLikes}} 
 								<span class="glyphicon glyphicon-thumbs-down" style="padding-right:2px"></span>{{tip.nbDislikes}}
 							</button>
+							 -->
 							<!-- <button class="btn btn-default"><span class="glyphicon glyphicon-thumbs-up" style="padding-right:2px"></span> 234</button> -->
 						</div>
+						<div collapse="tip.isCollapsedShare" class="pull-right user-comments">
+							<button class="btn"><img width="25px" src="images/3rd/qq.png"></button>
+							<button class="btn"><img width="25px" src="images/3rd/wb.png"></button>
+							<button class="btn"><img width="25px" src="images/3rd/wx.png"></button>
+						</div> 
+						
 					</div>
-							
-					<div collapse="tip.isCollapsedCmt" class="user-comments">
-						<div ng-repeat="cmt in tip.comments.likes">
-							<div class="col-xs-12">
-								<div>
-									<span class="glyphicon glyphicon-thumbs-up" style="color:red"></span>
-									<img ng-src="{{cmt.userImg}}" style="width:25px;">
-									<span><b>{{cmt.username}}</b></span>
-									<span>[{{cmt.time}}]</span>
+					
+					<!-- 临时保存 评论下拉
+						<div collapse="tip.isCollapsedCmt" class="user-comments">
+							<div ng-repeat="cmt in tip.comments.likes">
+								<div class="col-xs-12">
+									<div>
+										<span class="glyphicon glyphicon-thumbs-up" style="color:red"></span>
+										<img ng-src="{{cmt.userImg}}" style="width:25px;">
+										<span><b>{{cmt.username}}</b></span>
+										<span>[{{cmt.time}}]</span>
+									</div>
+									<div>
+										<p style="padding-left:50px">{{cmt.cmt}}</p>
+									</div>
 								</div>
-								<div>
-									<p style="padding-left:50px">{{cmt.cmt}}</p>
+							</div>
+							<div ng-repeat="cmt in tip.comments.dislikes">
+								<div class="col-xs-12">
+									<div>
+										<span class="glyphicon glyphicon-thumbs-down" style="color:green"></span>
+										<img ng-src="{{cmt.userImg}}" style="width:25px;">
+										<span><b>{{cmt.username}}</b></span>
+										<span>[{{cmt.time}}]</span>
+									</div>
+									<div>
+										<p style="padding-left:50px">{{cmt.cmt}}</p>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div ng-repeat="cmt in tip.comments.dislikes">
-							<div class="col-xs-12">
-								<div>
-									<span class="glyphicon glyphicon-thumbs-down" style="color:green"></span>
-									<img ng-src="{{cmt.userImg}}" style="width:25px;">
-									<span><b>{{cmt.username}}</b></span>
-									<span>[{{cmt.time}}]</span>
-								</div>
-								<div>
-									<p style="padding-left:50px">{{cmt.cmt}}</p>
-								</div>
-							</div>
-						</div>
-					</div>
+					 -->		
+					
 				</div>
 			</div><!-- timeline-content-block -->
 		</div><!-- ng-repeat -->
