@@ -12,7 +12,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.MYFAVORITES, 
+				url: APIMOCK.MYFAVORITES, 
 				data:data
 			})
 			.then(function(res){

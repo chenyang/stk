@@ -13,7 +13,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.MYPROFILE, 
+				url: APIMOCK.MYPROFILE, 
 				data:data
 			})
 			.then(function(res){
@@ -58,7 +58,7 @@
 			
 			$http({
 				method: 'POST', 
-				url: API.MYPROFILEEDIT, 
+				url: APIMOCK.MYPROFILEEDIT, 
 				data:data
 			})
 			.then(function(res){

@@ -12,7 +12,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.MYPROFILE, 
+				url: APIMOCK.MYPROFILE, 
 				data:data
 			})
 			.then(function(res){

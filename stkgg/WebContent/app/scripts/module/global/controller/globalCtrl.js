@@ -17,7 +17,7 @@
 				};
 				$http({
 					method: 'POST', 
-					url: API.LOGOUT, 
+					url: APIMOCK.LOGOUT, 
 					data:data
 				})
 				.then(function(res){

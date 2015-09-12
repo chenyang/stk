@@ -12,7 +12,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.MYPUBS, 
+				url: APIMOCK.MYPUBS, 
 				data:data
 			})
 			.then(function(res){

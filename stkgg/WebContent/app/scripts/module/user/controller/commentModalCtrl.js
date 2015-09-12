@@ -21,7 +21,7 @@
 				
 				$http({
 					method: 'POST', 
-					url: API.ADDCOMMENT, 
+					url: APIMOCK.ADDCOMMENT, 
 					data:data
 				})
 				.then(function(res){

@@ -47,7 +47,7 @@
 				};
 				$http({
 					method: 'POST', 
-					url: API.SENDCODE, 
+					url: APIMOCK.SENDCODE, 
 					data:data
 				})
 				.then(function(res){
@@ -78,7 +78,7 @@
 			};			
 			$http({
 				method: 'POST', 
-				url: API.LOGIN, 
+				url: APIMOCK.LOGIN, 
 				data:data
 			})
 			.then(function(res){
@@ -108,7 +108,7 @@
 				};
 				$http({
 					method: 'POST', 
-					url: API.REGISTER, 
+					url: APIMOCK.REGISTER, 
 					data:data
 				}).then(function(res){
 					if(res.data.result=="success"){

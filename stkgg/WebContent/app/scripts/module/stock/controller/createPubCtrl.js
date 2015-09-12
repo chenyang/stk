@@ -11,7 +11,7 @@
 			}
 			return $http({
 				method: 'POST', 
-				url: API.SEARCHSTOCK, 
+				url: APIMOCK.SEARCHSTOCK, 
 				data:data
 			})
 			.then(function(res){
@@ -58,7 +58,7 @@
 					
 					$http({
 						method: 'POST', 
-						url: API.POSTPUB, 
+						url: APIMOCK.POSTPUB, 
 						data:data
 					})
 					.then(function(res){

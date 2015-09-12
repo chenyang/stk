@@ -122,7 +122,7 @@
 				};
 				$http({
 					method: 'POST', 
-					url: API.EDITTIP, 
+					url: APIMOCK.EDITTIP, 
 					data:data
 				})
 				.then(function(res){
@@ -153,7 +153,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.GETTIMELINE, 
+				url: APIMOCK.GETTIMELINE, 
 				data:data
 			})
 			.then(function(res){
@@ -175,9 +175,13 @@
 
 					pubInfo.today = new Date();
 					$scope.options.title.text=pubInfo.stockName + "("+pubInfo.stockCode+")";
-					$scope.graphData = adaptGraphData(pubInfo.historyData);
+					
+					var historyData = pubInfo.historyData;
+					historyData = _.sortBy(historyData, function(item){
+						return item.date;
+					}) ;
+					$scope.graphData = adaptGraphData(historyData);
 					$scope.pubInfo = pubInfo;
-
 				}else{
 					alert(res.data.reason);
 					//reason mainly not buying this pub
@@ -199,7 +203,7 @@
 		};
 		$http({
 			method: 'POST', 
-			url: API.ADDFAVORITE, 
+			url: APIMOCK.ADDFAVORITE, 
 			data:data
 		})
 		.then(function(res){
@@ -282,7 +286,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.GETPREDICTION, 
+				url: APIMOCK.GETPREDICTION, 
 				data:data
 			})
 			.then(function(res){

@@ -36,7 +36,7 @@
 					};
 					$http({
 						method: 'POST', 
-						url: API.EDITPREDICTION, 
+						url: APIMOCK.EDITPREDICTION, 
 						data:data
 					})
 					.then(function(res){
@@ -78,7 +78,7 @@
 					};
 					$http({
 						method: 'POST', 
-						url: API.ADDPREDICTION, 
+						url: APIMOCK.ADDPREDICTION, 
 						data:data
 					})
 					.then(function(res){

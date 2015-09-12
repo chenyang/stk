@@ -12,7 +12,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.DEFAULTPUBS, 
+				url: APIMOCK.DEFAULTPUBS, 
 				data:data
 			})
 			.then(function(res){
@@ -39,7 +39,7 @@
 				};
 				$http({
 					method: 'POST', 
-					url: API.SEARCHPUBS, 
+					url: APIMOCK.SEARCHPUBS, 
 					data:data
 				})
 				.then(function(res){

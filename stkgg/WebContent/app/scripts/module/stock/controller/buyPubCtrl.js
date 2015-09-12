@@ -19,7 +19,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.REPORTADD, 
+				url: APIMOCK.REPORTADD, 
 				data:data
 			})
 			.then(function(res){
@@ -46,7 +46,7 @@
 			
 			$http({
 				method: 'POST', 
-				url: API.COVERPAGEGET, 
+				url: APIMOCK.COVERPAGEGET, 
 				data:data
 			})
 			.then(function(res){

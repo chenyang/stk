@@ -14,7 +14,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.BOOKNEWS, 
+				url: APIMOCK.BOOKNEWS, 
 				data:data
 			})
 			.then(function(res){
@@ -42,7 +42,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.GETNEWSCONTENT, 
+				url: APIMOCK.GETNEWSCONTENT, 
 				data:data
 			})
 			.then(function(res){
@@ -66,7 +66,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.GETNEWSLIST, 
+				url: APIMOCK.GETNEWSLIST, 
 				data:data
 			})
 			.then(function(res){

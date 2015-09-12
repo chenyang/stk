@@ -237,7 +237,7 @@
 					UPLOADIMG: hostUrl+'stkgg/app/mockData/createPub/img.json', 
 					POSTPUB:hostUrl+'stkgg/app/mockData/createPub/postpubs.json',
 				//Timeline页
-					GETTIMELINE:hostUrl+'stkgg/app/mockData/timeline/timeline.json', 
+					GETTIMELINE:hostUrl+'stkgg/app/mockData/timeline/timeline2.json', 
 					ADDTIP:hostUrl+'stkgg/app/mockData/timeline/add.json', 
 					EDITTIP:hostUrl+'stkgg/app/mockData/timeline/edit.json', 
 					EVALUATETIP:hostUrl+'stkgg/app/mockData/timeline/evaluate.json', 

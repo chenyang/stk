@@ -19,7 +19,7 @@
 				
 				$http({
 					method: 'POST', 
-					url: API.ADDTIP, 
+					url: APIMOCK.ADDTIP, 
 					data:data
 				})
 				.then(function(res){

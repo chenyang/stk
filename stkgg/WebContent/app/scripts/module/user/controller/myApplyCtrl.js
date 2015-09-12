@@ -12,7 +12,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.MYPROFILE, 
+				url: APIMOCK.MYPROFILE, 
 				data:data
 			})
 			.then(function(res){
@@ -41,7 +41,7 @@
 			};
 			$http({
 				method: 'POST', 
-				url: API.MYAPPLY, 
+				url: APIMOCK.MYAPPLY, 
 				data:data
 			})
 			.then(function(res){
