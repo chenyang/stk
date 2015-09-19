@@ -41,7 +41,7 @@
 						axisLabel: '证监会公告日期', 
 						tickFormat: function(d) {
 							//in data list is epoch time
-							return d3.time.format('%x')(new Date(d));
+							return d3.time.format('%Y-%m-%d')(new Date(d));
 						},
 						showMaxMin: false
 					},
