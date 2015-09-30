@@ -218,60 +218,59 @@
 			
 			//Mock api
 			mod.factory('APIMOCK', ['$location', function($location){
-				var hostUrl = 'http://'+$location.host()+':'+$location.port()+"/";
 				return {
 				//登陆
-					CHECKPHONE:hostUrl+'stkgg/app/mockData/login/checkphone.json', 
-					GETCAPCHA:hostUrl+'stkgg/app/mockData/login/getcapcha.json', 
-					SENDCODE:hostUrl+'stkgg/app/mockData/login/sendcode.json', 
-					LOGIN:hostUrl+'stkgg/app/mockData/login/login.json', 
-					REGISTER:hostUrl+'stkgg/app/mockData/login/reg.json', 
-					LOGOUT:hostUrl+'stkgg/app/mockData/login/logout.json', 
-					FINDPWD:hostUrl+'stkgg/app/mockData/login/findpwd.json', 
-					RESETPWD:hostUrl+'stkgg/app/mockData/login/resetpwd.json', 
+					CHECKPHONE:'mockData/login/checkphone.json', 
+					GETCAPCHA:'mockData/login/getcapcha.json', 
+					SENDCODE:'mockData/login/sendcode.json', 
+					LOGIN:'mockData/login/login.json', 
+					REGISTER:'mockData/login/reg.json', 
+					LOGOUT:'mockData/login/logout.json', 
+					FINDPWD:'mockData/login/findpwd.json', 
+					RESETPWD:'mockData/login/resetpwd.json', 
 				//发现页
-					SEARCHPUBS:hostUrl+'stkgg/app/mockData/find/search.json', 
-					DEFAULTPUBS:hostUrl+'stkgg/app/mockData/find/pubs.json', 
+					SEARCHPUBS:'mockData/find/search.json', 
+					DEFAULTPUBS:'mockData/find/pubs.json', 
 				//创建新PUB页
-					SEARCHSTOCK:hostUrl+'stkgg/app/mockData/createPub/stocks.json',
-					UPLOADIMG: hostUrl+'stkgg/app/mockData/createPub/img.json', 
-					POSTPUB:hostUrl+'stkgg/app/mockData/createPub/postpubs.json',
+					SEARCHSTOCK:'mockData/createPub/stocks.json',
+					UPLOADIMG: 'mockData/createPub/img.json', 
+					POSTPUB:'mockData/createPub/postpubs.json',
 				//Timeline页
-					GETTIMELINE:hostUrl+'stkgg/app/mockData/timeline/timeline2.json', 
-					ADDTIP:hostUrl+'stkgg/app/mockData/timeline/add.json', 
-					EDITTIP:hostUrl+'stkgg/app/mockData/timeline/edit.json', 
-					EVALUATETIP:hostUrl+'stkgg/app/mockData/timeline/evaluate.json', 
-					ADDFAVORITE:hostUrl+'stkgg/app/mockData/timeline/fav.json', 
+					GETTIMELINE:'mockData/timeline/timeline2.json', 
+					ADDTIP:'mockData/timeline/add.json', 
+					EDITTIP:'mockData/timeline/edit.json', 
+					EVALUATETIP:'mockData/timeline/evaluate.json', 
+					ADDFAVORITE:'mockData/timeline/fav.json', 
 					//新闻相关
-					GETNEWSLIST:hostUrl+'stkgg/app/mockData/timeline/getNewsList.json', 
-					GETNEWSCONTENT:hostUrl+'stkgg/app/mockData/timeline/getNewsContent.json', 
-					BOOKNEWS:hostUrl+'stkgg/app/mockData/timeline/bookNews.json', 
+					GETNEWSLIST:'mockData/timeline/getNewsList.json', 
+					GETNEWSCONTENT:'mockData/timeline/getNewsContent.json', 
+					BOOKNEWS:'mockData/timeline/bookNews.json', 
 					
 				//预测发布
-					GETPREDICTION:hostUrl+'stkgg/app/mockData/prediction/get.json',
-					ADDPREDICTION:hostUrl+'stkgg/app/mockData/prediction/add.json', 
-					EDITPREDICTION:hostUrl+'stkgg/app/mockData/prediction/edit.json',
+					GETPREDICTION:'mockData/prediction/get.json',
+					ADDPREDICTION:'mockData/prediction/add.json', 
+					EDITPREDICTION:'mockData/prediction/edit.json',
 					
 				//Coverpage页
-					COVERPAGEGET: hostUrl+'stkgg/app/mockData/coverpage/get.json', 
-					REPORTADD:hostUrl+'stkgg/app/mockData/coverpage/report.json',
+					COVERPAGEGET: 'mockData/coverpage/get.json', 
+					REPORTADD:'mockData/coverpage/report.json',
 				//修改历史页面
-					HISTORYTIP:hostUrl+'stkgg/app/mockData/history/tip.json', 
-					HISTORYPREDICTION:hostUrl+'stkgg/app/mockData/history/prediction.json', 
+					HISTORYTIP:'mockData/history/tip.json', 
+					HISTORYPREDICTION:'mockData/history/prediction.json', 
 					
 				//"我的"页面
-					MYPROFILE:hostUrl+'stkgg/app/mockData/my/profile.json', 
-					MYPROFILEEDIT:hostUrl+'stkgg/app/mockData/my/edit.json', 
-					MYPUBS:hostUrl+'stkgg/app/mockData/my/pub.json', 
-					MYFAVORITES:hostUrl+'stkgg/app/mockData/my/fav.json', 
-					MYBOUGHTS:hostUrl+'stkgg/app/mockData/my/bought.json', 
-					MYAPPLY:hostUrl+'stkgg/app/mockData/my/apply.json', 
+					MYPROFILE:'mockData/my/profile.json', 
+					MYPROFILEEDIT:'mockData/my/edit.json', 
+					MYPUBS:'mockData/my/pub.json', 
+					MYFAVORITES:'mockData/my/fav.json', 
+					MYBOUGHTS:'mockData/my/bought.json', 
+					MYAPPLY:'mockData/my/apply.json', 
 					
 				//动态页
-					GETFEED:hostUrl+'stkgg/app/mockData/feed/get.json', 
+					GETFEED:'mockData/feed/get.json', 
 				//评论相关
-					GETCOMMENT:hostUrl+'stkgg/app/mockData/comment/get.json', 
-					ADDCOMMENT:hostUrl+'stkgg/app/mockData/comment/add.json',
+					GETCOMMENT:'mockData/comment/get.json', 
+					ADDCOMMENT:'mockData/comment/add.json',
 				};
 			}]);
 	
