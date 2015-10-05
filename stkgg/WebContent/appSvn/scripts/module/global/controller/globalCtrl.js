@@ -120,7 +120,7 @@
 				$scope.navSelectedFindStyle = {};
 				$scope.navSelectedFeedStyle = {"color":"#FF760C"};
 				$scope.navSelectedUserStyle = {};	
-			}else if (path.indexOf("my")!=-1){
+			}else if (path.indexOf("my")!=-1||path.indexOf("user")!=-1||path.indexOf("profile")!=-1){
 				$scope.navSelectedFindStyle = {};
 				$scope.navSelectedFeedStyle= {};
 				$scope.navSelectedUserStyle = {"color":"#FF760C"};	
