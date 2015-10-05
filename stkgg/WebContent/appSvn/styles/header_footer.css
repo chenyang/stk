@@ -1,0 +1,30 @@
+.app-header{
+	padding: 2px 5px;
+	border-bottom: 1px solid #e7e7e7;
+	border-color:#BB9534;
+	/*margin-top:50px;*/
+}
+.app-header .icon{
+	font-size:15px;
+}
+
+.app-header a{
+	color:#794B3B;
+}
+
+.app-header .title{
+	font-weight:800;
+	display:inline-block;
+	font-size:1.2em;
+	margin-top:5px;
+}
+.app-header .btn{
+	border-color:rgba(173, 173, 173, 0.15);
+	background-color:#794B3B;
+	color:white;
+}
+
+.app-footer{
+	padding-top:10px;
+	background-color:#F8F8F8;
+}

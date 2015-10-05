@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh" ng-app="App">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+	<head>
+		<!-- styles -->
+		<link rel="stylesheet" type="text/css" href="components/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="components/nvd3/nv.d3.min.css" />
+		<link rel="stylesheet" type="text/css" href="styles/reset.css" />
+		<link rel="stylesheet" type="text/css" href="styles/header_footer.css" />
+		<link rel="stylesheet" type="text/css" href="styles/homePage.css" />
+		<link rel="stylesheet" type="text/css" href="styles/buyPub.css" />
+		<link rel="stylesheet" type="text/css" href="styles/stock.css" />
+		<link rel="stylesheet" type="text/css" href="styles/login.css" />
+		<link rel="stylesheet" type="text/css" href="styles/history.css" />
+		<link rel="stylesheet" type="text/css" href="styles/my.css" />
+		<link rel="stylesheet" type="text/css" href="styles/feed.css" />
+		<link rel="stylesheet" type="text/css" href="styles/comment.css" />
+		<link rel="stylesheet" type="text/css" href="styles/profile_detail.css" />
+		
+		
+		<!-- Third party libs-->
+		<script src="components/jquery/jquery-2.1.4.min.js"></script>
+		<script src="components/bootstrap/js/bootstrap.min.js"></script>
+		<script src="components/angular/angular.min.js"></script>
+		<script src="components/angular/angular-route.min.js"></script>
+		<script src="components/angular/angular-cookies.min.js"></script>
+		<script src="components/angular/angular-sanitize.min.js"></script>
+		<script src="components/angular/angular-animate.min.js"></script>
+		<script src="components/angular/ui-bootstrap-tpls-0.13.1.min.js"></script>
+		<script src="components/underscorejs/underscore-min.js"></script>
+		<script src="components/d3/d3.min.js"></script>
+		<script src="components/nvd3/nv.d3.min.js"></script>
+		<script src="components/nvd3/angular-nvd3.min.js"></script>
+		<script src="components/ngflow/ng-flow-standalone.min.js"></script>
+		
+		<!-- App libs -->	
+		<script src="scripts/app.js"></script>
+		<script src="scripts/module/global/controller/globalCtrl.js"></script>
+		<script src="scripts/module/user/controller/loginCtrl.js"></script>
+		<script src="scripts/module/user/controller/myProfileCtrl.js"></script>
+		<script src="scripts/module/user/controller/myBoughtCtrl.js"></script>
+		<script src="scripts/module/user/controller/myFavoriteCtrl.js"></script>
+		<script src="scripts/module/user/controller/myPubCtrl.js"></script>
+		<script src="scripts/module/user/controller/myApplyCtrl.js"></script>
+		<script src="scripts/module/user/controller/profileDetailCtrl.js"></script>
+		<script src="scripts/module/user/controller/commentCtrl.js"></script>
+		<script src="scripts/module/user/controller/commentModalCtrl.js"></script>
+		
+		<script src="scripts/module/stock/controller/paymentCtrl.js"></script>
+		<script src="scripts/module/stock/controller/homePageCtrl.js"></script>
+		<script src="scripts/module/stock/controller/stockAnalysisCtrl.js"></script>
+		<script src="scripts/module/stock/controller/predictionCtrl.js"></script>
+		<script src="scripts/module/stock/controller/buyPubCtrl.js"></script>
+		<script src="scripts/module/stock/controller/createPubCtrl.js"></script>
+		<script src="scripts/module/stock/controller/historyCtrl.js"></script>
+		<script src="scripts/module/stock/controller/feedCtrl.js"></script>
+		<script src="scripts/module/stock/controller/tipCtrl.js"></script>
+		<script src="scripts/module/stock/controller/newsCtrl.js"></script>
+		
+		<script src="scripts/module/user/service/userService.js"></script>
+		<script src="scripts/module/stock/service/stockService.js"></script>
+		<script src="scripts/module/global/service/globalService.js"></script>
+		<script src="scripts/module/global/service/cacheService.js"></script>
+	</head>
+	
+	<body ng-controller="GlobalCtrl" >
+		<!-- Nav bar -->
+		
+		
+		<!-- 
+			App Header
+		 -->
+		 <div class="container-fluid">
+		 	<div class="app-header row" ng-show="showAppHeader">
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  text-center">
+					<a ng-style="navSelectedFindStyle" aria-hidden="true" ng-click="gotoHome()"><span class="icon glyphicon glyphicon-eye-open"></span>
+					<span style="display:block;">发现</span>
+					</a>
+				</div>
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  text-center">
+					<a ng-style="navSelectedFeedStyle" aria-hidden="true" ng-click="gotoFeed()"><span class="icon glyphicon glyphicon-star"></span>
+					<span style="display:block;">动态</span>
+					</a>
+				</div>
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+					<a ng-style="navSelectedUserStyle" aria-hidden="true" ng-click="gotoUserCenter()"><span class="icon glyphicon glyphicon-user"></span>
+					<span style="display:block;">我</span>
+					</a>
+				</div>
+				
+			</div>
+		 </div>
+		
+		<!-- Single page App -->
+		<div class="body-content" ng-view></div>
+	</body>
+	
+</html>
